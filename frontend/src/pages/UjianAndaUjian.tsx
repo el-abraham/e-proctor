@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Button from "../components/Button";
 import Header1 from "../components/Header1";
 import NamaUjian from "../components/NamaUjian";
 import SessionCard from "../components/SessionCard";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
 import Tabs from "../components/Tabs";
 
 export default function UjianAndaUjian() {
     return(
         <div className="bg-[#EFF0F3] flex text-black">
             {/* SIDEBAR */}
-            <Sidebar/>
+            <Sidebar active={NavbarEnum.UJIANANDA}/>
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
@@ -26,9 +27,11 @@ export default function UjianAndaUjian() {
                     <p className="font-['Roboto'] text-sm ml-[40px] mt-[20px] mr-[40px] leading-[200%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima culpa deserunt libero tempore doloribus omnis quo esse blanditiis, quam corrupti.</p>
                 </div>
 
-                <Button className="mt-[20px] mb-[30px]">
-                    <p className='text-xs'>Edit Ujian</p>
-                </Button>
+                <Link to={"/tambahujian"}>
+                    <Button className="mt-[20px] mb-[30px]">
+                        <p className='text-xs'>Edit Ujian</p>
+                    </Button>
+                </Link>
 
                 <div className="flex justify-between mb-[30px]">
                     <SessionCard/>

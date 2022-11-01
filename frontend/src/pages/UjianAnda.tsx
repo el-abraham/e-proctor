@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Button from "../components/Button";
 import Header1 from "../components/Header1";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
 
 export default function UjianAnda() {
     return(
         <div className="bg-[#EFF0F3] flex text-black">
             {/* SIDEBAR */}
-            <Sidebar/>
+            <Sidebar active={NavbarEnum.UJIANANDA}/>
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>

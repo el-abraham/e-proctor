@@ -1,8 +1,9 @@
 import { EyeIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Header1 from "../components/Header1";
 import NamaUjian from "../components/NamaUjian";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
 import Tabs from "../components/Tabs";
 
 export default function UjianAndaQuestion(){
@@ -23,7 +24,7 @@ export default function UjianAndaQuestion(){
             </div>
 
             {/* SIDEBAR */}
-            <Sidebar/>
+            <Sidebar active={NavbarEnum.UJIANANDA}/>
 
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
                 <Header1/>
@@ -40,16 +41,16 @@ export default function UjianAndaQuestion(){
                     </label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
-                            <a>
+                            <Link to={"/ujiananda-question-lihat"}>
                                 <PlusCircleIcon className='h-[20px] w-[20px] my-auto'/>
                                 <p className='my-auto text-xs'>Buat Pertanyaan Baru</p>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a>
+                            <Link to={"/banksoal"}>
                                 <PlusCircleIcon className='h-[20px] w-[20px] my-auto'/>
                                 <p className='my-auto text-xs'>Dari Bank Soal</p>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

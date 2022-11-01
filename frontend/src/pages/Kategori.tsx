@@ -1,7 +1,7 @@
 import { PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Header1 from "../components/Header1";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
 import Tabs1 from "../components/Tabs1";
 
 export default function Kategori() {
@@ -77,7 +77,7 @@ export default function Kategori() {
       </div>
 
       {/* SIDEBAR */}
-      <Sidebar />
+      <Sidebar active={NavbarEnum.BANKSOAL} />
 
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full h-screen ml-6 pl-[240px]">

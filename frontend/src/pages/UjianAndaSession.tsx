@@ -2,7 +2,7 @@ import { FunnelIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outli
 import Breadcrumbs from "../components/Breadcrumbs";
 import Header1 from "../components/Header1";
 import NamaUjian from "../components/NamaUjian";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
 import Tabs from "../components/Tabs";
 
 export default function UjianAndaSession(){
@@ -48,7 +48,7 @@ export default function UjianAndaSession(){
             </div>
 
             {/* SIDEBAR */}
-            <Sidebar/>
+            <Sidebar active={NavbarEnum.UJIANANDA}/>
 
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
                 <Header1/>

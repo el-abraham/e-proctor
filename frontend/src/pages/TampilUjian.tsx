@@ -2,13 +2,13 @@ import { ExclamationTriangleIcon, PencilSquareIcon } from "@heroicons/react/24/o
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Header1 from "../components/Header1";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
 
 export default function TampilUjian(){
     return(
         <div className="bg-[#EFF0F3] flex text-black">
             {/* SIDEBAR */}
-            <Sidebar/>
+            <Sidebar active={NavbarEnum.DASHBOARD}/>
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px] flex flex-col'>

@@ -5,7 +5,7 @@ import Notifications from "../components/Notifications";
 import Profile from "../components/Profile";
 import SelamatDatang from "../components/SelamatDatang";
 import Settings from "../components/Settings";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
 import UjianDibuat from "../components/UjianDibuat";
 import UjianHariIni from "../components/UjianHariIni";
 
@@ -14,7 +14,7 @@ export default function DashboardGuru(){
         <div className="App bg-[#EFF0F3] flex pb-[30px]">
 
             {/* SIDEBAR */}
-            <Sidebar/>
+            <Sidebar active={NavbarEnum.DASHBOARD} />
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>

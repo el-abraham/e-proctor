@@ -1,16 +1,27 @@
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Button from "../components/Button";
 import Header1 from "../components/Header1";
-import Input from "../components/Input";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { NavbarEnum } from "../components/Sidebar";
+
+type FormValues = {
+    namaujian: string;
+    deskripsi: string;
+};
 
 export default function TambahUjian(){
+
+    const { register, handleSubmit } = useForm<FormValues>();
+    const onSubmit = handleSubmit((data) => {
+        console.log(data);
+    })
+
     return(
         <div className="bg-[#EFF0F3] flex text-black">
             {/* SIDEBAR */}
-            <Sidebar/>
+            <Sidebar active={NavbarEnum.DASHBOARD}/>
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
@@ -29,16 +40,22 @@ export default function TambahUjian(){
                         </div>
                     </div>
 
-                    <div className="block">
+                    <form className="block" onSubmit={onSubmit}>
+                        {/* https://react-hook-form.com/ts/ */}
                         {/* NAMA UJIAN */}
-                        <Input/>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label mb-1">
+                                <span className="label-text font-semibold text-sm font-['Open Sans']">NAMA UJIAN</span>
+                            </label>
+                            <input type="text" {...register("namaujian")} placeholder="Masukkan nama ujian ...." className="input input-bordered w-[610px] max-w-xs" />
+                        </div>
 
                         {/* DESKRIPSI UJIAN */}
                         <div className="form-control w-[610px] mt-[20px]">
                             <label className="label mb-1">
                                 <span className="label-text font-semibold text-sm font-['Open Sans']">DESKRIPSI UJIAN</span>
                             </label> 
-                            <textarea className="textarea textarea-bordered h-24" placeholder="Masukkan deskripsi ujian ...."></textarea>
+                            <textarea {...register("deskripsi")} className="textarea textarea-bordered h-24" placeholder="Masukkan deskripsi ujian ...."></textarea>
                         </div>
 
                         <div className="flex justify-between">
@@ -74,17 +91,19 @@ export default function TambahUjian(){
                         </div>
 
                         <div className="mt-[30px] justify-end flex mb-[30px]">
-                            <Button className="mr-[30px]">
-                                <p className='text-xs'>Batalkan</p>
-                            </Button>
+                            <Link to={"/dashboard"}>
+                                <Button className="mr-[30px]">
+                                    <p className='text-xs'>Batalkan</p>
+                                </Button>
+                            </Link>
 
-                            <Link to={"/tampilujian"}>
+                            {/* <Link to={"/tampilujian"}> */}
                                 <Button>
                                     <p className='text-xs'>Simpan Ujian</p>
                                 </Button>
-                            </Link>
+                            {/* </Link> */}
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
