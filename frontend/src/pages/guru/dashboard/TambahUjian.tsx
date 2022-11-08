@@ -1,10 +1,10 @@
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Button from "../components/Button";
-import Header1 from "../components/Header1";
-import Sidebar, { NavbarEnum } from "../components/Sidebar";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
+import Button from "../../../components/forms/Button";
+import Header1 from "../../../components/dashboard/Header1";
+import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
 
 type FormValues = {
     namaujian: string;

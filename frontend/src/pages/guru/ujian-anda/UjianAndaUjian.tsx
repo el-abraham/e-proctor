@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Button from "../components/Button";
-import Header1 from "../components/Header1";
-import NamaUjian from "../components/NamaUjian";
-import SessionCard from "../components/SessionCard";
-import Sidebar, { NavbarEnum } from "../components/Sidebar";
-import Tabs from "../components/Tabs";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
+import Button from "../../../components/forms/Button";
+import Header1 from "../../../components/dashboard/Header1";
+import NamaUjian from "../../../components/others/NamaUjian";
+import SessionCard from "../../../components/others/SessionCard";
+import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import Tabs from "../../../components/tabs/Tabs";
 
 export default function UjianAndaUjian() {
     return(

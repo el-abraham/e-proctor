@@ -1,8 +1,8 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Button from "../components/Button";
-import NamaUjian from "../components/NamaUjian";
-import TxtEditor from "../components/TxtEditor";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
+import Button from "../../../components/forms/Button";
+import NamaUjian from "../../../components/others/NamaUjian";
+import TxtEditor from "../../../components/TxtEditor";
 
 export default function () {
   return (

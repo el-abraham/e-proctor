@@ -1,13 +1,13 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import Button from "../components/Button";
-import Notifications from "../components/Notifications";
-import Profile from "../components/Profile";
-import SelamatDatang from "../components/SelamatDatang";
-import Settings from "../components/Settings";
-import Sidebar, { NavbarEnum } from "../components/Sidebar";
-import UjianDibuat from "../components/UjianDibuat";
-import UjianHariIni from "../components/UjianHariIni";
+import Button from "../../../components/forms/Button";
+import Notifications from "../../../components/icons/Notifications";
+import Profile from "../../../components/dashboard/Profile";
+import SelamatDatang from "../../../components/dashboard/SelamatDatang";
+import Settings from "../../../components/icons/Settings";
+import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import UjianDibuat from "../../../components/dashboard/UjianDibuat";
+import UjianHariIni from "../../../components/dashboard/UjianHariIni";
 
 export default function DashboardGuru(){
     return(

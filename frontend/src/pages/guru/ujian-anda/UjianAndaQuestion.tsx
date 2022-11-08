@@ -1,10 +1,10 @@
 import { EyeIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Header1 from "../components/Header1";
-import NamaUjian from "../components/NamaUjian";
-import Sidebar, { NavbarEnum } from "../components/Sidebar";
-import Tabs from "../components/Tabs";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
+import Header1 from "../../../components/dashboard/Header1";
+import NamaUjian from "../../../components/others/NamaUjian";
+import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import Tabs from "../../../components/tabs/Tabs";
 
 export default function UjianAndaQuestion(){
     return(

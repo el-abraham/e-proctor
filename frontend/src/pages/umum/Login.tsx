@@ -1,5 +1,5 @@
-import Button from "../components/Button";
-import Comp from "../assets/comp.png"
+import Button from "../../components/forms/Button";
+import Comp from "../../assets/comp.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

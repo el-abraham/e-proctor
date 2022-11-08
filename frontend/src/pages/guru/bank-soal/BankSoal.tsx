@@ -4,11 +4,11 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Button from "../components/Button";
-import Header1 from "../components/Header1";
-import Sidebar, { NavbarEnum } from "../components/Sidebar";
-import Tabs1 from "../components/Tabs1";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
+import Button from "../../../components/forms/Button";
+import Header1 from "../../../components/dashboard/Header1";
+import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import Tabs1 from "../../../components/tabs/Tabs1";
 
 export default function BankSoal() {
   return (

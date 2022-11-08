@@ -1,5 +1,5 @@
-import Notifications from "./Notifications";
-import Settings from "./Settings";
+import Notifications from "../icons/Notifications";
+import Settings from "../icons/Settings";
 
 export default function Header1() {
     return(

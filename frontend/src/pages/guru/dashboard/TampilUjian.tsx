@@ -1,8 +1,8 @@
 import { ExclamationTriangleIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import Button from "../components/Button";
-import Header1 from "../components/Header1";
-import Sidebar, { NavbarEnum } from "../components/Sidebar";
+import Button from "../../../components/forms/Button";
+import Header1 from "../../../components/dashboard/Header1";
+import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
 
 export default function TampilUjian(){
     return(

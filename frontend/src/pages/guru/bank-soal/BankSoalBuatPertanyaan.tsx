@@ -1,7 +1,7 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Button from "../components/Button";
-import ReactQuill, { Quill } from "react-quill";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
+import Button from "../../../components/forms/Button";
+import ReactQuill from "react-quill";
 import { useState } from "react";
 
 // https://npm.io/package/react-quilljs
