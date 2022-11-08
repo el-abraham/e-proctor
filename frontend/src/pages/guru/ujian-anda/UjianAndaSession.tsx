@@ -4,8 +4,9 @@ import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Button from "../../../components/forms/Button";
 import Header1 from "../../../components/dashboard/Header1";
 import NamaUjian from "../../../components/others/NamaUjian";
-import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
-import Tabs from "../../../components/tabs/Tabs";
+import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
+import SidebarGuru from "../../../components/sidebar/SidebarGuru";
+import TabsUjianAnda from "../../../components/tabs/guru/TabsUjianAnda";
 
 type FormValues = {
     namasession: string;
@@ -89,13 +90,13 @@ export default function UjianAndaSession(){
             </div>
 
             {/* SIDEBAR */}
-            <Sidebar active={NavbarEnum.UJIANANDA}/>
+            <SidebarGuru active={NavbarEnum.UJIANANDA}/>
 
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
                 <Header1/>
                 <Breadcrumbs/>
                 <NamaUjian/>
-                <Tabs/>
+                <TabsUjianAnda/>
 
                 <div className='mb-[30px] mt-[30px]'>
                     <label htmlFor="add-session" className="btn btn-primary mr-5">

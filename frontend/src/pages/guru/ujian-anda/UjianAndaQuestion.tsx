@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Header1 from "../../../components/dashboard/Header1";
 import NamaUjian from "../../../components/others/NamaUjian";
-import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
-import Tabs from "../../../components/tabs/Tabs";
+import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
+import SidebarGuru from "../../../components/sidebar/SidebarGuru";
+import TabsUjianAnda from "../../../components/tabs/guru/TabsUjianAnda";
 
 export default function UjianAndaQuestion(){
     return(
@@ -24,13 +25,13 @@ export default function UjianAndaQuestion(){
             </div>
 
             {/* SIDEBAR */}
-            <Sidebar active={NavbarEnum.UJIANANDA}/>
+            <SidebarGuru active={NavbarEnum.UJIANANDA}/>
 
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
                 <Header1/>
                 <Breadcrumbs/>
                 <NamaUjian/>
-                <Tabs/>
+                <TabsUjianAnda/>
 
                 <p className="font-['Open Sans'] font-semibold text-sm my-[30px]">Total Pertanyaan: 0</p>
 

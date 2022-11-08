@@ -1,4 +1,4 @@
-import  Welcome from "../assets/boy.png";
+import  Welcome from "../../assets/boy.png";
 
 export default function SelamatDatang(){
     return(

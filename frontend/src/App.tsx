@@ -13,26 +13,38 @@ import UjianAndaQuestion from './pages/guru/ujian-anda/UjianAndaQuestion';
 import UjianAndaQuestionLihat from './pages/guru/ujian-anda/UjianAndaQuestionLihat';
 import UjianAndaSession from './pages/guru/ujian-anda/UjianAndaSession';
 import UjianAndaUjian from './pages/guru/ujian-anda/UjianAndaUjian';
+import DashboardSiswa from './pages/siswa/DashboardSiswa';
+import UjianAndaUjianSiswa from './pages/siswa/ujian-anda/UjianAndaUjianSiswa';
+import UjianAndaJadwalSiswa from './pages/siswa/ujian-anda/UjianAndaJadwalSiswa';
+import UjianAndaSelesaiSiswa from './pages/siswa/ujian-anda/UjianAndaSelesaiSiswa';
 
 function App() {
   return(
     <Routes>
-      {/* ROUTE UNTUK ROLE GURU */}
-      <Route path='/dashboard' element={<DashboardGuru/>}></Route>
+
+      {/* ROUTE UNTUK ROLE UMUM */}
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/daftar' element={<Daftar/>}></Route>
-      <Route path='/ujiananda' element={<UjianAnda/>}></Route>
-      <Route path='/tambahujian' element={<TambahUjian/>}></Route>
-      <Route path='/ujiananda-ujian' element={<UjianAndaUjian/>}></Route>
-      <Route path='/ujiananda-questions' element={<UjianAndaQuestion/>}></Route>
-      <Route path='/ujiananda-session' element={<UjianAndaSession/>}></Route>
-      <Route path='/ujiananda-question-lihat' element={<UjianAndaQuestionLihat/>}></Route>
-      <Route path='/tampilujian' element={<TampilUjian/>}></Route>
-      <Route path='/banksoal' element={<BankSoal/>}></Route>
-      <Route path='/kategori' element={<Kategori/>}></Route>
-      <Route path='/banksoal-buatpertanyaan' element={<BankSoalBuatPertanyaan/>}></Route>
+
+      {/* ROUTE UNTUK ROLE GURU */}
+      <Route path='/guru-dashboard' element={<DashboardGuru/>}></Route>
+      <Route path='/guru-ujiananda' element={<UjianAnda/>}></Route>
+      <Route path='/guru-tambahujian' element={<TambahUjian/>}></Route>
+      <Route path='/guru-ujiananda-ujian' element={<UjianAndaUjian/>}></Route>
+      <Route path='/guru-ujiananda-questions' element={<UjianAndaQuestion/>}></Route>
+      <Route path='/guru-ujiananda-session' element={<UjianAndaSession/>}></Route>
+      <Route path='/guru-ujiananda-question-lihat' element={<UjianAndaQuestionLihat/>}></Route>
+      <Route path='/guru-tampilujian' element={<TampilUjian/>}></Route>
+      <Route path='/guru-banksoal' element={<BankSoal/>}></Route>
+      <Route path='/guru-kategori' element={<Kategori/>}></Route>
+      <Route path='/guru-banksoal-buatpertanyaan' element={<BankSoalBuatPertanyaan/>}></Route>
 
       {/* ROUTE UNTUK ROLE SISWA */}
+      <Route path='/siswa-dashboard' element={<DashboardSiswa/>}></Route>
+      <Route path='/siswa-ujiananda-ujian' element={<UjianAndaUjianSiswa/>}></Route>
+      <Route path='/siswa-ujiananda-jadwal' element={<UjianAndaJadwalSiswa/>}></Route>
+      <Route path='/siswa-ujiananda-selesai' element={<UjianAndaSelesaiSiswa/>}></Route>
+
     </Routes>
   )
 }

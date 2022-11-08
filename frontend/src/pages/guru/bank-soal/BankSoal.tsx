@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Button from "../../../components/forms/Button";
 import Header1 from "../../../components/dashboard/Header1";
-import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
-import Tabs1 from "../../../components/tabs/Tabs1";
+import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
+import SidebarGuru from "../../../components/sidebar/SidebarGuru";
+import TabsBankSoal from "../../../components/tabs/guru/TabsBankSoal";
 
 export default function BankSoal() {
   return (
@@ -36,13 +37,13 @@ export default function BankSoal() {
       </div>
 
       {/* SIDEBAR */}
-      <Sidebar active={NavbarEnum.BANKSOAL} />
+      <SidebarGuru active={NavbarEnum.BANKSOAL} />
 
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full h-screen ml-6 pl-[240px]">
         <Header1 />
         <Breadcrumbs />
-        <Tabs1 />
+        <TabsBankSoal />
 
         <Link to={"/banksoal-buatpertanyaan"}>
           <Button className="my-5">

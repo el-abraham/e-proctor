@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Button from "../../../components/forms/Button";
 import Header1 from "../../../components/dashboard/Header1";
-import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
+import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 
 export default function UjianAnda() {
     return(
         <div className="bg-[#EFF0F3] flex text-black">
             {/* SIDEBAR */}
-            <Sidebar active={NavbarEnum.UJIANANDA}/>
+            <SidebarGuru active={NavbarEnum.UJIANANDA}/>
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
@@ -17,7 +18,7 @@ export default function UjianAnda() {
 
                 <Breadcrumbs/>
 
-                <Link to={"/tambahujian"}>
+                <Link to={"/guru-tambahujian"}>
                     <Button className='mb-[30px]'>
                         <PlusCircleIcon className='h-[20px] w-[20px] mr-[15px] my-auto'/>
                         <p className='my-auto text-xs'>Ujian Baru</p>

@@ -5,21 +5,22 @@ import Notifications from "../../../components/icons/Notifications";
 import Profile from "../../../components/dashboard/Profile";
 import SelamatDatang from "../../../components/dashboard/SelamatDatang";
 import Settings from "../../../components/icons/Settings";
-import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
 import UjianDibuat from "../../../components/dashboard/UjianDibuat";
 import UjianHariIni from "../../../components/dashboard/UjianHariIni";
+import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 
 export default function DashboardGuru(){
     return(
         <div className="App bg-[#EFF0F3] flex pb-[30px]">
 
             {/* SIDEBAR */}
-            <Sidebar active={NavbarEnum.DASHBOARD} />
+            <SidebarGuru active={NavbarEnum.DASHBOARD} />
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
                 <div className="flex gap-[30px] mt-6 justify-end">
-                    <Link to={"/tambahujian"}>
+                    <Link to={"/guru-tambahujian"}>
                         <Button>
                             <PlusCircleIcon className='h-[20px] w-[20px] mr-[15px] my-auto'/>
                             <p className='my-auto text-xs'>Buat Ujian</p>

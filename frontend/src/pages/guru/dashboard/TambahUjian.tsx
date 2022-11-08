@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Button from "../../../components/forms/Button";
 import Header1 from "../../../components/dashboard/Header1";
-import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
+import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 
 type FormValues = {
     namaujian: string;
@@ -40,7 +41,7 @@ export default function TambahUjian(){
     return(
         <div className="bg-[#EFF0F3] flex h-screen text-black">
             {/* SIDEBAR */}
-            <Sidebar active={NavbarEnum.DASHBOARD}/>
+            <SidebarGuru active={NavbarEnum.DASHBOARD}/>
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>

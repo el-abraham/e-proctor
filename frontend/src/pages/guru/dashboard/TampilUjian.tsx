@@ -2,13 +2,14 @@ import { ExclamationTriangleIcon, PencilSquareIcon } from "@heroicons/react/24/o
 import { Link } from "react-router-dom";
 import Button from "../../../components/forms/Button";
 import Header1 from "../../../components/dashboard/Header1";
-import Sidebar, { NavbarEnum } from "../../../components/Sidebar";
+import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
+import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 
 export default function TampilUjian(){
     return(
         <div className="bg-[#EFF0F3] flex text-black">
             {/* SIDEBAR */}
-            <Sidebar active={NavbarEnum.DASHBOARD}/>
+            <SidebarGuru active={NavbarEnum.DASHBOARD}/>
 
             {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
             <div className='mr-[24px] w-full ml-6 pl-[240px] flex flex-col'>
@@ -31,13 +32,13 @@ export default function TampilUjian(){
 
                 <div className="inline-block rounded-[5px] mx-auto mt-[25px]">
                     <div className="flex flex-col">
-                        <Link to={"/ujiananda-questions"}>
+                        <Link to={"/guru-ujiananda-questions"}>
                             <Button className="mb-[15px]">
                                 <p className='text-xs'>Masukkan Pertanyaan</p>
                             </Button>
                         </Link>
 
-                        <Link to={"/ujiananda"}>
+                        <Link to={"/guru-ujiananda"}>
                             <Button className="mb-[30px]">
                                 <p className='text-xs'>Kembali ke Ujian Anda</p>
                             </Button>
