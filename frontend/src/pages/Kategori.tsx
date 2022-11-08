@@ -1,58 +1,69 @@
 import { PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
+import Button from "../components/Button";
 import Header1 from "../components/Header1";
 import Sidebar, { NavbarEnum } from "../components/Sidebar";
 import Tabs1 from "../components/Tabs1";
 
+type FormValues = {
+  parentkateg: string;
+  namakateg: string;
+};
+
 export default function Kategori() {
+  const [form, setForm] = useState<FormValues>({
+    parentkateg: "",
+    namakateg: "",
+  });
+
+  const [parent, setKateg] = useState<string>();
+
+  function onChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    console.log(form);
+  }
+
   return (
     <div className="bg-[#EFF0F3] flex text-black">
-      <input type="checkbox" id="add-kategori" className="modal-toggle" />
-      <div className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          <label
-            htmlFor="add-kategori"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-          <h3 className="font-bold text-lg">Tambah Kategori</h3>
-          <div className="block">
-            <div className=" flex w-full mt-5">
-              <p className="self-center mr-8">Parent Kategori</p>
-              <div className="dropdown">
-                <label tabIndex={0} className="btn m-1">
-                  Click
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <a>Item 1</a>
-                  </li>
-                  <li>
-                    <a>Item 2</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className=" flex w-full mt-5">
-              <p className="self-center mr-10">Nama Kategori</p>
-              <input
-                type="text"
-                placeholder="Masukkan nama kategori ..."
-                className="input input-bordered w-[300px]"
-              />
-            </div>
-          </div>
-          <div className="modal-action">
-            <label htmlFor="add-kategori" className="btn">
-              Simpan
-            </label>
-          </div>
+
+        <div>
+            <form onSubmit={onSubmit}>
+                <input type="checkbox" id="add-kategori" className="modal-toggle" />
+                <div className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box">
+                        <label htmlFor="add-kategori" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <h3 className="font-bold text-lg">Tambah Kategori</h3>
+                        <div className="block">
+                            <div className=" flex w-full mt-5">
+                                <p className="self-center mr-8">Parent Kategori</p>
+                                <select value={parent}onChange={onChange} name="parentkateg" className="select select-bordered w-full max-w-xs">
+                                    <option disabled selected>
+                                    Pilih Parent Kategori
+                                    </option>
+                                    <option>Kategori A</option>
+                                    <option>Kategori B</option>
+                                </select>
+                            </div>
+                            <div className=" flex w-full mt-5">
+                                <p className="self-center mr-10">Nama Kategori</p>
+                                <input type="text" name="namakateg" value={form.namakateg} onChange={onChange} placeholder="Masukkan nama kategori ..." className="input input-bordered w-[300px]"/>
+                            </div>
+                        </div>
+                        <div className="modal-action">
+                            {/* <label htmlFor="add-kategori" className="btn">Simpan</label> */}
+                            <Button htmlFor="add-kategori" >Simpan</Button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
 
       <input type="checkbox" id="trash-icon" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
@@ -64,7 +75,9 @@ export default function Kategori() {
             ✕
           </label>
           <h3 className="font-bold text-lg">Hapus Kategori</h3>
-          <p className="py-4">Apakah anda yakin ingin menghapus kategori ini?</p>
+          <p className="py-4">
+            Apakah anda yakin ingin menghapus kategori ini?
+          </p>
           <div className="modal-action">
             <label htmlFor="trash-icon" className="btn">
               Ya

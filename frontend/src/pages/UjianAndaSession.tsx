@@ -1,37 +1,78 @@
 import { FunnelIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
+import Button from "../components/Button";
 import Header1 from "../components/Header1";
 import NamaUjian from "../components/NamaUjian";
 import Sidebar, { NavbarEnum } from "../components/Sidebar";
 import Tabs from "../components/Tabs";
 
+type FormValues = {
+    namasession: string;
+    dibuka: string;
+    ditutup: string;
+};
+
 export default function UjianAndaSession(){
+
+    const [ session, setSession] = useState<FormValues>({
+        namasession: "",
+        dibuka: "",
+        ditutup: "",
+    })
+
+    function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setSession({...session, [e.target.name]: e.target.value});
+    }
+
+    function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        console.log(session);
+    }
+
+    // const handleSession = () => {
+    //     setSession({
+    //         nomor: 1,
+    //         namasession: "Session -N",
+    //         dibuka: "Dibuka",
+    //         ditutup: "Ditutup",
+    //         status: "Belum Selesai",
+    //         kodeujian: "AAAA",
+    //         aksi: "TrashIcon",
+    //     })
+    // }
+
     return(
         <div className="bg-[#EFF0F3] flex text-black">
 
-            <input type="checkbox" id="add-session" className="modal-toggle" />
-                <div className="modal modal-bottom sm:modal-middle">
-                    <div className="modal-box">
-                        <label htmlFor="add-session" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 className="font-bold text-lg">Tambah Session</h3>
-                        <div className="block">
-                            <div className="justify-between flex w-full mt-5">
-                                <p className="self-center">Nama Session</p>
-                                <input type="text" placeholder="Masukkan nama session ..." className="input input-bordered w-[300px]"/>
-                            </div>
-                            <div className="justify-between flex w-full mt-5">
-                                <p className="self-center">Ujian Dibuka</p>
-                                <input type="datetime-local" name="" id="" className="input input-bordered w-[300px]" />
-                            </div>
-                            <div className="justify-between flex w-full mt-5">
-                                <p className="self-center">Ujian Ditutup</p>
-                                <input type="datetime-local" name="" id="" className="input input-bordered w-[300px]" />
+            <div>
+                <form onSubmit={onSubmit}>
+                    <input type="checkbox" id="add-session" className="modal-toggle" />
+                        <div className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box">
+                                <label htmlFor="add-session" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                <h3 className="font-bold text-lg">Tambah Session</h3>
+                                <div className="block">
+                                    <div className="justify-between flex w-full mt-5">
+                                        <p className="self-center">Nama Session</p>
+                                        <input type="text" name="namasession" value={session.namasession} onChange={onChange} placeholder="Masukkan nama session ..." className="input input-bordered w-[300px]"/>
+                                    </div>
+                                    <div className="justify-between flex w-full mt-5">
+                                        <p className="self-center">Ujian Dibuka</p>
+                                        <input type="datetime-local" name="dibuka" value={session.dibuka} onChange={onChange} id="" className="input input-bordered w-[300px]" />
+                                    </div>
+                                    <div className="justify-between flex w-full mt-5">
+                                        <p className="self-center">Ujian Ditutup</p>
+                                        <input type="datetime-local" name="ditutup" value={session.ditutup} onChange={onChange} id="" className="input input-bordered w-[300px]" />
+                                    </div>
+                                </div>
+                                <div className="modal-action">
+                                {/* <label type="submit" htmlFor="add-session" className="btn">Simpan</label> */}
+                                <Button htmlFor="add-session" >Simpan</Button>
                             </div>
                         </div>
-                        <div className="modal-action">
-                        <label htmlFor="add-session" className="btn">Simpan</label>
                     </div>
-                </div>
+                </form>
             </div>
 
             <input type="checkbox" id="trash-icon" className="modal-toggle" />

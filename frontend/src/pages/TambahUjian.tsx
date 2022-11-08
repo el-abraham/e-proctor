@@ -1,5 +1,5 @@
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Button from "../components/Button";
@@ -9,17 +9,36 @@ import Sidebar, { NavbarEnum } from "../components/Sidebar";
 type FormValues = {
     namaujian: string;
     deskripsi: string;
+    grade: string;
+    acak: string;
+    durasi: string;
 };
 
 export default function TambahUjian(){
 
-    const { register, handleSubmit } = useForm<FormValues>();
-    const onSubmit = handleSubmit((data) => {
-        console.log(data);
-    })
+    const [ form, setForm] = useState<FormValues>({
+        namaujian: "",
+        deskripsi: "",
+        grade: "",
+        acak: "",
+        durasi: "",
+    });
+
+    const [ grade, setGrade ] = useState<string>()
+    const [ acak, setAcak ] = useState<string>()
+    const [ durasi, setDurasi ] = useState<string>()
+
+    function onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+        setForm({...form, [e.target.name]: e.target.value});
+    }
+
+    function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        console.log(form);
+    }
 
     return(
-        <div className="bg-[#EFF0F3] flex text-black">
+        <div className="bg-[#EFF0F3] flex h-screen text-black">
             {/* SIDEBAR */}
             <Sidebar active={NavbarEnum.DASHBOARD}/>
 
@@ -47,7 +66,7 @@ export default function TambahUjian(){
                             <label className="label mb-1">
                                 <span className="label-text font-semibold text-sm font-['Open Sans']">NAMA UJIAN</span>
                             </label>
-                            <input type="text" {...register("namaujian")} placeholder="Masukkan nama ujian ...." className="input input-bordered w-[610px] max-w-xs" />
+                            <input type="text" name="namaujian" value={form.namaujian} onChange={onChange} placeholder="Masukkan nama ujian ...." className="input input-bordered w-[610px]" />
                         </div>
 
                         {/* DESKRIPSI UJIAN */}
@@ -55,38 +74,38 @@ export default function TambahUjian(){
                             <label className="label mb-1">
                                 <span className="label-text font-semibold text-sm font-['Open Sans']">DESKRIPSI UJIAN</span>
                             </label> 
-                            <textarea {...register("deskripsi")} className="textarea textarea-bordered h-24" placeholder="Masukkan deskripsi ujian ...."></textarea>
+                            <textarea className="textarea textarea-bordered h-24" onChange={onChange} name="deskripsi" value={form.deskripsi} placeholder="Masukkan deskripsi ujian ...."></textarea>
                         </div>
 
                         <div className="flex justify-between">
                             {/* GRADE */}
                             <div className="dropdown dropdown-end mt-[20px]">
                                 <p className="font-semibold text-sm font-['Open Sans'] ml-1 mb-1">GRADE</p>
-                                <label tabIndex={0} className="btn m-1">Unlimited</label>
-                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
-                                </ul>
+                                <select value={grade} onChange={onChange} name="grade" className="select select-bordered w-full max-w-xs">
+                                    <option disabled selected>Pilih Grade</option>
+                                    <option>100</option>
+                                    <option>50</option>
+                                </select>
                             </div>
 
                             {/* ACAK SOAL */}
                             <div className="dropdown dropdown-end mt-[20px]">
                                 <p className="font-semibold text-sm font-['Open Sans'] ml-1 mb-1">ACAK SOAL</p>
-                                <label tabIndex={0} className="btn m-1">Ya</label>
-                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
-                                </ul>
+                                <select value={acak} onChange={onChange} name="acak" className="select select-bordered w-full max-w-xs">
+                                    <option disabled selected>Acak Soal?</option>
+                                    <option>Ya</option>
+                                    <option>Tidak</option>
+                                </select>
                             </div>
 
                             {/* DURASI PENGERJAAN */}
                             <div className="dropdown dropdown-end mt-[20px]">
                                 <p className="font-semibold text-sm font-['Open Sans'] ml-1 mb-1">DURASI PENGERJAAN</p>
-                                <label tabIndex={0} className="btn m-1">30 Menit</label>
-                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
-                                </ul>
+                                <select value={durasi} onChange={onChange} name="durasi" className="select select-bordered w-full max-w-xs">
+                                    <option disabled selected>Durasi Pengerjaan</option>
+                                    <option>1 Jam</option>
+                                    <option>10 Menit</option>
+                                </select>
                             </div>
                         </div>
 
