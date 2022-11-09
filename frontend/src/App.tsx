@@ -17,7 +17,10 @@ import DashboardSiswa from './pages/siswa/DashboardSiswa';
 import UjianAndaUjianSiswa from './pages/siswa/ujian-anda/UjianAndaUjianSiswa';
 import UjianAndaJadwalSiswa from './pages/siswa/ujian-anda/UjianAndaJadwalSiswa';
 import UjianAndaSelesaiSiswa from './pages/siswa/ujian-anda/UjianAndaSelesaiSiswa';
-
+import DetailUjian from "./components/DetailUjian";
+import InSession from "./pages/InSession";
+import TestSoal from "./pages/TestSoal";
+import UjianAnda as UA from "./pages/UjianAnda";
 function App() {
   return(
     <Routes>
@@ -45,6 +48,10 @@ function App() {
       <Route path='/siswa-ujiananda-jadwal' element={<UjianAndaJadwalSiswa/>}></Route>
       <Route path='/siswa-ujiananda-selesai' element={<UjianAndaSelesaiSiswa/>}></Route>
 
+      <Route path="/" element={<UA />} />
+      <Route path="/insession" element={<InSession />} />
+      <Route path="/test-soal" element={<TestSoal />} />
+      <Route path="/detail-ujian" element={<DetailUjian />} />
     </Routes>
   )
 }

@@ -1,5 +1,5 @@
 {
-  "name": "project1",
+  "name": "e-proctor",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.10",
+    "@mui/styled-engine-sc": "^5.10.6",
+    "styled-components": "^5.3.6"
     "@heroicons/react": "^2.0.12",
     "@tinymce/tinymce-react": "^4.2.0",
     "@types/quill": "^2.0.9",
