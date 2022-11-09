@@ -1,15 +1,15 @@
 import {
-  DocumentDuplicateIcon,
   ExclamationTriangleIcon,
   MicrophoneIcon,
   VideoCameraIcon,
 } from "@heroicons/react/24/outline";
+import Button from "../components/Button";
+import DaftarSoal from "../components/DaftarSoal";
 import MultipleChoice from "../components/MultipleChoice";
-import Soal from "../components/Soal";
 
 export default function InSession() {
   return (
-    <div className="flex bg-[#EFF0F3] py-[60px] w-auto h-[770px]">
+    <div className="flex bg-[#EFF0F3] py-[30px] w-auto h-[770px]">
       <div>
         <h1 className="text-center mt-auto h-[50px] w-[200px] ml-[60px] fonf-['Poppins'] font-bold text-[25px] text-black">
           Ujian Linguistik
@@ -46,20 +46,17 @@ export default function InSession() {
             </div>
           </div>
         </div>
-        <div className="text-black ml-[80px] mt-8 w-[315px] h-[175px] border-[1px] border-black rounded-[5px]">
-          <button className="flex ml-[125px]">
-            <VideoCameraIcon className="w-[18px] h-[18px] mt-[140px]" />
-            <MicrophoneIcon className="w-[18px] h-[18px] mt-[140px] ml-6" />
-          </button>
+        <div className="bg-white flex shadow-md text-black ml-[80px] mt-8 w-[315px] h-[175px] rounded-[5px]">
+          <div className="mt-[55px] ml-[120px]">
+            <Button className="font-['Open Sans'] font-semibold items-center text-[12px] text-black w-[25px] h-[25px] gap-x-2 rounded-[3px] mt-[80px]">
+              <VideoCameraIcon className="w-[18px] h-[18px]" />
+            </Button>
+            <Button className="font-['Open Sans'] font-semibold items-center text-[12px] text-black w-[25px] h-[25px] rounded-[3px] ml-4">
+              <MicrophoneIcon className="w-[18px] h-[18px]" />
+            </Button>
+          </div>
         </div>
-        <div className="grid grid-cols-4 gap-2 mt-4 ml-[110px]">
-          <Soal />
-          <Soal />
-          <Soal />
-          <Soal />
-          <Soal />
-          <Soal />
-        </div>
+        <DaftarSoal />
       </div>
     </div>
   );

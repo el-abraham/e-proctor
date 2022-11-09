@@ -14,26 +14,26 @@ export default function UjianAnda() {
       <Sidebar />
       <div className="ml-auto h-3 flex">
         <div className="font-['Open_Sans'] items-center relative pt-[55px]">
-          <MagnifyingGlassIcon className="w-[24px] h-[24px] flex absolute mt-4 ml-2" />
+          <MagnifyingGlassIcon className="w-[18px] h-[18px] flex absolute mt-[23px] ml-4" />
           <Input
-            className="border-none shadow-md pl-10 rounded-[20px] w-[286px] h-[40px] text-[16px]"
+            className="border-opacity-25 shadow-md pl-12 rounded-[40px] w-[400px] h-12 text-[14px]"
             placeholder="Cari Ujian ...."
           />
         </div>
         <div className="px-[30px]">
           <Button
-            className="bg-[#FBFCFC] w-[42px] h-[42px] my-[65px] rounded-[10px] shadow-md"
+            className="bg-[#FBFCFC] w-[46px] h-[46px] my-[65px] rounded-[15px] shadow-md"
             text={
               <>
-                <BellAlertIcon className="text-black w-[24px] h-[24px] font-extrabold" />
+                <BellAlertIcon className="text-black w-[20px] h-[20px] font-extrabold" />
               </>
             }
           />
           <Button
-            className="bg-[#FBFCFC] w-[42px] h-[42px] my-[65px] rounded-[10px] mx-[30px] shadow-md"
+            className="bg-[#FBFCFC] w-[45px] h-[45px] my-[65px] rounded-[15px] mx-[30px] shadow-md"
             text={
               <>
-                <Cog6ToothIcon className="text-black w-[24px] h-[24px] font-extrabold" />
+                <Cog6ToothIcon className="text-black w-[20px] h-[20px] font-extrabold" />
               </>
             }
           />

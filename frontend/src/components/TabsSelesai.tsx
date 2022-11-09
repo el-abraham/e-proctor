@@ -12,7 +12,7 @@ export default function TabsSelesai() {
       <div className="w-[306px] h-[300px] rounded-[10px] bg-[#FBFCFC]">
         <img
           className="h-[140.5px] w-full rounded-t-[10px]"
-          src="https://th.bing.com/th/id/OIP.23o4iI3R8sAJaHxN78SxKgHaFj?w=265&h=197&c=7&r=0&o=5&pid=1.7"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_-Kt_GwVL3p5Tz8fGGZ1r_W4yvxsmF2T2w&usqp=CAU"
         />
         <div className="flex">
           <p className="font-['Poppins'] font-semibold text-[14px] mt-[15.5px] ml-[30px]">
@@ -38,7 +38,7 @@ export default function TabsSelesai() {
             Rabu, 30 September
           </p>
           <div>
-            <Button className="absolute items-center text-[12px] text-black bg-[#FBFCFC] border-[2px] border-gray-400 w-[88px] h-[35px] gap-x-2 pl-2 rounded-[10px] ml-[65px] mt-auto">
+            <Button className="absolute items-center text-[12px] text-black bg-[#FBFCFC] border-[1px] border-opacity-25 w-[88px] h-[35px] gap-x-2 pl-2 rounded-[10PX] ml-[65px] mt-auto">
               Summary
               <ChevronRightIcon className="w-[12px] h-[12px]" />
             </Button>
@@ -49,7 +49,7 @@ export default function TabsSelesai() {
       <div className="w-[306px] h-[300px] rounded-[10px] bg-[#FBFCFC]">
         <img
           className="h-[140.5px] w-full rounded-t-[10px]"
-          src="https://th.bing.com/th/id/OIP.23o4iI3R8sAJaHxN78SxKgHaFj?w=265&h=197&c=7&r=0&o=5&pid=1.7"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_-Kt_GwVL3p5Tz8fGGZ1r_W4yvxsmF2T2w&usqp=CAU"
         />
         <div className="flex">
           <p className="font-['Poppins'] font-semibold text-[14px] mt-[15.5px] ml-[30px]">
@@ -75,7 +75,7 @@ export default function TabsSelesai() {
             Rabu, 30 September
           </p>
           <div>
-            <Button className="absolute items-center text-[12px] text-black bg-[#FBFCFC] border-[2px] border-gray-400 w-[88px] h-[35px] gap-x-2 pl-2 rounded-[10px] ml-[65px] mt-auto">
+            <Button className="absolute items-center text-[12px] text-black bg-[#FBFCFC] border-[1px] border-opacity-25 w-[88px] h-[35px] gap-x-2 pl-2 rounded-[10PX] ml-[65px] mt-auto">
               Summary
               <ChevronRightIcon className="w-[12px] h-[12px]" />
             </Button>
@@ -86,7 +86,7 @@ export default function TabsSelesai() {
       <div className="w-[306px] h-[300px] rounded-[10px] bg-[#FBFCFC]">
         <img
           className="h-[140.5px] w-full rounded-t-[10px]"
-          src="https://th.bing.com/th/id/OIP.23o4iI3R8sAJaHxN78SxKgHaFj?w=265&h=197&c=7&r=0&o=5&pid=1.7"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_-Kt_GwVL3p5Tz8fGGZ1r_W4yvxsmF2T2w&usqp=CAU"
         />
         <div className="flex">
           <p className="font-['Poppins'] font-semibold text-[14px] mt-[15.5px] ml-[30px]">
@@ -112,7 +112,7 @@ export default function TabsSelesai() {
             Rabu, 30 September
           </p>
           <div>
-            <Button className="absolute items-center text-[12px] text-black bg-[#FBFCFC] border-[2px] border-gray-400 w-[88px] h-[35px] gap-x-2 pl-2 rounded-[10px] ml-[65px] mt-auto">
+            <Button className="absolute items-center text-[12px] text-black bg-[#FBFCFC] border-[1px] border-opacity-25 w-[88px] h-[35px] gap-x-2 pl-2 rounded-[10PX] ml-[65px] mt-auto">
               Summary
               <ChevronRightIcon className="w-[12px] h-[12px]" />
             </Button>

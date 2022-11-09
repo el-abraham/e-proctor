@@ -10,7 +10,7 @@ export default function TabsUjianAnda() {
       <div className="w-[306px] h-[265px] rounded-[10px] bg-[#FBFCFC]">
         <img
           className="h-[140.5px] w-full rounded-t-[10px]"
-          src="https://th.bing.com/th/id/OIP.23o4iI3R8sAJaHxN78SxKgHaFj?w=265&h=197&c=7&r=0&o=5&pid=1.7"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_-Kt_GwVL3p5Tz8fGGZ1r_W4yvxsmF2T2w&usqp=CAU"
         />
         <div className="flex">
           <p className="font-['Poppins'] font-semibold text-[14px] mt-[15.5px] ml-[30px]">
@@ -33,7 +33,7 @@ export default function TabsUjianAnda() {
           <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
           <div className="absolute ml-[220px]">
             <Link to={"insession"}>
-              <Button className="font-['Open Sans'] font-semibold items-center text-[12px] text-black bg-[#FBFCFC] border-[2px] border-gray-400 w-[68px] h-[30px] gap-x-2 pl-2 rounded-[10px] mt-4">
+              <Button className="font-['Open Sans'] font-semibold items-center text-[12px] text-black bg-[#FBFCFC] border-[1px] border-opacity-25 w-[68px] h-[30px] gap-x-2 pl-2 rounded-[10PX] mt-4">
                 Mulai
                 <ChevronRightIcon className="w-[12px] h-[12px]" />
               </Button>
@@ -47,7 +47,7 @@ export default function TabsUjianAnda() {
       <div className="w-[306px] h-[265px] rounded-[10px] bg-[#FBFCFC]">
         <img
           className="h-[140.5px] w-full rounded-t-[10px]"
-          src="https://th.bing.com/th/id/OIP.23o4iI3R8sAJaHxN78SxKgHaFj?w=265&h=197&c=7&r=0&o=5&pid=1.7"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_-Kt_GwVL3p5Tz8fGGZ1r_W4yvxsmF2T2w&usqp=CAU"
         />
         <div className="flex">
           <p className="font-['Poppins'] font-semibold text-[14px] mt-[15.5px] ml-[30px]">
@@ -69,7 +69,7 @@ export default function TabsUjianAnda() {
           <ClockIcon className="ml-[25px] w-[22px] h-[22px] text-black" />
           <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
           <Link to={"test-soal"}>
-            <Button className="absolute font-['Open Sans'] font-semibold items-center text-[12px] text-black bg-[#FBFCFC] border-[2px] border-gray-400 w-[68px] h-[30px] gap-x-2 pl-2 rounded-[10px] ml-[85px] -mt-[10px]">
+            <Button className="absolute font-['Open Sans'] font-semibold items-center text-[12px] text-black bg-[#FBFCFC] border-[1px] border-opacity-25 w-[68px] h-[30px] gap-x-2 pl-2 rounded-[10PX] ml-[85px] -mt-[10px]">
               Mulai
               <ChevronRightIcon className="w-[12px] h-[12px]" />
             </Button>
@@ -82,7 +82,7 @@ export default function TabsUjianAnda() {
       <div className="w-[306px] h-[265px] rounded-[10px] bg-[#FBFCFC]">
         <img
           className="h-[140.5px] w-full rounded-t-[10px]"
-          src="https://th.bing.com/th/id/OIP.23o4iI3R8sAJaHxN78SxKgHaFj?w=265&h=197&c=7&r=0&o=5&pid=1.7"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_-Kt_GwVL3p5Tz8fGGZ1r_W4yvxsmF2T2w&usqp=CAU"
         />
         <div className="flex">
           <p className="font-['Poppins'] font-semibold text-[14px] mt-[15.5px] ml-[30px]">
@@ -103,7 +103,7 @@ export default function TabsUjianAnda() {
         <div className="flex items-center mt-[10px]">
           <ClockIcon className="ml-[25px] w-[22px] h-[22px] text-black" />
           <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
-          <Button className="absolute font-['Open Sans'] font-semibold items-center text-[12px] text-black bg-[#FBFCFC] border-[2px] border-gray-400 w-[68px] h-[30px] gap-x-2 pl-2 rounded-[10px] ml-[220px]">
+          <Button className="absolute font-['Open Sans'] font-semibold items-center text-[12px] text-black bg-[#FBFCFC] border-[1px] border-opacity-25 w-[68px] h-[30px] gap-x-2 pl-2 rounded-[10PX] ml-[220px]">
             Mulai
             <ChevronRightIcon className="w-[12px] h-[12px]" />
           </Button>
@@ -112,8 +112,11 @@ export default function TabsUjianAnda() {
 
       {/* Tabs */}
 
-      <div className="absolute mt-[330px] py-4">
+      <div className="flex absolute mt-[330px] py-4">
         <p className="font-[Poppins] font-semibold text-[16px]">Akan Datang</p>
+        <div className="bg-[#D9D9D9] w-[32px] h-[32px] text-center ml-3 rounded-[50px]">
+          <p className="mt-1 font-['Poppins'] font-medium">12</p>
+        </div>
       </div>
       <div className="absolute ml-auto mt-[290px] py-4">
         <div className="w-[1090px] h-[475px] ml-auto mb-4 mt-[77px]">

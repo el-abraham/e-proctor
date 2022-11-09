@@ -60,7 +60,12 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <p className="font-[Poppins] font-semibold text-[16px]">Hari ini</p>
+        <div className="flex text-center items-center">
+          <p className="font-[Poppins] font-semibold text-[16px]">Hari ini</p>
+          <div className="bg-[#D9D9D9] w-[32px] h-[32px] ml-3 rounded-[50px] font-['Poppins'] font-medium">
+            <p className="mt-1">3</p>
+          </div>
+        </div>
         <TabsUjianAnda />
       </TabPanel>
       <TabPanel value={value} index={1}>
