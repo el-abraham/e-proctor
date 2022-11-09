@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Button from "../../../components/forms/Button";
-import Header1 from "../../../components/dashboard/Header1";
+import Header1 from "../../../components/dashboard/guru/Header1";
 import NamaUjian from "../../../components/others/NamaUjian";
 import SessionCard from "../../../components/others/SessionCard";
 import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";

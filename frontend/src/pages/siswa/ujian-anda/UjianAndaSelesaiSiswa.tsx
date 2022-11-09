@@ -1,6 +1,7 @@
 import { CalendarDaysIcon, ChevronRightIcon, ClockIcon } from "@heroicons/react/24/outline";
-import Header1 from "../../../components/dashboard/Header1";
 import Button from "../../../components/forms/Button";
+import Notifications from "../../../components/icons/Notifications";
+import Settings from "../../../components/icons/Settings";
 import SidebarSiswa, { NavbarSiswa } from "../../../components/sidebar/SidebarSiswa";
 import TabsSiswa from "../../../components/tabs/siswa/TabsSiswa";
 
@@ -10,7 +11,19 @@ export default function UjianAndaSelesaiSiswa(){
             <SidebarSiswa active={NavbarSiswa.UJIANANDA} />
 
             <div className='mr-[24px] w-full ml-6 pl-[240px] pb-[30px] h-screen'>
-                <Header1/>
+                <div className="flex gap-[30px] mt-6 justify-end">
+                    {/* CARI UJIAN INPUT */}
+                    <div className="form-control self-center">
+                        <label className="input-group h-[40px]">
+                            <input type="text" placeholder="Cari Ujian ...." className="input input-bordered h-[40px] placeholder:text-sm" />
+                            <label htmlFor="cari-ujian-gagal" className="h-[40px] bg-red-400 flex ">
+                                <p className="text-center m-auto px-4 font-medium text-xs cursor-pointer">CARI</p>
+                            </label>
+                        </label>
+                    </div>
+                    <Notifications/>
+                    <Settings/>
+                </div>
                 <TabsSiswa/>
                 
                 <div className="mt-[30px]">
@@ -55,12 +68,12 @@ export default function UjianAndaSelesaiSiswa(){
                                     </div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <div className="rounded-md font-['Open Sans'] font-semibold text-[16px] text-center py-[10px] px-5 bg-red-400">
+                                    <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
                                         <p>20</p>
                                         <p>Soal</p>
                                     </div>
-                                    <Button className="mt-8">
-                                        <p className="">Mulai</p>
+                                    <Button className="mt-10">
+                                        <p className="my-auto text-xs">Mulai</p>
                                         <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]"/>
                                     </Button>
                                 </div>
@@ -100,12 +113,12 @@ export default function UjianAndaSelesaiSiswa(){
                                     </div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <div className="rounded-md font-['Open Sans'] font-semibold text-[16px] text-center py-[10px] px-5 bg-red-400">
+                                    <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
                                         <p>20</p>
                                         <p>Soal</p>
                                     </div>
-                                    <Button className="mt-8">
-                                        <p className="">Mulai</p>
+                                    <Button className="mt-10">
+                                        <p className="my-auto text-xs">Mulai</p>
                                         <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]"/>
                                     </Button>
                                 </div>
@@ -144,12 +157,12 @@ export default function UjianAndaSelesaiSiswa(){
                                     </div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <div className="rounded-md font-['Open Sans'] font-semibold text-[16px] text-center py-[10px] px-5 bg-red-400">
+                                    <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
                                         <p>20</p>
                                         <p>Soal</p>
                                     </div>
-                                    <Button className="mt-8">
-                                        <p className="">Mulai</p>
+                                    <Button className="mt-10">
+                                        <p className="my-auto text-xs">Mulai</p>
                                         <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]"/>
                                     </Button>
                                 </div>

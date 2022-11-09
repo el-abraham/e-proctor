@@ -2,7 +2,7 @@ import { PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Button from "../../../components/forms/Button";
-import Header1 from "../../../components/dashboard/Header1";
+import Header1 from "../../../components/dashboard/guru/Header1";
 import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
 import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import TabsBankSoal from "../../../components/tabs/guru/TabsBankSoal";

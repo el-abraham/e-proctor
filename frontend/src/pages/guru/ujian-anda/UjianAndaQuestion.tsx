@@ -1,7 +1,7 @@
 import { EyeIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
-import Header1 from "../../../components/dashboard/Header1";
+import Header1 from "../../../components/dashboard/guru/Header1";
 import NamaUjian from "../../../components/others/NamaUjian";
 import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
 import SidebarGuru from "../../../components/sidebar/SidebarGuru";
