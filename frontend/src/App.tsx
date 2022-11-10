@@ -17,6 +17,7 @@ import DashboardSiswa from './pages/siswa/DashboardSiswa';
 import UjianAndaUjianSiswa from './pages/siswa/ujian-anda/UjianAndaUjianSiswa';
 import UjianAndaJadwalSiswa from './pages/siswa/ujian-anda/UjianAndaJadwalSiswa';
 import UjianAndaSelesaiSiswa from './pages/siswa/ujian-anda/UjianAndaSelesaiSiswa';
+import Pengaturan from './pages/siswa/Pengaturan';
 
 function App() {
   return(
@@ -25,6 +26,7 @@ function App() {
       {/* ROUTE UNTUK ROLE UMUM */}
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/daftar' element={<Daftar/>}></Route>
+      <Route path='/pengaturan' element={<Pengaturan/>}></Route>
 
       {/* ROUTE UNTUK ROLE GURU */}
       <Route path='/guru-dashboard' element={<DashboardGuru/>}></Route>
