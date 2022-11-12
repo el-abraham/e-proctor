@@ -1,25 +1,48 @@
-import { ChevronRightIcon, ClockIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon, ClockIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 import Button from "../../../components/forms/Button";
+import Input from "../../../components/forms/Input";
 import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
+import ModalCariUjianGagal from "../../../components/modals/siswa/ModalCariUjianGagal";
+import ModalCariUjianSukses from "../../../components/modals/siswa/ModalCariUjianSukses";
+import ModalGabungUjianGagal from "../../../components/modals/siswa/ModalGabungUjianGagal";
+import ModalGabungUjianSukses from "../../../components/modals/siswa/ModalGabungUjianSukses";
 import SidebarSiswa, { NavbarSiswa } from "../../../components/sidebar/SidebarSiswa";
 import TabsSiswa from "../../../components/tabs/siswa/TabsSiswa";
 
 export default function UjianAndaUjianSiswa() {
+
+    const navigate = useNavigate();
+    
+    const DetailUjian = () => {
+    // 👇️ navigate to /contacts
+    navigate("/siswa-detailujian");
+    };
+
   return (
     <div className="bg-[#EFF0F3] flex text-black">
 
+        {/* JIKA GAGAL */}
+        <ModalCariUjianGagal/>
+        <ModalGabungUjianGagal/>
+
+        {/* JIKA SUKSES */}
+        <ModalCariUjianSukses/>
+        <ModalGabungUjianSukses/>
+
         <SidebarSiswa active={NavbarSiswa.UJIANANDA} />
 
-        <div className='mr-[24px] w-full ml-6 pl-[240px] pb-[30px]'>
+        <div className=' pr-12 w-full ml-6 pl-[240px] pb-[30px]'>
             <div className="flex gap-[30px] mt-6 justify-end">
                 {/* CARI UJIAN INPUT */}
-                <div className="form-control self-center">
-                    <label className="input-group h-[40px]">
-                        <input type="text" placeholder="Cari Ujian ...." className="input input-bordered h-[40px] placeholder:text-sm" />
-                        <label htmlFor="cari-ujian-gagal" className="h-[40px] bg-red-400 flex ">
-                            <p className="text-center m-auto px-4 font-medium text-xs cursor-pointer">CARI</p>
-                        </label>
+                <div className="font-['Open Sans'] items-center relative -mt-2">
+                    <label htmlFor="cari-ujian-sukses">
+                        <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-[245px]"/>
+                        <Input
+                        className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]"
+                        placeholder="Cari Ujian ...."
+                        />
                     </label>
                 </div>
                 <Notifications/>
@@ -35,123 +58,231 @@ export default function UjianAndaUjianSiswa() {
                     </div>
                 </div>
                 {/* MULAI GRID */}
-                <div className="flex gap-x-4">
+                <div className="flex overflow-x-auto gap-x-4">
+                    {/* Gambar 1 */}
                     <div className="min-w-[326px] rounded-[10px] bg-[#FBFCFC]">
                         {/* IMAGE */}
-                        <img className="h-[140.5px] w-full rounded-t-[10px]" src="https://placeimg.com/192/192/people"/>
+                        <img
+                            className="h-[140.5px] w-full rounded-t-[10px]"
+                            src="https://placeimg.com/192/192/people"
+                        />
                         <div className="mx-[30px] mt-[15.5px] pb-[24px] flex justify-between">
                             <div className="flex flex-col">
-                                {/* NAMA UJIAN */}
-                                <div className="flex ">
-                                    <p className="font-['Poppins'] font-semibold text-sm ">
-                                        Ujian Linguistik
-                                    </p>
-                                </div>
+                            {/* NAMA UJIAN */}
+                            <div className="flex ">
+                                <p className="font-['Poppins'] font-semibold text-sm ">
+                                Ujian Linguistik
+                                </p>
+                            </div>
 
-                                {/* AVATAR */}
-                                <div className="avatar flex  mt-[10px]">
-                                    <div className="w-[30px] h-[30px] rounded-full">
-                                        <img src="https://placeimg.com/192/192/people" />
-                                    </div>
-                                    <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">Alena Workman</p>
+                            {/* AVATAR */}
+                            <div className="avatar flex  mt-[10px]">
+                                <div className="w-[30px] h-[30px] rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
                                 </div>
+                                <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
+                                Alena Workman
+                                </p>
+                            </div>
 
-                                {/* TIME */}
-                                <div className="flex items-center mt-[30px]">
-                                    <ClockIcon className="w-[30px] h-[30px] text-black" />
-                                    <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
-                                </div>
+                            {/* TIME */}
+                            <div className="flex items-center mt-[30px]">
+                                <ClockIcon className="w-[30px] h-[30px] text-black" />
+                                <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
+                            </div>
                             </div>
                             <div className="flex flex-col">
-                                <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
-                                    <p>20</p>
-                                    <p>Soal</p>
-                                </div>
-                                <Button className="mt-5">
-                                    <p className="my-auto text-xs">Mulai</p>
-                                    <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]"/>
-                                </Button>
+                            <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+                                <p>20</p>
+                                <p>Soal</p>
+                            </div>
+                            <Button className="mt-5">
+                                <p className="my-auto text-xs">Mulai</p>
+                                <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+                            </Button>
                             </div>
                         </div>
                     </div>
-                    
+
+                    {/* Gambar 2 */}
                     <div className="min-w-[326px] rounded-[10px] bg-[#FBFCFC]">
                         {/* IMAGE */}
-                        <img className="h-[140.5px] w-full rounded-t-[10px]" src="https://placeimg.com/192/192/people"/>
+                        <img
+                            className="h-[140.5px] w-full rounded-t-[10px]"
+                            src="https://placeimg.com/192/192/people"
+                        />
                         <div className="mx-[30px] mt-[15.5px] pb-[24px] flex justify-between">
                             <div className="flex flex-col">
-                                {/* NAMA UJIAN */}
-                                <div className="flex ">
-                                    <p className="font-['Poppins'] font-semibold text-sm ">
-                                        Ujian Linguistik
-                                    </p>
-                                </div>
+                            {/* NAMA UJIAN */}
+                            <div className="flex ">
+                                <p className="font-['Poppins'] font-semibold text-sm ">
+                                Ujian Linguistik
+                                </p>
+                            </div>
 
-                                {/* AVATAR */}
-                                <div className="avatar flex  mt-[10px]">
-                                    <div className="w-[30px] h-[30px] rounded-full">
-                                        <img src="https://placeimg.com/192/192/people" />
-                                    </div>
-                                    <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">Alena Workman</p>
+                            {/* AVATAR */}
+                            <div className="avatar flex  mt-[10px]">
+                                <div className="w-[30px] h-[30px] rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
                                 </div>
+                                <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
+                                Alena Workman
+                                </p>
+                            </div>
 
-                                {/* TIME */}
-                                <div className="flex items-center mt-[30px]">
-                                    <ClockIcon className="w-[30px] h-[30px] text-black" />
-                                    <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
-                                </div>
+                            {/* TIME */}
+                            <div className="flex items-center mt-[30px]">
+                                <ClockIcon className="w-[30px] h-[30px] text-black" />
+                                <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
+                            </div>
                             </div>
                             <div className="flex flex-col">
-                                <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
-                                    <p>20</p>
-                                    <p>Soal</p>
-                                </div>
-                                <Button className="mt-5">
-                                    <p className="my-auto text-xs">Mulai</p>
-                                    <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]"/>
-                                </Button>
+                            <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+                                <p>20</p>
+                                <p>Soal</p>
+                            </div>
+                            <Button className="mt-5">
+                                <p className="my-auto text-xs">Mulai</p>
+                                <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+                            </Button>
                             </div>
                         </div>
                     </div>
+
+                    {/* Gambar 3 */}
                     <div className="min-w-[326px] rounded-[10px] bg-[#FBFCFC]">
                         {/* IMAGE */}
-                        <img className="h-[140.5px] w-full rounded-t-[10px]" src="https://placeimg.com/192/192/people"/>
+                        <img
+                            className="h-[140.5px] w-full rounded-t-[10px]"
+                            src="https://placeimg.com/192/192/people"
+                        />
                         <div className="mx-[30px] mt-[15.5px] pb-[24px] flex justify-between">
                             <div className="flex flex-col">
-                                {/* NAMA UJIAN */}
-                                <div className="flex ">
-                                    <p className="font-['Poppins'] font-semibold text-sm ">
-                                        Ujian Linguistik
-                                    </p>
-                                </div>
+                            {/* NAMA UJIAN */}
+                            <div className="flex ">
+                                <p className="font-['Poppins'] font-semibold text-sm ">
+                                Ujian Linguistik
+                                </p>
+                            </div>
 
-                                {/* AVATAR */}
-                                <div className="avatar flex  mt-[10px]">
-                                    <div className="w-[30px] h-[30px] rounded-full">
-                                        <img src="https://placeimg.com/192/192/people" />
-                                    </div>
-                                    <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">Alena Workman</p>
+                            {/* AVATAR */}
+                            <div className="avatar flex  mt-[10px]">
+                                <div className="w-[30px] h-[30px] rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
                                 </div>
+                                <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
+                                Alena Workman
+                                </p>
+                            </div>
 
-                                {/* TIME */}
-                                <div className="flex items-center mt-[30px]">
-                                    <ClockIcon className="w-[30px] h-[30px] text-black" />
-                                    <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
-                                </div>
+                            {/* TIME */}
+                            <div className="flex items-center mt-[30px]">
+                                <ClockIcon className="w-[30px] h-[30px] text-black" />
+                                <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
+                            </div>
                             </div>
                             <div className="flex flex-col">
-                                <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
-                                    <p>20</p>
-                                    <p>Soal</p>
-                                </div>
-                                <Button className="mt-5">
-                                    <p className="my-auto text-xs">Mulai</p>
-                                    <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]"/>
-                                </Button>
+                            <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+                                <p>20</p>
+                                <p>Soal</p>
+                            </div>
+                            <Button className="mt-5">
+                                <p className="my-auto text-xs">Mulai</p>
+                                <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+                            </Button>
                             </div>
                         </div>
                     </div>
-                    
+
+                    {/* Gambar 4 */}
+                    <div className="min-w-[326px] rounded-[10px] bg-[#FBFCFC]">
+                        {/* IMAGE */}
+                        <img
+                            className="h-[140.5px] w-full rounded-t-[10px]"
+                            src="https://placeimg.com/192/192/people"
+                        />
+                        <div className="mx-[30px] mt-[15.5px] pb-[24px] flex justify-between">
+                            <div className="flex flex-col">
+                            {/* NAMA UJIAN */}
+                            <div className="flex ">
+                                <p className="font-['Poppins'] font-semibold text-sm ">
+                                Ujian Linguistik
+                                </p>
+                            </div>
+
+                            {/* AVATAR */}
+                            <div className="avatar flex  mt-[10px]">
+                                <div className="w-[30px] h-[30px] rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
+                                </div>
+                                <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
+                                Alena Workman
+                                </p>
+                            </div>
+
+                            {/* TIME */}
+                            <div className="flex items-center mt-[30px]">
+                                <ClockIcon className="w-[30px] h-[30px] text-black" />
+                                <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
+                            </div>
+                            </div>
+                            <div className="flex flex-col">
+                            <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+                                <p>20</p>
+                                <p>Soal</p>
+                            </div>
+                            <Button className="mt-5">
+                                <p className="my-auto text-xs">Mulai</p>
+                                <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+                            </Button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Gambar 5 */}
+                    <div className="min-w-[326px] rounded-[10px] bg-[#FBFCFC]">
+                        {/* IMAGE */}
+                        <img
+                            className="h-[140.5px] w-full rounded-t-[10px]"
+                            src="https://placeimg.com/192/192/people"
+                        />
+                        <div className="mx-[30px] mt-[15.5px] pb-[24px] flex justify-between">
+                            <div className="flex flex-col">
+                            {/* NAMA UJIAN */}
+                            <div className="flex ">
+                                <p className="font-['Poppins'] font-semibold text-sm ">
+                                Ujian Linguistik
+                                </p>
+                            </div>
+
+                            {/* AVATAR */}
+                            <div className="avatar flex  mt-[10px]">
+                                <div className="w-[30px] h-[30px] rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
+                                </div>
+                                <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
+                                Alena Workman
+                                </p>
+                            </div>
+
+                            {/* TIME */}
+                            <div className="flex items-center mt-[30px]">
+                                <ClockIcon className="w-[30px] h-[30px] text-black" />
+                                <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
+                            </div>
+                            </div>
+                            <div className="flex flex-col">
+                            <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+                                <p>20</p>
+                                <p>Soal</p>
+                            </div>
+                            <Button className="mt-5">
+                                <p className="my-auto text-xs">Mulai</p>
+                                <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+                            </Button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -162,7 +293,7 @@ export default function UjianAndaUjianSiswa() {
                 </div>
             </div>
 
-            <div className="overflow-x-auto font-['Open Sans'] mt-[15px]">
+            <div className="font-['Open Sans'] mt-[15px]">
                 <table className="table table-zebra w-full">
                     <thead>
                     <tr>
@@ -175,7 +306,7 @@ export default function UjianAndaUjianSiswa() {
                     </thead>
                     <tbody>
 
-                        <tr>
+                        <tr className="cursor-pointer" onClick={DetailUjian}>
                             <th>1</th>
                             <td className="flex">
                                 <div className="avatar">
@@ -203,7 +334,7 @@ export default function UjianAndaUjianSiswa() {
                             </td>
                         </tr>
             
-                        <tr>
+                        <tr className="cursor-pointer" onClick={DetailUjian}>
                             <th>1</th>
                             <td className="flex">
                                 <div className="avatar">
@@ -231,7 +362,7 @@ export default function UjianAndaUjianSiswa() {
                             </td>
                         </tr>
 
-                        <tr>
+                        <tr className="cursor-pointer" onClick={DetailUjian}>
                             <th>1</th>
                             <td className="flex">
                                 <div className="avatar">

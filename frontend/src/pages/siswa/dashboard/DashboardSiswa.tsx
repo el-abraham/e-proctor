@@ -1,7 +1,9 @@
+import { MagnifyingGlassIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
 import Profile from "../../../components/dashboard/Profile";
 import SelamatDatangSiswa from "../../../components/dashboard/siswa/SelamatDatangSiswa";
 import UjianAkanDatangSiswa from "../../../components/dashboard/siswa/UjianAkanDatangSiswa";
 import UjianHariIniSiswa from "../../../components/dashboard/siswa/UjianHariIniSiswa";
+import Input from "../../../components/forms/Input";
 import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
 import ModalCariUjianGagal from "../../../components/modals/siswa/ModalCariUjianGagal";
@@ -26,21 +28,21 @@ export default function DashboardSiswa() {
             <div className='mr-[24px] w-full ml-6 pl-[240px]'>
                 <div className="flex gap-[30px] mt-6 justify-end">
                     {/* GABUNG UJIAN INPUT */}
-                    <div className="form-control self-center ">
-                        <label className="input-group h-[40px]">
-                            <input type="text" placeholder="Gabung Ujian ...." className="input input-bordered h-[40px] placeholder:text-sm" />
-                            <label htmlFor="gabung-ujian-sukses" className="h-[40px] bg-red-400 flex cursor-pointer">
-                                <p className="text-center m-auto px-4 font-medium text-xs">GABUNG</p>
-                            </label>
+                    <div className="font-['Open Sans'] items-center relative -mt-2">
+                        <label htmlFor="gabung-ujian-sukses">
+                            <PlusCircleIcon className="w-[25px] h-[25px] flex absolute mt-[20px] ml-[245px]" />
+                            <Input className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]" placeholder="Gabung Ujian ...." />
                         </label>
                     </div>
+
                     {/* CARI UJIAN INPUT */}
-                    <div className="form-control self-center">
-                        <label className="input-group h-[40px]">
-                            <input type="text" placeholder="Cari Ujian ...." className="input input-bordered h-[40px] placeholder:text-sm" />
-                            <label htmlFor="cari-ujian-sukses" className="h-[40px] bg-red-400 flex cursor-pointer">
-                                <p className="text-center m-auto px-4 font-medium text-xs">CARI</p>
-                            </label>
+                    <div className="font-['Open Sans'] items-center relative -mt-2">
+                        <label htmlFor="cari-ujian-sukses">
+                            <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-[245px]"/>
+                            <Input
+                            className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]"
+                            placeholder="Cari Ujian ...."
+                            />
                         </label>
                     </div>
                     <Notifications/>

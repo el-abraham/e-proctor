@@ -1,4 +1,4 @@
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Button from "../../../components/forms/Button";
 import Notifications from "../../../components/icons/Notifications";
@@ -9,6 +9,7 @@ import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import SelamatDatangGuru from "../../../components/dashboard/guru/SelamatDatangGuru";
 import UjianHariIniGuru from "../../../components/dashboard/guru/UjianHariIniGuru";
 import UjianDibuatGuru from "../../../components/dashboard/guru/UjianDibuatGuru";
+import Input from "../../../components/forms/Input";
 
 export default function DashboardGuru(){
     return(
@@ -26,7 +27,16 @@ export default function DashboardGuru(){
                             <p className='my-auto text-xs'>Buat Ujian</p>
                         </Button>
                     </Link>
-                    <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                    {/* CARI UJIAN INPUT */}
+                    <div className="font-['Open Sans'] items-center relative -mt-2">
+                        <label htmlFor="cari-ujian-sukses">
+                            <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-[245px]"/>
+                            <Input
+                            className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]"
+                            placeholder="Cari Ujian ...."
+                            />
+                        </label>
+                    </div>
                     <Notifications/>
                     <Settings/>
                 </div>

@@ -18,6 +18,7 @@ import UjianAndaUjianSiswa from './pages/siswa/ujian-anda/UjianAndaUjianSiswa';
 import UjianAndaJadwalSiswa from './pages/siswa/ujian-anda/UjianAndaJadwalSiswa';
 import UjianAndaSelesaiSiswa from './pages/siswa/ujian-anda/UjianAndaSelesaiSiswa';
 import Pengaturan from './pages/siswa/dashboard/Pengaturan';
+import DetailUjianSiswa from './pages/siswa/ujian-anda/DetailUjianSiswa';
 
 function App() {
   return(
@@ -46,6 +47,7 @@ function App() {
       <Route path='/siswa-ujiananda-ujian' element={<UjianAndaUjianSiswa/>}></Route>
       <Route path='/siswa-ujiananda-jadwal' element={<UjianAndaJadwalSiswa/>}></Route>
       <Route path='/siswa-ujiananda-selesai' element={<UjianAndaSelesaiSiswa/>}></Route>
+      <Route path='/siswa-detailujian' element={<DetailUjianSiswa/>}></Route>
 
     </Routes>
   )
