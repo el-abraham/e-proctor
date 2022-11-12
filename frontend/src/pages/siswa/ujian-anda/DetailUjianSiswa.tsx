@@ -47,14 +47,14 @@ import {
         <div className="mr-[24px] w-full ml-6 pl-[240px]">
           <div className="flex gap-[30px] mt-6 justify-end">
             {/* CARI UJIAN INPUT */}
-            <div className="font-['Open_Sans'] items-center relative -mt-2">
-              <label htmlFor="cari-ujian-gagal">
-                <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[20px] ml-[245px]" />
-                <Input
-                  className="border-opacity-25 shadow-md pl-4 pr-[40px] rounded-3xl w-[280px] h-11 text-[14px]"
-                  placeholder="Cari Ujian ...."
-                />
-              </label>
+            <div className="font-['Open Sans'] items-center relative -mt-2">
+                <label htmlFor="cari-ujian-sukses">
+                    <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[22px] ml-[245px]"/>
+                    <Input
+                    className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]"
+                    placeholder="Cari Ujian ...."
+                    />
+                </label>
             </div>
             <Notifications />
             <Settings />
