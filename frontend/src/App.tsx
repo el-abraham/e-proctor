@@ -1,5 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
 import './App.css'
+import { Route, Routes } from 'react-router-dom';
 import BankSoal from './pages/guru/bank-soal/BankSoal';
 import BankSoalBuatPertanyaan from './pages/guru/bank-soal/BankSoalBuatPertanyaan';
 import Daftar from './pages/umum/Daftar';

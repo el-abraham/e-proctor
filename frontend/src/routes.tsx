@@ -13,10 +13,8 @@ const DynamicUjianAndaQuestion = React.lazy(() => import('./pages\guru\ujian-and
 const DynamicUjianAndaQuestionLihat = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaQuestionLihat'));
 const DynamicUjianAndaSession = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaSession'));
 const DynamicUjianAndaUjian = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaUjian'));
-const DynamicDashboardSiswa = React.lazy(() => import('./pages\siswa\DashboardSiswa'));
-const DynamicInSession = React.lazy(() => import('./pages\siswa\InSession'));
-const DynamicPengaturan = React.lazy(() => import('./pages\siswa\Pengaturan'));
-const DynamicTestSoal = React.lazy(() => import('./pages\siswa\TestSoal'));
+const DynamicDashboardSiswa = React.lazy(() => import('./pages\siswa\dashboard\DashboardSiswa'));
+const DynamicPengaturan = React.lazy(() => import('./pages\siswa\dashboard\Pengaturan'));
 const DynamicUjianAndaJadwalSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaJadwalSiswa'));
 const DynamicUjianAndaSelesaiSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaSelesaiSiswa'));
 const DynamicUjianAndaUjianSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaUjianSiswa'));
@@ -40,10 +38,8 @@ export const routes = [
       { path: 'D:\guru\ujian-anda\UjianAndaQuestionLihat', element: <DynamicUjianAndaQuestionLihat />, },
       { path: 'D:\guru\ujian-anda\UjianAndaSession', element: <DynamicUjianAndaSession />, },
       { path: 'D:\guru\ujian-anda\UjianAndaUjian', element: <DynamicUjianAndaUjian />, },
-      { path: 'D:\siswa\DashboardSiswa', element: <DynamicDashboardSiswa />, },
-      { path: 'D:\siswa\InSession', element: <DynamicInSession />, },
-      { path: 'D:\siswa\Pengaturan', element: <DynamicPengaturan />, },
-      { path: 'D:\siswa\TestSoal', element: <DynamicTestSoal />, },
+      { path: 'D:\siswa\dashboard\DashboardSiswa', element: <DynamicDashboardSiswa />, },
+      { path: 'D:\siswa\dashboard\Pengaturan', element: <DynamicPengaturan />, },
       { path: 'D:\siswa\ujian-anda\UjianAndaJadwalSiswa', element: <DynamicUjianAndaJadwalSiswa />, },
       { path: 'D:\siswa\ujian-anda\UjianAndaSelesaiSiswa', element: <DynamicUjianAndaSelesaiSiswa />, },
       { path: 'D:\siswa\ujian-anda\UjianAndaUjianSiswa', element: <DynamicUjianAndaUjianSiswa />, },
@@ -65,10 +61,8 @@ export const pages = [
   { route: 'D:\guru\ujian-anda\UjianAndaQuestionLihat' },
   { route: 'D:\guru\ujian-anda\UjianAndaSession' },
   { route: 'D:\guru\ujian-anda\UjianAndaUjian' },
-  { route: 'D:\siswa\DashboardSiswa' },
-  { route: 'D:\siswa\InSession' },
-  { route: 'D:\siswa\Pengaturan' },
-  { route: 'D:\siswa\TestSoal' },
+  { route: 'D:\siswa\dashboard\DashboardSiswa' },
+  { route: 'D:\siswa\dashboard\Pengaturan' },
   { route: 'D:\siswa\ujian-anda\UjianAndaJadwalSiswa' },
   { route: 'D:\siswa\ujian-anda\UjianAndaSelesaiSiswa' },
   { route: 'D:\siswa\ujian-anda\UjianAndaUjianSiswa' },
