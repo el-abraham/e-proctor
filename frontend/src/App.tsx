@@ -13,11 +13,11 @@ import UjianAndaQuestion from './pages/guru/ujian-anda/UjianAndaQuestion';
 import UjianAndaQuestionLihat from './pages/guru/ujian-anda/UjianAndaQuestionLihat';
 import UjianAndaSession from './pages/guru/ujian-anda/UjianAndaSession';
 import UjianAndaUjian from './pages/guru/ujian-anda/UjianAndaUjian';
-import DashboardSiswa from './pages/siswa/DashboardSiswa';
+import DashboardSiswa from './pages/siswa/dashboard/DashboardSiswa';
 import UjianAndaUjianSiswa from './pages/siswa/ujian-anda/UjianAndaUjianSiswa';
 import UjianAndaJadwalSiswa from './pages/siswa/ujian-anda/UjianAndaJadwalSiswa';
 import UjianAndaSelesaiSiswa from './pages/siswa/ujian-anda/UjianAndaSelesaiSiswa';
-import Pengaturan from './pages/siswa/Pengaturan';
+import Pengaturan from './pages/siswa/dashboard/Pengaturan';
 
 function App() {
   return(

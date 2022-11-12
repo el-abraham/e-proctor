@@ -1,14 +1,14 @@
-import Profile from "../../components/dashboard/Profile";
-import SelamatDatangSiswa from "../../components/dashboard/siswa/SelamatDatangSiswa";
-import UjianAkanDatangSiswa from "../../components/dashboard/siswa/UjianAkanDatangSiswa";
-import UjianHariIniSiswa from "../../components/dashboard/siswa/UjianHariIniSiswa";
-import Notifications from "../../components/icons/Notifications";
-import Settings from "../../components/icons/Settings";
-import ModalCariUjianGagal from "../../components/modals/siswa/ModalCariUjianGagal";
-import ModalCariUjianSukses from "../../components/modals/siswa/ModalCariUjianSukses";
-import ModalGabungUjianGagal from "../../components/modals/siswa/ModalGabungUjianGagal";
-import ModalGabungUjianSukses from "../../components/modals/siswa/ModalGabungUjianSukses";
-import SidebarSiswa, { NavbarSiswa } from "../../components/sidebar/SidebarSiswa";
+import Profile from "../../../components/dashboard/Profile";
+import SelamatDatangSiswa from "../../../components/dashboard/siswa/SelamatDatangSiswa";
+import UjianAkanDatangSiswa from "../../../components/dashboard/siswa/UjianAkanDatangSiswa";
+import UjianHariIniSiswa from "../../../components/dashboard/siswa/UjianHariIniSiswa";
+import Notifications from "../../../components/icons/Notifications";
+import Settings from "../../../components/icons/Settings";
+import ModalCariUjianGagal from "../../../components/modals/siswa/ModalCariUjianGagal";
+import ModalCariUjianSukses from "../../../components/modals/siswa/ModalCariUjianSukses";
+import ModalGabungUjianGagal from "../../../components/modals/siswa/ModalGabungUjianGagal";
+import ModalGabungUjianSukses from "../../../components/modals/siswa/ModalGabungUjianSukses";
+import SidebarSiswa, { NavbarSiswa } from "../../../components/sidebar/SidebarSiswa";
 
 export default function DashboardSiswa() {
     return(

@@ -1,4 +1,4 @@
-import { CalendarDaysIcon, ChevronRightIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon, ClockIcon } from "@heroicons/react/24/outline";
 import Button from "../../forms/Button";
 
 export default function ModalGabungUjianSukses(){
@@ -47,7 +47,7 @@ export default function ModalGabungUjianSukses(){
                                     <p>Soal</p>
                                 </div>
                                 <Button className="mt-5">
-                                    <p className="my-auto text-xs">Mulai</p>
+                                    <p className="my-auto text-xs">Gabung</p>
                                     <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]"/>
                                 </Button>
                             </div>
@@ -55,7 +55,7 @@ export default function ModalGabungUjianSukses(){
                     </div>
 
                         <div className="modal-action">
-                        <label htmlFor="cari-ujian-sukses" className="btn">Kembali</label>
+                        <label htmlFor="gabung-ujian-sukses" className="btn">Kembali</label>
                     </div>
                 </div>
             </div>
