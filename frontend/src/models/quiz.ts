@@ -1,13 +1,12 @@
-
 type QuizProps = {
-  id: number,
-  title: string,
-  coverImage?: string,
-  description?: string,
-  duration?: string
-  questions?: [],
-  session?: []
-}
+  id: number;
+  title: string;
+  coverImage?: string;
+  description?: string;
+  duration?: string;
+  questions?: [];
+  session?: [];
+};
 
 export default class Quiz {
   id: number;
@@ -37,6 +36,6 @@ export const QuizFactory = (data: any) => {
     description: data.description,
     duration: data.duration,
     questions: data.questions,
-    session: data.session
-  })
-}
+    session: data.session,
+  });
+};
