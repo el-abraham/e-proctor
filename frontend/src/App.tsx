@@ -20,13 +20,19 @@ import UjianAndaSelesaiSiswa from "./pages/siswa/ujian-anda/UjianAndaSelesaiSisw
 import DetailUjian from "./components/DetailUjian";
 import InSession from "./pages/InSession";
 import TestSoal from "./pages/TestSoal";
+
+import Pengaturan from './pages/siswa/dashboard/Pengaturan';
+import DetailUjianSiswa from './pages/siswa/ujian-anda/DetailUjianSiswa';
 // import UjianAnda as UA from "./pages/UjianAnda";
+
 function App() {
   return (
     <Routes>
       {/* ROUTE UNTUK ROLE UMUM */}
-      <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/daftar" element={<Daftar />}></Route>
+
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/daftar' element={<Daftar/>}></Route>
+      <Route path='/pengaturan' element={<Pengaturan/>}></Route>
 
       {/* ROUTE UNTUK ROLE GURU */}
       <Route path="/guru-dashboard" element={<DashboardGuru />}></Route>
@@ -54,6 +60,7 @@ function App() {
       ></Route>
 
       {/* ROUTE UNTUK ROLE SISWA */}
+
       <Route path="/siswa-dashboard" element={<DashboardSiswa />}></Route>
       <Route
         path="/siswa-ujiananda-ujian"
@@ -67,6 +74,7 @@ function App() {
         path="/siswa-ujiananda-selesai"
         element={<UjianAndaSelesaiSiswa />}
       ></Route>
+
 
       {/* <Route path="/" element={<UA />} /> */}
       <Route path="/insession" element={<InSession />} />

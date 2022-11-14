@@ -1,6 +1,6 @@
-import  Welcome from "../../assets/boy.png";
+import  Welcome from "../../../assets/boy.png";
 
-export default function SelamatDatang(){
+export default function SelamatDatangGuru(){
     return(
         <div className=" bg-[#FBFCFC] rounded-[10px] w-[750px]">
             <div className="pt-8 pl-8 pr-8 flex text-black">

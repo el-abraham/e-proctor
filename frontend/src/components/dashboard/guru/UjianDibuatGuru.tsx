@@ -1,6 +1,6 @@
-export default function UjianDibuat(){
+export default function UjianDibuatGuru(){
     return(
-        <div className="text-black font-['Poppins'] mt-[24px] pb-[30px] w-[620px] bg-[#FBFCFC] ml-4 rounded-[10px]">
+        <div className="text-black font-['Poppins'] max-h-[324px] overflow-y-scroll mt-[24px] pb-[30px] w-[620px] bg-[#FBFCFC] ml-4 rounded-[10px]">
             {/* BAGIAN HEADER */}
             <div className="flex gap-[15px] ml-[20px] mr-[20px] pt-[20px] pb-[9px] border-b border-slate-300">
                 <h1 className="font-semibold text-[14px] self-center ml-[20px]">Ujian Anda Hari Ini</h1>
@@ -26,6 +26,24 @@ export default function UjianDibuat(){
                             <td>13 Sept</td>
                             <td>10:45 - 12:45</td>
                             <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Geografi</td>
+                            <td>13 Sept</td>
+                            <td>10:45 - 12:45</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Geografi</td>
+                            <td>13 Sept</td>
+                            <td>10:45 - 12:45</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Geografi</td>
+                            <td>13 Sept</td>
+                            <td>10:45 - 12:45</td>
+                            <td>2</td>
                         </tr>
                         <tr>
                             <td>Geografi</td>

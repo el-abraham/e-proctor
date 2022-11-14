@@ -1,14 +1,15 @@
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Button from "../../../components/forms/Button";
 import Notifications from "../../../components/icons/Notifications";
 import Profile from "../../../components/dashboard/Profile";
-import SelamatDatang from "../../../components/dashboard/SelamatDatang";
 import Settings from "../../../components/icons/Settings";
 import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
-import UjianDibuat from "../../../components/dashboard/UjianDibuat";
-import UjianHariIni from "../../../components/dashboard/UjianHariIni";
 import SidebarGuru from "../../../components/sidebar/SidebarGuru";
+import SelamatDatangGuru from "../../../components/dashboard/guru/SelamatDatangGuru";
+import UjianHariIniGuru from "../../../components/dashboard/guru/UjianHariIniGuru";
+import UjianDibuatGuru from "../../../components/dashboard/guru/UjianDibuatGuru";
+import Input from "../../../components/forms/Input";
 
 export default function DashboardGuru() {
   return (
@@ -44,6 +45,7 @@ export default function DashboardGuru() {
           {/* PROFILE */}
           <Profile />
         </div>
+
 
         <div className="flex justify-between">
           {/* UJIAN HARI INI */}

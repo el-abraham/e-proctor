@@ -29,6 +29,7 @@ const DynamicSiswaUjianAndaUjianAndaSelesaiSiswa = React.lazy(() => import('./pa
 const DynamicSiswaUjianAndaUjianAndaUjianSiswa = React.lazy(() => import('./pages/siswa/ujian-anda/UjianAndaUjianSiswa'));
 
 
+
 export const routes = [
   {
     path: '/',
@@ -59,6 +60,7 @@ export const routes = [
       { path: '/siswa/ujian-anda/UjianAndaJadwalSiswa', element: <DynamicSiswaUjianAndaUjianAndaJadwalSiswa />, },
       { path: '/siswa/ujian-anda/UjianAndaSelesaiSiswa', element: <DynamicSiswaUjianAndaUjianAndaSelesaiSiswa />, },
       { path: '/siswa/ujian-anda/UjianAndaUjianSiswa', element: <DynamicSiswaUjianAndaUjianAndaUjianSiswa />, },
+
     ]
   }
 ]
