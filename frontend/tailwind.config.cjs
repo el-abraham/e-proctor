@@ -7,6 +7,7 @@ module.exports = {
   plugins: [require("daisyui")],
 
   daisyui: {
+    base: false,
     themes: [
       {
         mytheme: {
@@ -17,7 +18,7 @@ module.exports = {
           "base-100": "#ffffff",
         },
       },
-      "dark",
+      "light",
       "cupcake",
       "cmyk"
     ],
