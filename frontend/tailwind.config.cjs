@@ -1,15 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [require("daisyui")],
 
   daisyui: {
+    base: false,
     themes: [
       {
         mytheme: {
@@ -20,7 +18,9 @@ module.exports = {
           "base-100": "#ffffff",
         },
       },
-      "light"
+      "light",
+      "cupcake",
+      "cmyk"
     ],
   },
 }
