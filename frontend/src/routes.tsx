@@ -2,6 +2,7 @@
 import React from 'react';
 
 
+const DynamicAuthLogin = React.lazy(() => import('./pages/auth-login'));
 const DynamicDashboard = React.lazy(() => import('./pages/Dashboard'));
 const DynamicInSession = React.lazy(() => import('./pages/InSession'));
 const DynamicPengaturan = React.lazy(() => import('./pages/Pengaturan'));
@@ -33,6 +34,7 @@ export const routes = [
     path: '/',
     element: <Outlet />,
     children: [
+      { path: '/auth-login', element: <DynamicAuthLogin />, },
       { path: '/Dashboard', element: <DynamicDashboard />, },
       { path: '/InSession', element: <DynamicInSession />, },
       { path: '/Pengaturan', element: <DynamicPengaturan />, },
@@ -62,6 +64,7 @@ export const routes = [
 ]
 
 export const pages = [
+  { route: '/auth-login' },
   { route: '/Dashboard' },
   { route: '/InSession' },
   { route: '/Pengaturan' },
