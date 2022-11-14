@@ -27,6 +27,30 @@ const DynamicSiswaUjianAndaDetailUjianSiswa = React.lazy(() => import('./pages/s
 const DynamicSiswaUjianAndaUjianAndaJadwalSiswa = React.lazy(() => import('./pages/siswa/ujian-anda/UjianAndaJadwalSiswa'));
 const DynamicSiswaUjianAndaUjianAndaSelesaiSiswa = React.lazy(() => import('./pages/siswa/ujian-anda/UjianAndaSelesaiSiswa'));
 const DynamicSiswaUjianAndaUjianAndaUjianSiswa = React.lazy(() => import('./pages/siswa/ujian-anda/UjianAndaUjianSiswa'));
+const DynamicDashboard = React.lazy(() => import('./pages\Dashboard'));
+const DynamicBankSoal = React.lazy(() => import('./pages\guru\bank-soal\BankSoal'));
+const DynamicBankSoalBuatPertanyaan = React.lazy(() => import('./pages\guru\bank-soal\BankSoalBuatPertanyaan'));
+const DynamicKategori = React.lazy(() => import('./pages\guru\bank-soal\Kategori'));
+const DynamicDashboardGuru = React.lazy(() => import('./pages\guru\dashboard\DashboardGuru'));
+const DynamicTambahUjian = React.lazy(() => import('./pages\guru\dashboard\TambahUjian'));
+const DynamicTampilUjian = React.lazy(() => import('./pages\guru\dashboard\TampilUjian'));
+const DynamicUjianAnda = React.lazy(() => import('./pages\guru\ujian-anda\UjianAnda'));
+const DynamicUjianAndaQuestion = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaQuestion'));
+const DynamicUjianAndaQuestionLihat = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaQuestionLihat'));
+const DynamicUjianAndaSession = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaSession'));
+const DynamicUjianAndaUjian = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaUjian'));
+const DynamicInSession = React.lazy(() => import('./pages\InSession'));
+const DynamicPengaturan = React.lazy(() => import('./pages\Pengaturan'));
+const DynamicDashboardSiswa = React.lazy(() => import('./pages\siswa\dashboard\DashboardSiswa'));
+const DynamicPengaturan = React.lazy(() => import('./pages\siswa\dashboard\Pengaturan'));
+const DynamicDetailUjianSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\DetailUjianSiswa'));
+const DynamicUjianAndaJadwalSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaJadwalSiswa'));
+const DynamicUjianAndaSelesaiSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaSelesaiSiswa'));
+const DynamicUjianAndaUjianSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaUjianSiswa'));
+const DynamicTestSoal = React.lazy(() => import('./pages\TestSoal'));
+const DynamicUjianAnda = React.lazy(() => import('./pages\UjianAnda'));
+const DynamicDaftar = React.lazy(() => import('./pages\umum\Daftar'));
+const DynamicLogin = React.lazy(() => import('./pages\umum\Login'));
 
 
 export const routes = [
@@ -59,6 +83,7 @@ export const routes = [
       { path: '/siswa/ujian-anda/UjianAndaJadwalSiswa', element: <DynamicSiswaUjianAndaUjianAndaJadwalSiswa />, },
       { path: '/siswa/ujian-anda/UjianAndaSelesaiSiswa', element: <DynamicSiswaUjianAndaUjianAndaSelesaiSiswa />, },
       { path: '/siswa/ujian-anda/UjianAndaUjianSiswa', element: <DynamicSiswaUjianAndaUjianAndaUjianSiswa />, },
+
     ]
   }
 ]
@@ -89,4 +114,5 @@ export const pages = [
   { route: '/siswa/ujian-anda/UjianAndaJadwalSiswa' },
   { route: '/siswa/ujian-anda/UjianAndaSelesaiSiswa' },
   { route: '/siswa/ujian-anda/UjianAndaUjianSiswa' },
+
 ]
