@@ -13,7 +13,7 @@ import UjianAndaQuestion from "./pages/guru/ujian-anda/UjianAndaQuestion";
 import UjianAndaQuestionLihat from "./pages/guru/ujian-anda/UjianAndaQuestionLihat";
 import UjianAndaSession from "./pages/guru/ujian-anda/UjianAndaSession";
 import UjianAndaUjian from "./pages/guru/ujian-anda/UjianAndaUjian";
-import DashboardSiswa from "./pages/siswa/DashboardSiswa";
+import DashboardSiswa from "./pages/siswa/dashboard/DashboardSiswa";
 import UjianAndaUjianSiswa from "./pages/siswa/ujian-anda/UjianAndaUjianSiswa";
 import UjianAndaJadwalSiswa from "./pages/siswa/ujian-anda/UjianAndaJadwalSiswa";
 import UjianAndaSelesaiSiswa from "./pages/siswa/ujian-anda/UjianAndaSelesaiSiswa";
@@ -21,8 +21,9 @@ import DetailUjian from "./components/DetailUjian";
 import InSession from "./pages/InSession";
 import TestSoal from "./pages/TestSoal";
 
-import Pengaturan from './pages/siswa/dashboard/Pengaturan';
-import DetailUjianSiswa from './pages/siswa/ujian-anda/DetailUjianSiswa';
+import Pengaturan from "./pages/siswa/dashboard/Pengaturan";
+import DetailUjianSiswa from "./pages/siswa/ujian-anda/DetailUjianSiswa";
+import Login from "./pages/umum/Login";
 // import UjianAnda as UA from "./pages/UjianAnda";
 
 function App() {
@@ -30,9 +31,9 @@ function App() {
     <Routes>
       {/* ROUTE UNTUK ROLE UMUM */}
 
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/daftar' element={<Daftar/>}></Route>
-      <Route path='/pengaturan' element={<Pengaturan/>}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/daftar" element={<Daftar />}></Route>
+      <Route path="/pengaturan" element={<Pengaturan />}></Route>
 
       {/* ROUTE UNTUK ROLE GURU */}
       <Route path="/guru-dashboard" element={<DashboardGuru />}></Route>
@@ -74,7 +75,6 @@ function App() {
         path="/siswa-ujiananda-selesai"
         element={<UjianAndaSelesaiSiswa />}
       ></Route>
-
 
       {/* <Route path="/" element={<UA />} /> */}
       <Route path="/insession" element={<InSession />} />

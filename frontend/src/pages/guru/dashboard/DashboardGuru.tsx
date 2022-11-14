@@ -1,4 +1,7 @@
-import { MagnifyingGlassIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
+import {
+  MagnifyingGlassIcon,
+  PlusCircleIcon,
+} from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Button from "../../../components/forms/Button";
 import Notifications from "../../../components/icons/Notifications";
@@ -41,17 +44,16 @@ export default function DashboardGuru() {
 
         <div className="flex mt-[40px] justify-between">
           {/* UCAPAN SELAMAT DATANG */}
-          <SelamatDatang />
+          <SelamatDatangGuru />
           {/* PROFILE */}
           <Profile />
         </div>
 
-
         <div className="flex justify-between">
           {/* UJIAN HARI INI */}
-          <UjianHariIni />
+          <UjianHariIniGuru />
           {/* UJIAN DIBUAT */}
-          <UjianDibuat />
+          <UjianDibuatGuru />
         </div>
       </div>
     </div>
