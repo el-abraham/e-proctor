@@ -29,8 +29,8 @@ import Login from "./pages/umum/Login";
 function App() {
   return (
     <Routes>
-      {/* ROUTE UNTUK ROLE UMUM */}
 
+      {/* ROUTE UNTUK ROLE UMUM */}
       <Route path="/login" element={<Login />}></Route>
       <Route path="/daftar" element={<Daftar />}></Route>
       <Route path="/pengaturan" element={<Pengaturan />}></Route>
@@ -61,7 +61,6 @@ function App() {
       ></Route>
 
       {/* ROUTE UNTUK ROLE SISWA */}
-
       <Route path="/siswa-dashboard" element={<DashboardSiswa />}></Route>
       <Route
         path="/siswa-ujiananda-ujian"
