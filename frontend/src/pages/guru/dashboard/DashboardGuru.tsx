@@ -12,7 +12,6 @@ import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import SelamatDatangGuru from "../../../components/dashboard/guru/SelamatDatangGuru";
 import UjianHariIniGuru from "../../../components/dashboard/guru/UjianHariIniGuru";
 import UjianDibuatGuru from "../../../components/dashboard/guru/UjianDibuatGuru";
-import Input from "../../../components/forms/Input";
 
 export default function DashboardGuru() {
   return (

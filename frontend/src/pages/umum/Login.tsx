@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { userLogin } from "../../services/api/authentication.service";
 import { AuthLogin } from "../auth-login";
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+// https://www.youtube.com/watch?v=sBw0O5YTT4Q&t=1978s&ab_channel=DevGuyAhnaf
+
 type LoginValues = {
   username: string;
   password: string;

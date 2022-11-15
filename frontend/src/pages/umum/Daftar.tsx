@@ -28,7 +28,7 @@ export default function Daftar() {
   return (
     <div className="w-full min-h-screen bg-[#EFF0F3]">
       <div className="w-full grid grid-cols-2 place-content-stretch">
-        <div className="min-h-screen flex justify-center">
+        <div className="min-h-screen flex justify-center pb-5">
           <div className="px-24">
             <h1 className="font-['Open Sans'] font-bold text-[25px] pt-[30px] mb-[30px]">
               Logo E-Proctor
