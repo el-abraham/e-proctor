@@ -42,13 +42,13 @@ export default function UjianAndaQuestion(){
                     </label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
-                            <Link to={"/ujiananda-question-lihat"}>
+                            <Link to={"/guru-ujiananda-question-lihat"}>
                                 <PlusCircleIcon className='h-[20px] w-[20px] my-auto'/>
                                 <p className='my-auto text-xs'>Buat Pertanyaan Baru</p>
                             </Link>
                         </li>
                         <li>
-                            <Link to={"/banksoal"}>
+                            <Link to={"/guru-banksoal"}>
                                 <PlusCircleIcon className='h-[20px] w-[20px] my-auto'/>
                                 <p className='my-auto text-xs'>Dari Bank Soal</p>
                             </Link>

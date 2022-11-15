@@ -24,25 +24,25 @@ export default function SidebarGuru({active}:SidebarProps){
             <h1 className="font-['Poppins'] font-bold text-[20px] text-center pt-[60px]">E-PROCTOR</h1>
             {/* LIST */}
             <div className="list-none mt-[34px] font-['Open Sans']">
-                <NavLink to={"/guru-dashboard"} className={ active == NavbarEnum.DASHBOARD ? 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
+                <NavLink to={"/guru-dashboard"} className={ active == NavbarEnum.DASHBOARD ? 'flex font-semibold ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
                     <div className="flex">
                         <HomeIcon className="h-[20px] w-[20px] my-auto ml-[20px]"/>
                         <li className="ml-[20px] my-auto text-[14px]">Dashboard</li>
                     </div>
                 </NavLink>
-                <NavLink to={"/guru-banksoal"} className={ active == NavbarEnum.BANKSOAL ? 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
+                <NavLink to={"/guru-banksoal"} className={ active == NavbarEnum.BANKSOAL ? 'flex font-semibold ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
                     <div className="flex">
                         <BuildingLibraryIcon className="h-[20px] w-[20px] my-auto ml-[20px]"/>
                         <li className="ml-[20px] my-auto text-[14px]">Bank Soal</li>
                     </div>
                 </NavLink>
-                <NavLink to={"/guru-ujiananda"} className={active == NavbarEnum.UJIANANDA ? 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
+                <NavLink to={"/guru-ujiananda"} className={active == NavbarEnum.UJIANANDA ? 'flex font-semibold ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
                     <div className="flex">
                         <ClipboardIcon className="h-[20px] w-[20px] my-auto ml-[20px]"/>
                         <li className="ml-[20px] my-auto text-[14px]">Ujian Anda</li>
                     </div>
                 </NavLink>
-                <NavLink to={"/pengaturan"} className={active == NavbarEnum.SETTINGS ? 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
+                <NavLink to={"/pengaturan"} className={active == NavbarEnum.SETTINGS ? 'flex font-semibold ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]' : 'flex ml-[27px] p-[10px] rounded-l-[20px] mb-[35px]'}>
                     <div className="flex">
                         <Cog6ToothIcon className="h-[20px] w-[20px] my-auto ml-[20px]"/>
                         <li className="ml-[20px] my-auto text-[14px]">Pengaturan</li>

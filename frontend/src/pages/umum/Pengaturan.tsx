@@ -1,5 +1,5 @@
 import { CameraIcon, KeyIcon, ShieldExclamationIcon, TrashIcon, UserCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
-import Button from "../../../components/forms/Button";
+import Button from "../../components/forms/Button";
 
 export default function Pengaturan() {
     return(

@@ -21,17 +21,21 @@ import DetailUjian from "./components/DetailUjian";
 import InSession from "./pages/InSession";
 import TestSoal from "./pages/TestSoal";
 
-import Pengaturan from "./pages/siswa/dashboard/Pengaturan";
+import Pengaturan from "./pages/umum/Pengaturan";
 import DetailUjianSiswa from "./pages/siswa/ujian-anda/DetailUjianSiswa";
 import Login from "./pages/umum/Login";
+<<<<<<< Updated upstream
 import { AuthLogin } from "./pages/auth-login";
+=======
+import DashboardAdminGuru from "./pages/admin/DashboardAdminGuru";
+import DashboardAdminUsers from "./pages/admin/DashboardAdminUsers";
+>>>>>>> Stashed changes
 // import UjianAnda as UA from "./pages/UjianAnda";
 
 function App() {
   return (
     <Routes>
       {/* ROUTE UNTUK ROLE UMUM */}
-
       <Route path="/login" element={<Login />}></Route>
       <Route path="/daftar" element={<Daftar />}></Route>
       <Route path="/pengaturan" element={<Pengaturan />}></Route>
@@ -63,7 +67,6 @@ function App() {
       ></Route>
 
       {/* ROUTE UNTUK ROLE SISWA */}
-
       <Route path="/siswa-dashboard" element={<DashboardSiswa />}></Route>
       <Route
         path="/siswa-ujiananda-ujian"
@@ -77,6 +80,10 @@ function App() {
         path="/siswa-ujiananda-selesai"
         element={<UjianAndaSelesaiSiswa />}
       ></Route>
+
+      {/* ROUTE UNTUK ROLE ADMIN */}
+      <Route path="/admin-guru" element={<DashboardAdminGuru />}></Route>
+      <Route path="/admin-users" element={<DashboardAdminUsers />}></Route>
 
       {/* <Route path="/" element={<UA />} /> */}
       <Route path="/insession" element={<InSession />} />
