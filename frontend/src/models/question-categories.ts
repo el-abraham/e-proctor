@@ -1,17 +1,17 @@
-type Question_CategoriesProps = {
+type QuestionCategoriesProps = {
   id: number;
   parent?: string;
   name: string;
   description: string;
 };
 
-export default class Questions_Categories {
+export default class QuestionCategories {
   id: number;
   parent?: string | undefined;
   name: string | undefined;
   description: string | undefined;
 
-  constructor(data: Question_CategoriesProps) {
+  constructor(data: QuestionCategoriesProps) {
     this.id = data.id;
     this.parent = data.parent;
     this.name = data.name;
@@ -19,8 +19,8 @@ export default class Questions_Categories {
   }
 }
 
-export const Question_CategoriesFactory = (data: any) => {
-  return new Questions_Categories({
+export const QuestionCategoriesFactory = (data: any) => {
+  return new QuestionCategories({
     id: data.id,
     parent: data.parent ?? undefined,
     name: data.name,

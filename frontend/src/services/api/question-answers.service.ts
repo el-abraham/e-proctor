@@ -1,11 +1,11 @@
-import Questions_Answers, {
-  Questions_AnswersFactory,
+import QuestionAnswer, {
+  QuestionAnswerFactory,
 } from "../../models/questions-answers";
 import { api, IResponse } from "./config";
 
 const url = "";
 
-const createQuestionsAnswers = async (question_answers: Questions_Answers) => {
+const createQuestionsAnswers = async (question_answers: QuestionAnswer) => {
   try {
     const response = await api.post(`/${{ url }}`, {
       answer: question_answers.answer,
@@ -27,9 +27,9 @@ const getQuestionsAnswers = async () => {
         id: "",
       },
     });
-    const response: IResponse<Questions_Answers[]> = data;
+    const response: IResponse<QuestionAnswer[]> = data;
     const question_answers = response.data.map((value: any) =>
-      Questions_AnswersFactory(value)
+      QuestionAnswerFactory(value)
     );
     return question_answers;
   } catch (error) {

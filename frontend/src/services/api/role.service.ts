@@ -6,7 +6,7 @@ const CreateRole = async (role: Role) => {
   try {
     const response = await api.post(`/${{ url }}`, {
       name: role.name,
-      short_name: role.short_name,
+      short_name: role.shortname,
       description: role.description,
     });
     console.log(response);

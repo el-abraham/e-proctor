@@ -1,12 +1,12 @@
-import Questions_Categories, {
-  Question_CategoriesFactory,
+import QuestionCategories, {
+  QuestionCategoriesFactory,
 } from "../../models/question-categories";
 import { api, IResponse } from "./config";
 
 const url = "";
 
 const createQuestionCategories = async (
-  questions_categories: Questions_Categories
+  questions_categories: QuestionCategories
 ) => {
   try {
     const response = await api.post(`/${{ url }}`, {
@@ -27,9 +27,9 @@ const getQuestionCategories = async () => {
         id: "",
       },
     });
-    const response: IResponse<Questions_Categories[]> = data;
+    const response: IResponse<QuestionCategories[]> = data;
     const questions_categories = response.data.map((value: any) =>
-      Question_CategoriesFactory(value)
+      QuestionCategoriesFactory(value)
     );
     return questions_categories;
   } catch (error) {

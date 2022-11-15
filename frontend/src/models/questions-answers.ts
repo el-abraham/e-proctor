@@ -1,4 +1,4 @@
-type Questions_AnswersProps = {
+type QuestionAnswerProps = {
   id: number;
   answer: [];
   is_correct: boolean;
@@ -6,14 +6,14 @@ type Questions_AnswersProps = {
   description?: string;
 };
 
-export default class Questions_Answers {
+export default class QuestionAnswer {
   id: number;
   answer: [];
   is_correct: boolean | undefined;
   image: string | undefined;
   description?: string | undefined;
 
-  constructor(data: Questions_AnswersProps) {
+  constructor(data: QuestionAnswerProps) {
     this.id = data.id;
     this.answer = data.answer;
     this.is_correct = data.is_correct;
@@ -22,8 +22,8 @@ export default class Questions_Answers {
   }
 }
 
-export const Questions_AnswersFactory = (data: any) => {
-  return new Questions_Answers({
+export const QuestionAnswerFactory = (data: any) => {
+  return new QuestionAnswer({
     id: data.id,
     answer: data.answer,
     is_correct: data.is_correct,

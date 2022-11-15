@@ -1,7 +1,7 @@
 type UserProps = {
   id: number;
-  first_name: string;
-  last_name: string;
+  firstname: string;
+  lastname: string;
   username: string;
   password: string;
   picture?: string;
@@ -9,16 +9,16 @@ type UserProps = {
 
 export default class User {
   id: number;
-  first_name: string | undefined;
-  last_name: string | undefined;
+  firstname: string | undefined;
+  lastname: string | undefined;
   username: string | undefined;
   password: string | undefined;
   picture?: string | undefined;
 
   constructor(data: UserProps) {
     this.id = data.id;
-    this.first_name = data.first_name;
-    this.last_name = data.last_name;
+    this.firstname = data.firstname;
+    this.lastname = data.lastname;
     this.username = data.username;
     this.password = data.password;
     this.picture = data.picture;
@@ -28,8 +28,8 @@ export default class User {
 export const UserFactory = (data: any) => {
   return new User({
     id: data.id,
-    first_name: data.first_name,
-    last_name: data.last_name,
+    firstname: data.first_name,
+    lastname: data.last_name,
     username: data.username,
     password: data.password,
     picture: data.picture,

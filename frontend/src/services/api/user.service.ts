@@ -5,8 +5,8 @@ const url = "";
 const createUser = async (user: User) => {
   try {
     const response = await api.post(`/${{ url }}`, {
-      first_name: user.first_name,
-      last_name: user.last_name,
+      first_name: user.firstname,
+      last_name: user.lastname,
       username: user.username,
       password: user.password,
       picture: user.picture,
