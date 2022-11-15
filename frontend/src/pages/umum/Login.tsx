@@ -3,6 +3,7 @@ import Comp from "../../assets/comp.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { userLogin } from "../../services/api/authentication.service";
+import { AuthLogin } from "../auth-login";
 
 type LoginValues = {
   username: string;

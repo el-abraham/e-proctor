@@ -2,6 +2,7 @@
 import React from 'react';
 
 
+const DynamicAuthLogin = React.lazy(() => import('./pages\auth-login'));
 const DynamicDashboard = React.lazy(() => import('./pages\Dashboard'));
 const DynamicBankSoal = React.lazy(() => import('./pages\guru\bank-soal\BankSoal'));
 const DynamicBankSoalBuatPertanyaan = React.lazy(() => import('./pages\guru\bank-soal\BankSoalBuatPertanyaan'));
@@ -33,6 +34,7 @@ export const routes = [
     path: '/',
     element: <Outlet />,
     children: [
+      { path: 'D:\auth-login', element: <DynamicAuthLogin />, },
       { path: 'D:\Dashboard', element: <DynamicDashboard />, },
       { path: 'D:\guru\bank-soal\BankSoal', element: <DynamicBankSoal />, },
       { path: 'D:\guru\bank-soal\BankSoalBuatPertanyaan', element: <DynamicBankSoalBuatPertanyaan />, },
@@ -62,6 +64,7 @@ export const routes = [
 ]
 
 export const pages = [
+  { route: 'D:\auth-login' },
   { route: 'D:\Dashboard' },
   { route: 'D:\guru\bank-soal\BankSoal' },
   { route: 'D:\guru\bank-soal\BankSoalBuatPertanyaan' },

@@ -24,6 +24,7 @@ import TestSoal from "./pages/TestSoal";
 import Pengaturan from "./pages/siswa/dashboard/Pengaturan";
 import DetailUjianSiswa from "./pages/siswa/ujian-anda/DetailUjianSiswa";
 import Login from "./pages/umum/Login";
+import { AuthLogin } from "./pages/auth-login";
 // import UjianAnda as UA from "./pages/UjianAnda";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/daftar" element={<Daftar />}></Route>
       <Route path="/pengaturan" element={<Pengaturan />}></Route>
+      <Route path="/testing" element={<AuthLogin />}></Route>
 
       {/* ROUTE UNTUK ROLE GURU */}
       <Route path="/guru-dashboard" element={<DashboardGuru />}></Route>

@@ -121,12 +121,7 @@ function MultipleChoice() {
 
         <div className="flex absolute -ml-[580px] mt-[30px]">
           <div>
-            <button
-              className="ml-[610px] btn btn-outline"
-              onClick={() => {
-                setCurrentQuestion(currentQuestion - 1);
-              }}
-            >
+            <button className="ml-[610px] btn btn-outline" onClick={optionBack}>
               Previous
             </button>
           </div>
