@@ -3,7 +3,7 @@ import Comp from "../../assets/comp.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { userLogin } from "../../services/api/authentication.service";
-import { AuthLogin } from "../auth-login";
+// import { AuthLogin } from "../auth-login";
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 // https://www.youtube.com/watch?v=sBw0O5YTT4Q&t=1978s&ab_channel=DevGuyAhnaf
@@ -19,6 +19,12 @@ export default function LoginPage() {
     password: "",
   });
 
+  // const[saved, setSaved] = useState(() => {
+  //   const test = localStorage.getItem("login")
+  //   const initialValue = JSON.stringify(test)
+  //   return initialValue || ""
+  // })
+
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     setLogin({ ...login, [e.target.name]: e.target.value });
   }
@@ -27,6 +33,19 @@ export default function LoginPage() {
     e.preventDefault();
     userLogin(login);
   }
+
+  // useEffect(() => {
+  //   const test = localStorage.getItem('login')
+  //   if (test) {
+  //     setLogin(JSON.parse(test))
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem("login", JSON.stringify(login));
+  // }, [login]);
+
+
   return (
     <div className="w-full min-h-screen bg-[#EFF0F3]">
       <div className="w-full grid grid-cols-2 place-content-stretch">

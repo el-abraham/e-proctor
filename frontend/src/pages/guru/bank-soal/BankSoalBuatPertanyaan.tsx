@@ -5,7 +5,7 @@ import QuillJsBankSoal from "../../../components/forms/QuillJsBankSoal";
 
 export default function BankSoalBuatPertanyaan() {
   return (
-    <div className="px-[70px] py-[30px] bg-[#EFF0F3] text-black">
+    <div className="px-[70px] py-[30px] min-h-screen bg-[#EFF0F3] text-black">
       <Breadcrumbs />
       <QuillJsBankSoal/>
     </div>

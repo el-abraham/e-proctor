@@ -12,7 +12,7 @@ import TabsSiswa from "../../../components/tabs/siswa/TabsSiswa";
 
 export default function UjianAndaSelesaiSiswa(){
     return(
-        <div className="bg-[#EFF0F3] flex text-black">
+        <div className="bg-[#EFF0F3] min-h-screen flex text-black">
 
             {/* JIKA GAGAL */}
             <ModalCariUjianGagal/>

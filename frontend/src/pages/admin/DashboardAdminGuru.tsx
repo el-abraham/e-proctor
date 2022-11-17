@@ -30,7 +30,7 @@ export default function DashboardAdminGuru(){
     }
 
     return(
-        <div className="App bg-[#EFF0F3] flex h-screen">
+        <div className="App bg-[#EFF0F3] flex min-h-screen">
 
             {/* MODAL ADD GURU */}
             <div>

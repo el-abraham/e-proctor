@@ -1,9 +1,5 @@
-import {
-  MagnifyingGlassIcon,
-  PlusCircleIcon,
-} from "@heroicons/react/24/outline";
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import Button from "../../../components/forms/Button";
 import Notifications from "../../../components/icons/Notifications";
 import Profile from "../../../components/dashboard/Profile";
 import Settings from "../../../components/icons/Settings";
@@ -15,7 +11,7 @@ import UjianDibuatGuru from "../../../components/dashboard/guru/UjianDibuatGuru"
 
 export default function DashboardGuru() {
   return (
-    <div className="App bg-[#EFF0F3] flex pb-[30px]">
+    <div className="App bg-[#EFF0F3] min-h-screen flex pb-[30px]">
       {/* SIDEBAR */}
       <SidebarGuru active={NavbarEnum.DASHBOARD} />
 

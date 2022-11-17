@@ -18,7 +18,7 @@ import {
     const navigate = useNavigate();
   
     return (
-      <div className="bg-[#EFF0F3] h-screen flex text-black">
+      <div className="bg-[#EFF0F3] min-h-screen flex text-black">
         <SidebarSiswa active={NavbarSiswa.UJIANANDA} />
   
         {/* MODAL CARI UJIAN GAGAL */}

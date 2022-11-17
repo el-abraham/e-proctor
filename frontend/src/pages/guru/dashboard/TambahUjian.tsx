@@ -39,7 +39,7 @@ export default function TambahUjian(){
     }
 
     return(
-        <div className="bg-[#EFF0F3] flex h-screen text-black">
+        <div className="bg-[#EFF0F3] flex min-h-screen text-black">
             {/* SIDEBAR */}
             <SidebarGuru active={NavbarEnum.DASHBOARD}/>
 

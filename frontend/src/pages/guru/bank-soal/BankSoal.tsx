@@ -40,7 +40,7 @@ export default function BankSoal() {
       <SidebarGuru active={NavbarEnum.BANKSOAL} />
 
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
-      <div className="mr-[24px] w-full h-screen ml-6 pl-[240px]">
+      <div className="mr-[24px] w-full min-h-screen ml-6 pl-[240px]">
         <Header1 />
         <Breadcrumbs />
         <TabsBankSoal />

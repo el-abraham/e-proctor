@@ -2,7 +2,7 @@ import { ClockIcon } from "@heroicons/react/24/outline"
 
 export default function UjianHariIniSiswa(){
     return(
-        <div className="text-black font-['Poppins'] max-h-[384px] overflow-y-scroll mt-[24px] pb-[30px] w-[380px] bg-[#FBFCFC] rounded-[10px]">
+        <div className="text-black font-['Poppins'] max-h-[384px] overflow-y-scroll mt-[24px] pb-[30px] bg-[#FBFCFC] rounded-[10px] w-2/5">
             
             {/* BAGIAN HEADER */}
             <div className="flex gap-[15px] ml-[20px] mr-[20px] pt-[20px] pb-[9px] border-b border-slate-300">
