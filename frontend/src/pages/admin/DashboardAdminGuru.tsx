@@ -114,7 +114,7 @@ export default function DashboardAdminGuru(){
                 </div>
 
                 {/* TABLE */}
-                <div className="overflow-x-auto font-['Roboto'] mt-8 ">
+                <div className="overflow-x-auto font-['Roboto'] mt-8 bg-green-300 ">
                     <table className="table table-zebra w-full">
                         <thead>
                             <tr>

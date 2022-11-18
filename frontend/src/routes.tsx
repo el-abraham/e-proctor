@@ -18,6 +18,8 @@ const DynamicUjianAndaSession = React.lazy(() => import('./pages\guru\ujian-anda
 const DynamicUjianAndaUjian = React.lazy(() => import('./pages\guru\ujian-anda\UjianAndaUjian'));
 const DynamicInSession = React.lazy(() => import('./pages\InSession'));
 const DynamicDashboardSiswa = React.lazy(() => import('./pages\siswa\dashboard\DashboardSiswa'));
+const DynamicPreExam = React.lazy(() => import('./pages\siswa\dashboard\PreExam'));
+const DynamicVerifikasiCamera = React.lazy(() => import('./pages\siswa\dashboard\VerifikasiCamera'));
 const DynamicDetailUjianSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\DetailUjianSiswa'));
 const DynamicUjianAndaJadwalSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaJadwalSiswa'));
 const DynamicUjianAndaSelesaiSiswa = React.lazy(() => import('./pages\siswa\ujian-anda\UjianAndaSelesaiSiswa'));
@@ -50,6 +52,8 @@ export const routes = [
       { path: 'D:\guru\ujian-anda\UjianAndaUjian', element: <DynamicUjianAndaUjian />, },
       { path: 'D:\InSession', element: <DynamicInSession />, },
       { path: 'D:\siswa\dashboard\DashboardSiswa', element: <DynamicDashboardSiswa />, },
+      { path: 'D:\siswa\dashboard\PreExam', element: <DynamicPreExam />, },
+      { path: 'D:\siswa\dashboard\VerifikasiCamera', element: <DynamicVerifikasiCamera />, },
       { path: 'D:\siswa\ujian-anda\DetailUjianSiswa', element: <DynamicDetailUjianSiswa />, },
       { path: 'D:\siswa\ujian-anda\UjianAndaJadwalSiswa', element: <DynamicUjianAndaJadwalSiswa />, },
       { path: 'D:\siswa\ujian-anda\UjianAndaSelesaiSiswa', element: <DynamicUjianAndaSelesaiSiswa />, },
@@ -80,6 +84,8 @@ export const pages = [
   { route: 'D:\guru\ujian-anda\UjianAndaUjian' },
   { route: 'D:\InSession' },
   { route: 'D:\siswa\dashboard\DashboardSiswa' },
+  { route: 'D:\siswa\dashboard\PreExam' },
+  { route: 'D:\siswa\dashboard\VerifikasiCamera' },
   { route: 'D:\siswa\ujian-anda\DetailUjianSiswa' },
   { route: 'D:\siswa\ujian-anda\UjianAndaJadwalSiswa' },
   { route: 'D:\siswa\ujian-anda\UjianAndaSelesaiSiswa' },
