@@ -1,4 +1,7 @@
-import { MagnifyingGlassIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
+import {
+  MagnifyingGlassIcon,
+  PlusCircleIcon,
+} from "@heroicons/react/24/outline";
 import Profile from "../../../components/dashboard/Profile";
 import SelamatDatangSiswa from "../../../components/dashboard/siswa/SelamatDatangSiswa";
 import UjianAkanDatangSiswa from "../../../components/dashboard/siswa/UjianAkanDatangSiswa";
@@ -10,60 +13,63 @@ import ModalCariUjianGagal from "../../../components/modals/siswa/ModalCariUjian
 import ModalCariUjianSukses from "../../../components/modals/siswa/ModalCariUjianSukses";
 import ModalGabungUjianGagal from "../../../components/modals/siswa/ModalGabungUjianGagal";
 import ModalGabungUjianSukses from "../../../components/modals/siswa/ModalGabungUjianSukses";
-import SidebarSiswa, { NavbarSiswa } from "../../../components/sidebar/SidebarSiswa";
+import SidebarSiswa, {
+  NavbarSiswa,
+} from "../../../components/sidebar/SidebarSiswa";
 
 export default function DashboardSiswa() {
-    return(
-        <div className="App bg-[#EFF0F3] flex pb-[30px]">
+  return (
+    <div className="App bg-[#EFF0F3] flex pb-[30px]">
+      {/* JIKA GAGAL */}
+      <ModalCariUjianGagal />
+      <ModalGabungUjianGagal />
 
-            {/* JIKA GAGAL */}
-            <ModalCariUjianGagal/>
-            <ModalGabungUjianGagal/>
+      {/* JIKA SUKSES */}
+      <ModalCariUjianSukses />
+      <ModalGabungUjianSukses />
 
-            {/* JIKA SUKSES */}
-            <ModalCariUjianSukses/>
-            <ModalGabungUjianSukses/>
+      <SidebarSiswa active={NavbarSiswa.DASHBOARD} />
+      <div className="mr-[24px] w-full ml-6 pl-[240px]">
+        <div className="flex gap-[30px] mt-6 justify-end">
+          {/* GABUNG UJIAN INPUT */}
+          <div className="font-['Open Sans'] items-center relative -mt-2">
+            <label htmlFor="gabung-ujian-sukses">
+              <PlusCircleIcon className="w-[25px] h-[25px] flex absolute mt-[18px] ml-[245px]" />
+              <Input
+                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                placeholder="Gabung Ujian"
+              />
+            </label>
+          </div>
 
-            <SidebarSiswa active={NavbarSiswa.DASHBOARD} />
-            <div className='mr-[24px] w-full ml-6 pl-[240px]'>
-                <div className="flex gap-[30px] mt-6 justify-end">
-                    {/* GABUNG UJIAN INPUT */}
-                    <div className="font-['Open Sans'] items-center relative -mt-2">
-                        <label htmlFor="gabung-ujian-sukses">
-                            <PlusCircleIcon className="w-[25px] h-[25px] flex absolute mt-[20px] ml-[245px]" />
-                            <Input className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]" placeholder="Gabung Ujian ...." />
-                        </label>
-                    </div>
-
-                    {/* CARI UJIAN INPUT */}
-                    <div className="font-['Open Sans'] items-center relative -mt-2">
-                        <label htmlFor="cari-ujian-sukses">
-                            <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[22px] ml-[245px]"/>
-                            <Input
-                            className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]"
-                            placeholder="Cari Ujian ...."
-                            />
-                        </label>
-                    </div>
-                    <Notifications/>
-                    <Settings/>
-                </div>
-
-                <div className='flex mt-[40px] justify-between'>
-                    {/* UCAPAN SELAMAT DATANG */}
-                    <SelamatDatangSiswa/>
-                    {/* PROFILE */}
-                    <Profile/>
-                </div>
-
-                <div className='flex justify-between'>
-                    {/* UJIAN HARI INI */}
-                    <UjianHariIniSiswa/>
-                    {/* UJIAN AKAN DATANG */}
-                    <UjianAkanDatangSiswa/>
-                </div>
-
-            </div>
+          {/* CARI UJIAN INPUT */}
+          <div className="font-['Open Sans'] items-center relative -mt-2">
+            <label htmlFor="cari-ujian-sukses">
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[20px] ml-[245px]" />
+              <Input
+                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                placeholder="Cari Ujian ...."
+              />
+            </label>
+          </div>
+          <Notifications />
+          <Settings />
         </div>
-    ); 
+
+        <div className="flex mt-[40px] justify-between">
+          {/* UCAPAN SELAMAT DATANG */}
+          <SelamatDatangSiswa />
+          {/* PROFILE */}
+          <Profile />
+        </div>
+
+        <div className="flex justify-between">
+          {/* UJIAN HARI INI */}
+          <UjianHariIniSiswa />
+          {/* UJIAN AKAN DATANG */}
+          <UjianAkanDatangSiswa />
+        </div>
+      </div>
+    </div>
+  );
 }

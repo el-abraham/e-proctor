@@ -6,7 +6,7 @@ export function Input(props: any) {
         {...props}
         type={type}
         className={`${className}
-        border-black font-['Open_Sans'] flex items-center text-black py-2 w-full h-[53px] rounded-lg mt-2 p-2 my-6 border-2 focus:outline-none placeholder:text-gray-500"
+        font-['Open_Sans'] flex items-center transition duration-300 text-black w-full h-[53px] rounded-lg border-2 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-smplaceholder:text-gray-500"
         `}
       />
       {text || children}

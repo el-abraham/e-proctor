@@ -1,12 +1,11 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import Button from "../../../components/forms/Button";
 import Header1 from "../../../components/dashboard/guru/Header1";
 import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
 import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import { useEffect, useState } from "react";
-// import { testConnectionToServer } from "../../../services/api/test";
 import { getQuiz } from "../../../services/api/quiz.service";
 import Quiz from "../../../models/quiz";
 
@@ -23,6 +22,11 @@ export default function UjianAnda() {
     testing();
   }, []);
 
+  const navigate = useNavigate();
+  const DetailQuestion = () => {
+    navigate("/detail-ujian");
+  };
+
   return (
     <div className="bg-[#EFF0F3] flex text-black">
       {/* SIDEBAR */}
@@ -34,7 +38,7 @@ export default function UjianAnda() {
 
         <Breadcrumbs />
 
-        <Link to={"/guru-tambahujian"}>
+        <Link to={"/buat-ujian"}>
           <Button className="mb-[30px]">
             <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
             <p className="my-auto text-xs">Ujian Baru</p>
@@ -44,7 +48,9 @@ export default function UjianAnda() {
         <div className="flex gap-[15px] mb-5">
           <h1 className="font-semibold text-[14px] self-center">Ujian Anda</h1>
           <div className="pt-2 pb-2 pr-3 pl-3 bg-[#FBFCFC] rounded-[10px] flex border border-slate-300">
-            <p className="m-auto text-[14px] font-semibold">2</p>
+            <p className="m-auto text-[14px] font-semibold">
+              {quizData.length}
+            </p>
           </div>
         </div>
 
@@ -62,7 +68,11 @@ export default function UjianAnda() {
             <tbody>
               {quizData.map((value, index) => {
                 return (
-                  <tr key={index}>
+                  <tr
+                    key={index}
+                    className="cursor-pointer"
+                    onClick={DetailQuestion}
+                  >
                     <th>{index + 1}</th>
                     <td className="flex">
                       <div className="avatar">

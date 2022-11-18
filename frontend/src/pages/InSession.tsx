@@ -1,5 +1,6 @@
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type SoalType = {
   id: number;
@@ -15,6 +16,11 @@ type JawabanType = {
 };
 
 export default function InSession() {
+  const navigate = useNavigate();
+  const Finish = () => {
+    navigate("/selesai-ujian");
+  };
+
   const [soal, setSoal] = useState<SoalType[]>([
     {
       id: 1,
@@ -51,6 +57,38 @@ export default function InSession() {
     {
       id: 2,
       text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, optio?",
+      jawaban: [
+        {
+          id: 1,
+          text: "(5,24 + 0,01) mm",
+          status: false,
+        },
+        {
+          id: 2,
+          text: "(5,24 + 0,05) mm",
+          status: true,
+        },
+        {
+          id: 3,
+          text: "5,24 + 0,1) mm",
+          status: false,
+        },
+        {
+          id: 4,
+          text: "(5,24 + 0,5) mm",
+          status: false,
+        },
+        {
+          id: 5,
+          text: "(5,24 + 1) mm",
+          status: false,
+        },
+      ],
+      answer: undefined,
+    },
+    {
+      id: 3,
+      text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, officiis quibusdam magni voluptas fugit qui, in distinctio voluptate facere vel iure. Laudantium fuga nesciunt, animi ut deleniti consectetur soluta ex!",
       jawaban: [
         {
           id: 1,
@@ -128,8 +166,11 @@ export default function InSession() {
 
             <div className="mt-5 mb-5 pb-3 card w-full bg-white rounded-md shadow-md">
               <div className="card-body py-3 px-5">
-                <div className="border-b border-black p-2">
-                  <h3>Soal 1</h3>
+                <div className="border-b border-black p-2 flex">
+                  <h3>Soal Nomor {currentSoal.id}</h3>
+                  <h3 className="pl-[750px]">
+                    {currentSoal.id}/{soal.length}
+                  </h3>
                 </div>
 
                 <CurrentSoalItem soal={currentSoal} onSelect={selectJawaban} />
@@ -179,7 +220,10 @@ export default function InSession() {
                     })}
                   </div>
                   <div className="flex justify-between items-center mt-5">
-                    <div className="bg-[#FCC666] py-[6px] px-5 rounded text-sm shadow-[0_0_3px_rgba(0,0,0,0.20)]">
+                    <div
+                      className="bg-[#FCC666] py-[6px] px-5 rounded text-sm shadow-[0_0_3px_rgba(0,0,0,0.20)] cursor-pointer"
+                      onClick={Finish}
+                    >
                       Finish
                     </div>
                     <div className="border border-black rounded p-2">

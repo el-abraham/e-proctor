@@ -45,7 +45,7 @@ export default function BankSoal() {
         <Breadcrumbs />
         <TabsBankSoal />
 
-        <Link to={"/banksoal-buatpertanyaan"}>
+        <Link to={"/guru/bank-soal/create-questions"}>
           <Button className="my-5">
             <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
             <p className="my-auto text-xs">Buat Pertanyaan Baru</p>
