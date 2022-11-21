@@ -7,7 +7,7 @@ import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 
 export default function TampilUjian(){
     return(
-        <div className="bg-[#EFF0F3] flex text-black">
+        <div className="bg-[#EFF0F3] min-h-screen flex text-black">
             {/* SIDEBAR */}
             <SidebarGuru active={NavbarEnum.DASHBOARD}/>
 

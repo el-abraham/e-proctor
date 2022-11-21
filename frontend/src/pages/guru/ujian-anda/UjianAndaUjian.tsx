@@ -10,7 +10,8 @@ import TabsUjianAnda from "../../../components/tabs/guru/TabsUjianAnda";
 
 export default function UjianAndaUjian() {
     return(
-        <div className="bg-[#EFF0F3] flex text-black">
+        // bg-[#EFF0F3]
+        <div className="bg-[#EFF0F3] min-h-screen flex text-black">
             {/* SIDEBAR */}
             <SidebarGuru active={NavbarEnum.UJIANANDA}/>
 

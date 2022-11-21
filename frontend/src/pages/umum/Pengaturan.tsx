@@ -1,9 +1,9 @@
-import { CameraIcon, KeyIcon, ShieldExclamationIcon, TrashIcon, UserCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import { CameraIcon, KeyIcon, ShieldExclamationIcon, TrashIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Button from "../../components/forms/Button";
 
 export default function Pengaturan() {
     return(
-        <div className="App bg-[#EFF0F3] py-[30px] px-[50px] flex"> 
+        <div className="App bg-[#EFF0F3] min-h-screen py-[30px] px-[50px] flex"> 
             
             <div className="">
                 <h1 className="font-['Poppins'] text-xl font-semibold">Profile Settings</h1>

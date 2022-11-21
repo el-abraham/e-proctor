@@ -14,7 +14,7 @@ import SidebarSiswa, { NavbarSiswa } from "../../../components/sidebar/SidebarSi
 
 export default function DashboardSiswa() {
     return(
-        <div className="App bg-[#EFF0F3] flex pb-[30px]">
+        <div className="App min-h-screen bg-[#EFF0F3] flex pb-[30px]">
 
             {/* JIKA GAGAL */}
             <ModalCariUjianGagal/>

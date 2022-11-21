@@ -1,6 +1,6 @@
 export default function UjianAkanDatangSiswa(){
     return(
-        <div className="text-black font-['Poppins'] overflow-y-scroll max-h-[384px] mt-[24px] pb-[30px] w-[620px] bg-[#FBFCFC] ml-4 rounded-[10px]">
+        <div className="text-black font-['Poppins'] overflow-y-scroll max-h-[384px] w-3/5 mt-[24px] pb-[30px] bg-[#FBFCFC] ml-4 rounded-[10px]">
             {/* BAGIAN HEADER */}
             <div className="flex gap-[15px] ml-[20px] mr-[20px] pt-[20px] pb-[9px] border-b border-slate-300">
                 <h1 className="font-semibold text-[14px] self-center ml-[20px]">Ujian Akan Datang</h1>

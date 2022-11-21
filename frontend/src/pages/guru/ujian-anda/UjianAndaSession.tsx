@@ -44,7 +44,7 @@ export default function UjianAndaSession(){
     // }
 
     return(
-        <div className="bg-[#EFF0F3] flex text-black">
+        <div className="bg-[#EFF0F3] min-h-screen flex text-black">
 
             <div>
                 <form onSubmit={onSubmit}>

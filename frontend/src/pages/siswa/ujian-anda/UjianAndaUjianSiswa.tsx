@@ -1,4 +1,5 @@
 import { ChevronRightIcon, ClockIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/forms/Button";
 import Input from "../../../components/forms/Input";
@@ -21,7 +22,7 @@ export default function UjianAndaUjianSiswa() {
     };
 
   return (
-    <div className="bg-[#EFF0F3] flex text-black">
+    <div className="bg-[#EFF0F3] min-h-screen flex text-black">
 
         {/* JIKA GAGAL */}
         <ModalCariUjianGagal/>
@@ -96,10 +97,12 @@ export default function UjianAndaUjianSiswa() {
                                 <p>20</p>
                                 <p>Soal</p>
                             </div>
-                            <Button className="mt-5">
-                                <p className="my-auto text-xs">Mulai</p>
-                                <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
-                            </Button>
+                            <Link to={'/siswa-preexam'}>
+                                <Button className="mt-5">
+                                    <p className="my-auto text-xs">Mulai</p>
+                                    <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+                                </Button>
+                            </Link>
                             </div>
                         </div>
                     </div>

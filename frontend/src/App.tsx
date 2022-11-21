@@ -24,12 +24,14 @@ import TestSoal from "./pages/TestSoal";
 import Pengaturan from "./pages/umum/Pengaturan";
 import DetailUjianSiswa from "./pages/siswa/ujian-anda/DetailUjianSiswa";
 import Login from "./pages/umum/Login";
-<<<<<<< Updated upstream
+
 import { AuthLogin } from "./pages/auth-login";
-=======
+
 import DashboardAdminGuru from "./pages/admin/DashboardAdminGuru";
 import DashboardAdminUsers from "./pages/admin/DashboardAdminUsers";
->>>>>>> Stashed changes
+import PreExam from "./pages/siswa/dashboard/PreExam";
+import VerifikasiKamera from "./pages/siswa/dashboard/VerifikasiCamera";
+
 // import UjianAnda as UA from "./pages/UjianAnda";
 
 function App() {
@@ -80,6 +82,8 @@ function App() {
         path="/siswa-ujiananda-selesai"
         element={<UjianAndaSelesaiSiswa />}
       ></Route>
+      <Route path="/siswa-preexam" element={<PreExam/>}></Route>
+      <Route path="/siswa-verifikasi" element={<VerifikasiKamera/>}></Route>
 
       {/* ROUTE UNTUK ROLE ADMIN */}
       <Route path="/admin-guru" element={<DashboardAdminGuru />}></Route>

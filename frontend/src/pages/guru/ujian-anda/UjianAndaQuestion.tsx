@@ -9,7 +9,7 @@ import TabsUjianAnda from "../../../components/tabs/guru/TabsUjianAnda";
 
 export default function UjianAndaQuestion(){
     return(
-        <div className="bg-[#EFF0F3] flex text-black">
+        <div className="bg-[#EFF0F3] min-h-screen flex text-black">
 
             <input type="checkbox" id="trash-icon" className="modal-toggle" />
                 <div className="modal modal-bottom sm:modal-middle">
