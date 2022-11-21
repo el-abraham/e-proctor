@@ -23,13 +23,17 @@ const useUserActions = () => {
   }
 
   const checkToken = () => {
-    const token = localStorage.getItem(key);
+    const token = getToken();
     if (token) return true;
     return false;
   }
 
+  const getToken = () => {
+    return localStorage.getItem(key);
+  }
+
   const refresh = async () => {
-    const token = localStorage.getItem(key);
+    const token = getToken();
     const res = await userRefresh(token!)
     if (res?.user) {
       setUserLogged(res!.user)
@@ -39,7 +43,7 @@ const useUserActions = () => {
   }
 
 
-  return { login, checkToken, refresh }
+  return { login, checkToken, refresh, getToken }
 }
 
 export default useUserActions

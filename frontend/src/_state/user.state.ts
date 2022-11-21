@@ -17,7 +17,8 @@ const userLoading = atom<boolean>({
 enum UserInfoStateEnum {
   LOADED,
   LOADING,
-  UNDEFINED
+  UNDEFINED,
+  FORBIDDEN
 }
 
 const userInfoState = atom<UserInfoStateEnum>({
