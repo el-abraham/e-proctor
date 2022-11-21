@@ -34,12 +34,8 @@ export default function LoginPage() {
     userActions.login(login.username, login.password).catch((err) => {
       console.log(err);
     });
-    // userLogin(login);
   }
 
-  // useEffect(() => {
-  //   console.log(userLogged);
-  // }, []);
 
   return (
     <div className="w-full min-h-screen bg-[#EFF0F3]">

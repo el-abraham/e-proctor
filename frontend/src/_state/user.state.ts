@@ -9,6 +9,22 @@ const userState = atom<UserLogged | null>({
   default: null
 });
 
+const userLoading = atom<boolean>({
+  key: "userLoading",
+  default: false
+})
+
+enum UserInfoStateEnum {
+  LOADED,
+  LOADING,
+  UNDEFINED
+}
+
+const userInfoState = atom<UserInfoStateEnum>({
+  key: "UserInfoState",
+  default: UserInfoStateEnum.LOADING
+})
+
 // const userCurentState = selector({
 //   key: "UserCurentState",
 //   get: ({ get }) => {
@@ -31,4 +47,4 @@ const userState = atom<UserLogged | null>({
 
 // })
 
-export { userState }
+export { userState, userLoading, userInfoState, UserInfoStateEnum }
