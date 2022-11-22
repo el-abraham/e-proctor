@@ -10,15 +10,6 @@ import Profile from "../../components/dashboard/Profile";
 import Notifications from "../../components/icons/Notifications";
 import Settings from "../../components/icons/Settings";
 import SidebarGuru, { NavbarEnum } from "../../components/sidebar/SidebarGuru";
-// import Button from "../../../components/forms/Button";
-// import Notifications from "../../../components/icons/Notifications";
-// import Profile from "../../../components/dashboard/Profile";
-// import Settings from "../../../components/icons/Settings";
-// import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
-// import SidebarGuru from "../../../components/sidebar/SidebarGuru";
-// import SelamatDatangGuru from "../../../components/dashboard/guru/SelamatDatangGuru";
-// import UjianHariIniGuru from "../../../components/dashboard/guru/UjianHariIniGuru";
-// import UjianDibuatGuru from "../../../components/dashboard/guru/UjianDibuatGuru";
 
 export default function DashboardGuru() {
   return (

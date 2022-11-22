@@ -27,7 +27,7 @@ export default function SidebarGuru({ active }: SidebarProps) {
       {/* LIST */}
       <div className="list-none mt-[34px] font-['Open Sans']">
         <NavLink
-          to={"/guru-dashboard"}
+          to={"/"}
           className={
             active == NavbarEnum.DASHBOARD
               ? "flex font-semibold ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]"
@@ -40,7 +40,7 @@ export default function SidebarGuru({ active }: SidebarProps) {
           </div>
         </NavLink>
         <NavLink
-          to={"/guru-banksoal"}
+          to={"/q/bank"}
           className={
             active == NavbarEnum.BANKSOAL
               ? "flex font-semibold ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]"
