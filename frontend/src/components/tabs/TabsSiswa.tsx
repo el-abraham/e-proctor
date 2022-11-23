@@ -12,7 +12,7 @@ export default function TabsSiswa() {
         <label>Ujian Anda</label>
       </NavLink>
       <NavLink
-        to={"/siswa-ujiananda-jadwal"}
+        to={"/ujian/jadwal"}
         className={({ isActive }) =>
           isActive ? "tab tab-bordered tab-active" : "tab tab-bordered"
         }
@@ -20,7 +20,7 @@ export default function TabsSiswa() {
         <label>Jadwal</label>
       </NavLink>
       <NavLink
-        to={"/siswa-ujiananda-selesai"}
+        to={"/ujian/selesai"}
         className={({ isActive }) =>
           isActive ? "tab tab-bordered tab-active" : "tab tab-bordered"
         }
