@@ -32,7 +32,7 @@ export default function UjianGuru() {
 
         <Breadcrumbs />
 
-        <Link to={"/guru-tambahujian"}>
+        <Link to={"/ujian/create"}>
           <Button className="mb-[30px]">
             <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
             <p className="my-auto text-xs">Ujian Baru</p>

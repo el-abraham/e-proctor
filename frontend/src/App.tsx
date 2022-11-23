@@ -6,6 +6,10 @@ import DetailUjian from "./pages/detail-ujian";
 import LoginPage from "./pages/login";
 import BankSoal from "./pages/proctor/questions-bank";
 import BankSoalBuatPertanyaan from "./pages/proctor/questions-bank/create";
+import TambahUjian from "./pages/proctor/ujian/create";
+import DetailUjianGuru from "./pages/proctor/ujian/detail/detail";
+import DetailQuestionsGuru from "./pages/proctor/ujian/detail/questions";
+import DetailSessionsGuru from "./pages/proctor/ujian/detail/session";
 import Session from "./pages/session";
 import AfterExam from "./pages/session/after-exam";
 import UjianSiswa from "./pages/siswa/ujian";
@@ -23,9 +27,8 @@ const App = () => {
 
       <Route path="/" element={<ProtectedRoute outlet={<Dashboard />} />} />
 
-<Route path="/ujian/selesai" element={<SelesaiUjianSiswa />} />
-        <Route path="/ujian/jadwal" element={<JadwalUjianSiswa />} />
-      
+      <Route path="/ujian/selesai" element={<SelesaiUjianSiswa />} />
+      <Route path="/ujian/jadwal" element={<JadwalUjianSiswa />} />
 
       <Route
         path="/ujian"
@@ -33,7 +36,13 @@ const App = () => {
       >
         <Route path="/ujian" element={<Ujian />} />
         <Route path="/ujian/detail" element={<DetailUjian />} />
-
+        <Route path="/ujian/create" element={<TambahUjian />} />
+        <Route path="/ujian/detail/ujian" element={<DetailUjianGuru />} />
+        <Route
+          path="/ujian/detail/questions"
+          element={<DetailQuestionsGuru />}
+        />
+        <Route path="/ujian/detail/session" element={<DetailSessionsGuru />} />
       </Route>
 
       <Route
