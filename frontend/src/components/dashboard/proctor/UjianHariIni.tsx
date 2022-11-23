@@ -2,7 +2,7 @@ import { ClockIcon } from "@heroicons/react/24/outline";
 
 export default function UjianHariIniGuru() {
   return (
-    <div className="text-black font-['Poppins'] max-h-[324px] overflow-y-scroll mt-[24px] pb-[30px] w-[380px] bg-[#FBFCFC] rounded-[10px]">
+    <div className="text-black font-['Poppins'] self-start mt-[24px] pb-3 w-2/5 bg-[#FBFCFC] rounded-[10px]">
       {/* BAGIAN HEADER */}
       <div className="flex gap-[15px] ml-[20px] mr-[20px] pt-[20px] pb-[9px] border-b border-slate-300">
         <h1 className="font-semibold text-[14px] self-center ml-[20px]">
@@ -15,8 +15,8 @@ export default function UjianHariIniGuru() {
 
       {/* CONTENT */}
       <div>
-        <div className="mt-[20px] flex mb-[15px]">
-          <div className="avatar ml-[40px]">
+        <div className="mt-5 flex mb-4">
+          <div className="avatar ml-10">
             <div className="w-[134px] h-[124px] rounded">
               <img src="https://placeimg.com/192/192/people" />
             </div>

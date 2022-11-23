@@ -10,19 +10,6 @@ module.exports = {
   plugins: [require("daisyui")],
   daisyui: {
     base: false,
-    themes: [
-      {
-        mytheme: {
-          primary: "#f6d860",
-          secondary: "#fbfcfc",
-          accent: "#37cdbe",
-          neutral: "#3d4451",
-          "base-100": "#ffffff",
-        },
-      },
-      "light",
-      "cupcake",
-      "cmyk"
-    ],
+    themes: ["garden", "cupcake", "cmyk"],
   },
 }

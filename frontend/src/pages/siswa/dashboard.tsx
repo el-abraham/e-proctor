@@ -34,7 +34,7 @@ export default function DashboardSiswa() {
           {/* GABUNG UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="gabung-ujian-sukses">
-              <PlusCircleIcon className="w-[25px] h-[25px] flex absolute mt-[20px] ml-[245px]" />
+              <PlusCircleIcon className="w-[25px] h-[25px] flex absolute mt-[19px] ml-[245px]" />
               <Input
                 className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]"
                 placeholder="Gabung Ujian ...."
@@ -45,7 +45,7 @@ export default function DashboardSiswa() {
           {/* CARI UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="cari-ujian-sukses">
-              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[22px] ml-[245px]" />
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-[245px]" />
               <Input
                 className=" pl-4 pr-[40px] rounded-[20PX] w-[280px] h-11 text-[14px]"
                 placeholder="Cari Ujian ...."

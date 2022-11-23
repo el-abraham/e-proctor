@@ -2,7 +2,7 @@ import Welcome from "../../../assets/boy.png";
 
 export default function SelamatDatangGuru() {
   return (
-    <div className=" bg-[#FBFCFC] rounded-[10px] w-[750px]">
+    <div className=" bg-[#FBFCFC] flex-1 mr-4 rounded-[10px] w-[750px]">
       <div className="pt-8 pl-8 pr-8 flex text-black">
         <div className="">
           <h1 className="font-semibold text-[20px] font-['Poppins']">
