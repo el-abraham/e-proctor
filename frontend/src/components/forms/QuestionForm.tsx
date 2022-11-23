@@ -6,7 +6,34 @@ import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { useRecoilValue } from "recoil";
 import { listCategoryState } from "../../_state/category.state";
 import useQuestionActions from "../../_actions/question.actions";
+
 import Input from "./Input";
+
+import QuestionAnswer from "../../_models/question-answer";
+import Question from "../../_models/question";
+
+type AnswerProps = {
+  correct1: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct2: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct3: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct4: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct5: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+};
 
 export default function QuestionForm() {
   const listCategory = useRecoilValue(listCategoryState);
@@ -20,39 +47,86 @@ export default function QuestionForm() {
   const answerRef4 = useRef<ReactQuill>(null);
   const answerRef5 = useRef<ReactQuill>(null);
 
-  const initialAnswer = {
-    correct1: false,
-    correct2: false,
-    correct3: false,
-    correct4: false,
-    correct5: false,
+
+  const initialAnswer: AnswerProps = {
+    correct1: {
+      ref: answerRef1,
+      value: false,
+    },
+    correct2: {
+      ref: answerRef2,
+      value: false,
+    },
+    correct3: {
+      ref: answerRef3,
+      value: false,
+    },
+    correct4: {
+      ref: answerRef4,
+      value: false,
+    },
+    correct5: {
+      ref: answerRef5,
+      value: false,
+    },
+
   };
 
-  const [correctAnswer, setCorrectAnswer] = useState(initialAnswer);
+  const [correctAnswer, setCorrectAnswer] =
+    useState<AnswerProps>(initialAnswer);
 
   const checkAnswerRequired = () => {
     for (let [key, value] of Object.entries(correctAnswer)) {
-      if (value) return true;
+      if (value.value) return true;
     }
     return false;
   };
 
+  const validation = () => {
+    if (!questionRef.current?.value) return false;
+    if (!answerRef1.current?.value) return false;
+    if (!answerRef2.current?.value) return false;
+    if (!answerRef3.current?.value) return false;
+    if (!answerRef4.current?.value) return false;
+    if (!answerRef5.current?.value) return false;
+    return true;
+  };
+
   const handleForm = (e: any) => {
     e.preventDefault();
-    if (checkAnswerRequired()) {
-      console.log(checkAnswerRequired());
-      console.log(categoryRef.current?.value);
-      console.log(questionRef.current?.value);
-      console.log(answerRef1.current?.value);
-      console.log(answerRef2.current?.value);
-      console.log(answerRef3.current?.value);
-      console.log(answerRef4.current?.value);
-      console.log(answerRef5.current?.value);
+    if (checkAnswerRequired() && validation()) {
+      const curentCategory = listCategory?.find(
+        (e) => e.id == categoryRef.current?.value
+      );
+
+      const answer: QuestionAnswer[] = [];
+      Object.values(correctAnswer).forEach((val) => {
+        answer.push(
+          new QuestionAnswer({
+            answer: val.ref.current!.value.toString(),
+            isCorrect: val.value,
+          })
+        );
+      });
+      const question: Question = new Question({
+        name: "question",
+        answers: answer,
+        questionText: questionRef.current?.value.toString(),
+        category: curentCategory!,
+      });
+
+      questionActions.addQuestion(question);
     }
   };
 
   const handleCorrectAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCorrectAnswer({ ...initialAnswer, [event.currentTarget.id]: true });
+    setCorrectAnswer({
+      ...initialAnswer,
+      [event.currentTarget.id]: {
+        ...initialAnswer[event.currentTarget.id as keyof AnswerProps],
+        value: true,
+      },
+    });
   };
 
   useEffect(() => {
@@ -103,12 +177,16 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-                checked={correctAnswer.correct1}
+
+                checked={correctAnswer.correct1.value}
+
                 id="correct1"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
-              <label htmlFor="correct1">Jawaban benar</label>
+
+              <label htmlFor="correct1">jawaban benar</label>
+
             </div>
           </div>
 
@@ -118,12 +196,16 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-                checked={correctAnswer.correct2}
+
+                checked={correctAnswer.correct2.value}
+
                 id="correct2"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
-              <label htmlFor="correct2">Jawaban benar</label>
+
+              <label htmlFor="correct2">jawaban benar</label>
+
             </div>
           </div>
 
@@ -133,12 +215,16 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-                checked={correctAnswer.correct3}
+
+                checked={correctAnswer.correct3.value}
+
                 id="correct3"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
-              <label htmlFor="correct3">Jawaban benar</label>
+
+              <label htmlFor="correct3">jawaban benar</label>
+
             </div>
           </div>
 
@@ -148,12 +234,16 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-                checked={correctAnswer.correct4}
+
+                checked={correctAnswer.correct4.value}
+
                 id="correct4"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
-              <label htmlFor="correct4">Jawaban benar</label>
+
+              <label htmlFor="correct4">jawaban benar</label>
+
             </div>
           </div>
 
@@ -163,12 +253,16 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-                checked={correctAnswer.correct5}
+
+                checked={correctAnswer.correct5.value}
+
                 id="correct5"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
-              <label htmlFor="correct5">Jawaban benar</label>
+
+              <label htmlFor="correct5">jawaban benar</label>
+
             </div>
           </div>
         </div>
