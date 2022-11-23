@@ -53,7 +53,7 @@ export default function SidebarGuru({ active }: SidebarProps) {
           </div>
         </NavLink>
         <NavLink
-          to={"/guru-ujiananda"}
+          to={"/ujian"}
           className={
             active == NavbarEnum.UJIANANDA
               ? "flex font-semibold ml-[27px] p-[10px] rounded-l-[20px] mb-[35px] text-black bg-[#EFF0F3]"
