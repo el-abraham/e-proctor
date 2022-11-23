@@ -17,7 +17,7 @@ export default function TabsDetailUjianGuru() {
   return (
     <div className="tabs">
       <NavLink
-        to={"/detailujian/ujian"}
+        to={"/ujian/detail/ujian"}
         className={
           ["", "ujian"].includes(active)
             ? "tab tab-bordered tab-active"
@@ -27,7 +27,7 @@ export default function TabsDetailUjianGuru() {
         <a>Ujian</a>
       </NavLink>
       <NavLink
-        to={"/detailujian/questions"}
+        to={"/ujian/detail/questions"}
         className={
           ["", "questions"].includes(active)
             ? "tab tab-bordered tab-active"
@@ -37,7 +37,7 @@ export default function TabsDetailUjianGuru() {
         <a>Questions</a>
       </NavLink>
       <NavLink
-        to={"/detailujian/session"}
+        to={"/ujian/detail/session"}
         className={
           ["", "session"].includes(active)
             ? "tab tab-bordered tab-active"
