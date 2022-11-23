@@ -1,11 +1,14 @@
-import DetailUjianGuru from "./detail-ujian";
+import { useSearchParams } from "react-router-dom";
+import DetailUjianGuru from "./detail";
 
-const [searchParams] = useSearchParams();
+export default function DetailUjian() {
+  const [searchParams] = useSearchParams();
 
-if (searchParams.get("tab") == "ujian") {
-  return <DetailUjianGuru />;
-} else if (searchParams.get("tab") == "question") {
-  return <Category />;
-} else if (searchParams.get("tab") == "session") {
-  return <Category />;
+  if (searchParams.get("tab") == "ujian") {
+    return <DetailUjianGuru />;
+  } else if (searchParams.get("tab") == "question") {
+    // return <Category />;
+  } else if (searchParams.get("tab") == "session") {
+    // return <Category />;
+  }
 }
