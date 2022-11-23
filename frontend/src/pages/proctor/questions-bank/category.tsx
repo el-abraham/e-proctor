@@ -51,7 +51,7 @@ export default function Category() {
             Apakah anda yakin ingin menghapus kategori ini?
           </p>
           <div className="modal-action">
-            <label htmlFor="trash-icon" className="btn">
+            <label htmlFor="trash-icon" className="btn btn-primary">
               Ya
             </label>
             <label htmlFor="trash-icon" className="btn">
@@ -195,7 +195,7 @@ const ModalAddCategory = () => {
               </div>
             </div>
             <div className="modal-action">
-              <button className="btn btn-base btn-sm capitalize rounded">
+              <button className="btn btn-primary btn-base btn-sm capitalize rounded">
                 Simpan
               </button>
             </div>

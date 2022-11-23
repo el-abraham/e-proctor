@@ -26,7 +26,7 @@ export default function Question() {
           <h3 className="font-bold text-lg">Hapus Soal dari Bank Soal</h3>
           <p className="py-4">Apakah anda yakin ingin menghapus soal ini?</p>
           <div className="modal-action">
-            <label htmlFor="trash-icon" className="btn">
+            <label htmlFor="trash-icon" className="btn btn-primary">
               Ya
             </label>
             <label htmlFor="trash-icon" className="btn">

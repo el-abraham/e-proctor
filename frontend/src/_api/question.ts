@@ -1,8 +1,7 @@
 import axios from "axios";
+import Question, { QuestionDTO, QuestionFactory } from "../_models/question";
 import QuestionCategory, { QuestionCategoryDTO, QuestionCategoryFactory } from "../_models/question-category"
 import { api, IResponse } from "./config"
-
-
 
 
 const getCategory = async (token: string) => {
@@ -42,4 +41,24 @@ const createCategory = async (token: string, dataCategory: QuestionCategory) => 
   }
 }
 
-export { getCategory, createCategory }
+const createQuestion = async (token: string, dataQuestion: Question) => {
+  try {
+    const { data } = await api.post("/question", dataQuestion.convertToDTO(), {
+      headers: {
+        "x-access-tokens": token
+      }
+    })
+
+    const response: IResponse<QuestionDTO> = data;
+    const question = QuestionFactory(response.data);
+    return question;
+
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error.response)
+    }
+    console.log(error)
+  }
+}
+
+export { getCategory, createCategory, createQuestion }

@@ -7,6 +7,34 @@ import { useRecoilValue } from "recoil";
 import { listCategoryState } from "../../_state/category.state";
 import useQuestionActions from "../../_actions/question.actions";
 
+import Input from "./Input";
+
+import QuestionAnswer from "../../_models/question-answer";
+import Question from "../../_models/question";
+
+type AnswerProps = {
+  correct1: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct2: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct3: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct4: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+  correct5: {
+    ref: React.RefObject<ReactQuill>;
+    value: boolean;
+  };
+};
+
 export default function QuestionForm() {
   const listCategory = useRecoilValue(listCategoryState);
   const questionActions = useQuestionActions();
@@ -19,47 +47,93 @@ export default function QuestionForm() {
   const answerRef4 = useRef<ReactQuill>(null);
   const answerRef5 = useRef<ReactQuill>(null);
 
-  const initialAnswer = {
-    "correct1": false,
-    "correct2": false,
-    "correct3": false,
-    "correct4": false,
-    "correct5": false,
-  }
 
-  const [correctAnswer, setCorrectAnswer] = useState(initialAnswer);
-
-  const checkAnswerRequired = () => {
-    for (let [key, value] of Object.entries(correctAnswer)) {
-      if (value) return true;
-    }
-    return false;
-  }
-
-  const handleForm = (e: any) => {
-    e.preventDefault();
-    if (checkAnswerRequired()) {
-      console.log(checkAnswerRequired())
-      console.log(categoryRef.current?.value)
-      console.log(questionRef.current?.value)
-      console.log(answerRef1.current?.value)
-      console.log(answerRef2.current?.value)
-      console.log(answerRef3.current?.value)
-      console.log(answerRef4.current?.value)
-      console.log(answerRef5.current?.value)
-    }
+  const initialAnswer: AnswerProps = {
+    correct1: {
+      ref: answerRef1,
+      value: false,
+    },
+    correct2: {
+      ref: answerRef2,
+      value: false,
+    },
+    correct3: {
+      ref: answerRef3,
+      value: false,
+    },
+    correct4: {
+      ref: answerRef4,
+      value: false,
+    },
+    correct5: {
+      ref: answerRef5,
+      value: false,
+    },
 
   };
 
+  const [correctAnswer, setCorrectAnswer] =
+    useState<AnswerProps>(initialAnswer);
+
+  const checkAnswerRequired = () => {
+    for (let [key, value] of Object.entries(correctAnswer)) {
+      if (value.value) return true;
+    }
+    return false;
+  };
+
+  const validation = () => {
+    if (!questionRef.current?.value) return false;
+    if (!answerRef1.current?.value) return false;
+    if (!answerRef2.current?.value) return false;
+    if (!answerRef3.current?.value) return false;
+    if (!answerRef4.current?.value) return false;
+    if (!answerRef5.current?.value) return false;
+    return true;
+  };
+
+  const handleForm = (e: any) => {
+    e.preventDefault();
+    if (checkAnswerRequired() && validation()) {
+      const curentCategory = listCategory?.find(
+        (e) => e.id == categoryRef.current?.value
+      );
+
+      const answer: QuestionAnswer[] = [];
+      Object.values(correctAnswer).forEach((val) => {
+        answer.push(
+          new QuestionAnswer({
+            answer: val.ref.current!.value.toString(),
+            isCorrect: val.value,
+          })
+        );
+      });
+      const question: Question = new Question({
+        name: "question",
+        answers: answer,
+        questionText: questionRef.current?.value.toString(),
+        category: curentCategory!,
+      });
+
+      questionActions.addQuestion(question);
+    }
+  };
+
   const handleCorrectAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCorrectAnswer({ ...initialAnswer, [event.currentTarget.id]: true })
-  }
+    setCorrectAnswer({
+      ...initialAnswer,
+      [event.currentTarget.id]: {
+        ...initialAnswer[event.currentTarget.id as keyof AnswerProps],
+        value: true,
+      },
+    });
+  };
 
   useEffect(() => {
     if (listCategory == undefined) {
-      questionActions.categories()
+      questionActions.categories();
     }
-  }, [])
+  }, []);
 
   return (
     <div className="mb-8">
@@ -68,80 +142,136 @@ export default function QuestionForm() {
           <p className="font-semibold">Pilih Kategori</p>
           <select
             ref={categoryRef}
-            className="select select-sm rounded select-bordered w-80 max-w-md"
+            className="select select-sm rounded select-bordered w-80 max-w-md mt-3"
           >
-            {
-              listCategory?.map((value, index) => {
-                return (
-                  <option key={index} value={value.id}>{value.name}</option>
-                )
-              })
-            }
+            {listCategory?.map((value, index) => {
+              return (
+                <option key={index} value={value.id}>
+                  {value.name}
+                </option>
+              );
+            })}
           </select>
         </div>
 
-        <div className="space-y-5 mt-4">
+        <div className="space-y-5 mt-5">
+          {/* BAGIAN JUDUL */}
+          <div>
+            <p className="font-semibold">Judul</p>
+            <Input
+              className=" pl-4 pr-[40px] rounded h-11 text-[14px]"
+              placeholder="Masukkan Judul Ujian ...."
+            />
+          </div>
+
           {/* BAGIAN PERTANYAAN */}
           <div>
-            <p className="font-semibold">Pertanyaan</p>
+            <p className="font-semibold mb-3">Pertanyaan</p>
             <ReactQuill ref={questionRef} />
           </div>
 
-
           {/* JAWABAN */}
           <div>
-            <p className="font-semibold">Jawaban 1</p>
+            <p className="font-semibold mb-3">Jawaban 1</p>
             <ReactQuill ref={answerRef1} />
             <div className="flex space-x-3 items-center mt-2">
-              <input onChange={handleCorrectAnswer} checked={correctAnswer.correct1} id="correct1" type="checkbox" className="checkbox checkbox-sm rounded-none" />
+              <input
+                onChange={handleCorrectAnswer}
+
+                checked={correctAnswer.correct1.value}
+
+                id="correct1"
+                type="checkbox"
+                className="checkbox checkbox-sm rounded-none"
+              />
+
               <label htmlFor="correct1">jawaban benar</label>
+
             </div>
           </div>
 
           <div>
-            <p className="font-semibold">Jawaban 2</p>
+            <p className="font-semibold mb-3">Jawaban 2</p>
             <ReactQuill ref={answerRef2} />
             <div className="flex space-x-3 items-center mt-2">
-              <input onChange={handleCorrectAnswer} checked={correctAnswer.correct2} id="correct2" type="checkbox" className="checkbox checkbox-sm rounded-none" />
+              <input
+                onChange={handleCorrectAnswer}
+
+                checked={correctAnswer.correct2.value}
+
+                id="correct2"
+                type="checkbox"
+                className="checkbox checkbox-sm rounded-none"
+              />
+
               <label htmlFor="correct2">jawaban benar</label>
+
             </div>
           </div>
 
           <div>
-            <p className="font-semibold">Jawaban 3</p>
+            <p className="font-semibold mb-3">Jawaban 3</p>
             <ReactQuill ref={answerRef3} />
             <div className="flex space-x-3 items-center mt-2">
-              <input onChange={handleCorrectAnswer} checked={correctAnswer.correct3} id="correct3" type="checkbox" className="checkbox checkbox-sm rounded-none" />
+              <input
+                onChange={handleCorrectAnswer}
+
+                checked={correctAnswer.correct3.value}
+
+                id="correct3"
+                type="checkbox"
+                className="checkbox checkbox-sm rounded-none"
+              />
+
               <label htmlFor="correct3">jawaban benar</label>
+
             </div>
           </div>
 
           <div>
-            <p className="font-semibold">Jawaban 4</p>
+            <p className="font-semibold mb-3">Jawaban 4</p>
             <ReactQuill ref={answerRef4} />
             <div className="flex space-x-3 items-center mt-2">
-              <input onChange={handleCorrectAnswer} checked={correctAnswer.correct4} id="correct4" type="checkbox" className="checkbox checkbox-sm rounded-none" />
+              <input
+                onChange={handleCorrectAnswer}
+
+                checked={correctAnswer.correct4.value}
+
+                id="correct4"
+                type="checkbox"
+                className="checkbox checkbox-sm rounded-none"
+              />
+
               <label htmlFor="correct4">jawaban benar</label>
+
             </div>
           </div>
 
           <div>
-            <p className="font-semibold">Jawaban 5</p>
+            <p className="font-semibold mb-3">Jawaban 5</p>
             <ReactQuill ref={answerRef5} />
             <div className="flex space-x-3 items-center mt-2">
-              <input onChange={handleCorrectAnswer} checked={correctAnswer.correct5} id="correct5" type="checkbox" className="checkbox checkbox-sm rounded-none" />
+              <input
+                onChange={handleCorrectAnswer}
+
+                checked={correctAnswer.correct5.value}
+
+                id="correct5"
+                type="checkbox"
+                className="checkbox checkbox-sm rounded-none"
+              />
+
               <label htmlFor="correct5">jawaban benar</label>
+
             </div>
           </div>
-
         </div>
 
-
         <div className="mt-[40px] flex justify-center">
-          <Button className="mr-[30px]">
+          <Button className="mr-[30px] bg-neutral">
             <p className="text-xs">Batalkan</p>
           </Button>
-          <Button>
+          <Button className="btn-primary">
             <p className="text-xs">Simpan Pertanyaan</p>
           </Button>
         </div>
