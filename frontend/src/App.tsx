@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Dashboard from "./pages/dashboard";
+import DetailUjian from "./pages/detail-ujian";
 import LoginPage from "./pages/login";
 import BankSoal from "./pages/proctor/questions-bank";
 import BankSoalBuatPertanyaan from "./pages/proctor/questions-bank/create";
@@ -23,7 +24,7 @@ const App = () => {
         element={<ProtectedRoute outlet={<UjianWrapper />} />}
       >
         <Route path="/ujian" element={<Ujian />} />
-        <Route path="/ujian/detail" element={<DetailUjianSiswa />} />
+        <Route path="/ujian/detail" element={<DetailUjian />} />
       </Route>
 
       <Route

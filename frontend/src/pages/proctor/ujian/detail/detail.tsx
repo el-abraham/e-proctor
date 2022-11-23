@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
 import Button from "../../../../components/forms/Button";
 import Breadcrumbs from "../../../../components/others/Breadcrumbs";
+import NamaUjian from "../../../../components/others/NamaUjian";
 import SidebarGuru, {
   NavbarEnum,
 } from "../../../../components/sidebar/SidebarGuru";
 import Header from "../../questions-bank/header";
+import TabsDetailUjianGuru from "./tabs";
 
 export default function DetailUjianGuru() {
   return (
@@ -17,8 +18,8 @@ export default function DetailUjianGuru() {
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
         <Breadcrumbs />
-        {/* <NamaUjian/>
-                <TabsUjianAnda/> */}
+        <NamaUjian />
+        <TabsDetailUjianGuru />
 
         <div className="text-black font-['Poppins'] mt-[30px] pb-[30px] bg-[#FBFCFC] rounded-[10px]">
           <div className="flex gap-[15px] ml-[20px] mr-[20px] pt-[20px] pb-[9px] border-b border-slate-300">
