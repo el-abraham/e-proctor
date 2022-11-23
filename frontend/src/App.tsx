@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Dashboard from "./pages/dashboard";
@@ -11,12 +10,8 @@ import DetailUjianGuru from "./pages/proctor/ujian/detail/detail";
 import DetailQuestionsGuru from "./pages/proctor/ujian/detail/questions";
 import DetailSessionsGuru from "./pages/proctor/ujian/detail/session";
 import Session from "./pages/session";
-import AfterExam from "./pages/session/after-exam";
-import UjianSiswa from "./pages/siswa/ujian";
-import DetailUjianSiswa from "./pages/siswa/ujian/detail";
 import JadwalUjianSiswa from "./pages/siswa/ujian/jadwal";
 import SelesaiUjianSiswa from "./pages/siswa/ujian/selesai";
-import TestUjian from "./pages/siswa/ujian/ujian";
 import Ujian from "./pages/ujian";
 import UjianWrapper from "./pages/ujian-wrap";
 
@@ -54,7 +49,6 @@ const App = () => {
         element={<ProtectedRoute outlet={<BankSoalBuatPertanyaan />} />}
       />
       <Route path="/exam/session" element={<Session />} />
-      <Route path="/exam/session/finish" element={<AfterExam />} />
     </Routes>
   );
 };

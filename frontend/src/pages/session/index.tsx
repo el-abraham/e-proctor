@@ -1,6 +1,7 @@
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CountDownTimer from "../../components/others/countdown";
 
 type SoalType = {
   id: number;
@@ -194,10 +195,8 @@ export default function Session() {
           </div>
           <div className="w-[310px]">
             <div>
-              <span className="countdown font-mono text-2xl">
-                <span style={{ "--value": 10 }}></span>:
-                <span style={{ "--value": 24 }}></span>:
-                <span style={{ "--value": 48 }}></span>
+              <span className="font-mono text-2xl">
+                <CountDownTimer hours={0} minutes={120} seconds={3} />
               </span>
             </div>
             <div className="mt-5 mb-5 pb-3 card w-full bg-white rounded-md shadow-md">
