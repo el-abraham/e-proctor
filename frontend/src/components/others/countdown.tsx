@@ -50,19 +50,3 @@ const CountDownTimer = ({ hours = 0, minutes = 0, seconds = 0 }: Countdown) => {
 };
 
 export default CountDownTimer;
-
-// type Props = {
-//   seconds?: BigInt;
-//   children?: React.ReactNode;
-// };
-
-// const Countdown = ({ seconds }: Props) => {
-//   const [countdown, setCoundown] = useState(seconds);
-//   const timerID = useRef;
-
-//   useEffect(() => {
-//     timerID.current = setInterval(() => {
-//       setCoundown((prev) => prev - 1);
-//     }, 1000);
-//     return () => clearInterval(timerID);
-//   }, []);

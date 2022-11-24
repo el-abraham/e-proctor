@@ -25,8 +25,8 @@ const DetailUjianSiswa = () => {
   const [detailUjian, setDetailUjian] = useRecoilState(detailUjianState);
   const [loading, setLoading] = useState(true);
 
-  const InSession = () => {
-    navigate("/exam/session");
+  const PreExam = () => {
+    navigate("/exam/session/finish/preexam");
   };
 
   // useEffect(() => {}, []);
@@ -155,7 +155,7 @@ const DetailUjianSiswa = () => {
           </div>
         </div>
         <div className="flex justify-end mt-[52px]">
-          <Button className="hover:bg-none" onClick={InSession}>
+          <Button className="hover:bg-none" onClick={PreExam}>
             Ke Ujian Anda
           </Button>
         </div>
