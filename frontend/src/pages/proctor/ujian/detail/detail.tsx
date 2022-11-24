@@ -2,6 +2,7 @@ import { useRecoilValue } from "recoil";
 import Button from "../../../../components/forms/Button";
 import Breadcrumbs from "../../../../components/others/Breadcrumbs";
 import NamaUjian from "../../../../components/others/NamaUjian";
+import SessionCard from "../../../../components/others/SessionCard";
 import SidebarGuru, {
   NavbarEnum,
 } from "../../../../components/sidebar/SidebarGuru";
@@ -43,8 +44,8 @@ export default function DetailUjianGuruIndex() {
         {/* </Link> */}
 
         <div className="flex justify-between mb-[30px]">
-          {/* <SessionCard/> */}
-          {/* <SessionCard/> */}
+          <SessionCard />
+          <SessionCard />
         </div>
       </div>
     </div>
