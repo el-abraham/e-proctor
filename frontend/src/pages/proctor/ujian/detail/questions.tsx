@@ -6,6 +6,7 @@ import {
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
+import Button from "../../../../components/forms/Button";
 import Breadcrumbs from "../../../../components/others/Breadcrumbs";
 import NamaUjian from "../../../../components/others/NamaUjian";
 import SidebarGuru, {
@@ -48,6 +49,171 @@ export default function DetailQuestionsGuru() {
         </div>
       </div>
 
+      <input type="checkbox" id="bank-soal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <label
+            htmlFor="bank-soal"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="font-bold text-lg">Tambah Question dari Bank Soal</h3>
+          <div className="block">
+            {/* SELECT TAG */}
+            <div className=" flex w-full mt-5 justify-between">
+              <p className="self-center mr-8">Pilih Kategori</p>
+              <select className="select select-bordered w-10/12 max-w-5xl">
+                <option disabled selected>
+                  Pilih Kategori
+                </option>
+                <option>Kategori A</option>
+                <option>Kategori B</option>
+              </select>
+            </div>
+            {/* TABLE */}
+            <div className="overflow-x-auto font-['Roboto'] my-[30px]">
+              <table className="table table-zebra w-full">
+                <thead>
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked
+                        className="checkbox checkbox-xs"
+                      />
+                    </th>
+                    <th>Soal</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+
+                <tbody className="text-sm">
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked
+                        className="checkbox checkbox-xs"
+                      />
+                    </th>
+                    <td>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quia, consequuntur?
+                    </td>
+                    <td className="flex gap-[15px]">
+                      <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked
+                        className="checkbox checkbox-xs"
+                      />
+                    </th>
+                    <td>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quia, consequuntur?
+                    </td>
+                    <td className="flex gap-[15px]">
+                      <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked
+                        className="checkbox checkbox-xs"
+                      />
+                    </th>
+                    <td>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quia, consequuntur?
+                    </td>
+                    <td className="flex gap-[15px]">
+                      <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked
+                        className="checkbox checkbox-xs"
+                      />
+                    </th>
+                    <td>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quia, consequuntur?
+                    </td>
+                    <td className="flex gap-[15px]">
+                      <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked
+                        className="checkbox checkbox-xs"
+                      />
+                    </th>
+                    <td>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quia, consequuntur?
+                    </td>
+                    <td className="flex gap-[15px]">
+                      <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked
+                        className="checkbox checkbox-xs"
+                      />
+                    </th>
+                    <td>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quia, consequuntur?
+                    </td>
+                    <td className="flex gap-[15px]">
+                      <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            {/* PAGING */}
+            <div className="justify-between flex mb-8">
+              <p className="font-['Open Sans'] text-sm self-center">
+                <u>Show all</u>
+              </p>
+              <div className="btn-group">
+                <button className="btn btn-md">1</button>
+                <button className="btn btn-md btn-active">2</button>
+                <button className="btn btn-md">3</button>
+                <button className="btn btn-md">4</button>
+              </div>
+            </div>
+          </div>
+          <div className="modal-action">
+            <Button htmlFor="bank-soal" className="btn-primary">
+              Tambah ke Ujian
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* SIDEBAR */}
       <SidebarGuru active={NavbarEnum.UJIANANDA} />
 
@@ -77,10 +243,10 @@ export default function DetailQuestionsGuru() {
               </Link>
             </li>
             <li>
-              <Link to={"/guru-banksoal"}>
+              <label htmlFor="bank-soal">
                 <PlusCircleIcon className="h-[20px] w-[20px] my-auto" />
                 <p className="my-auto text-xs">Dari Bank Soal</p>
-              </Link>
+              </label>
             </li>
           </ul>
         </div>
