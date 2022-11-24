@@ -2,7 +2,6 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { useRecoilValue } from "recoil";
 import { listCategoryState } from "../../_state/category.state";
 import useQuestionActions from "../../_actions/question.actions";
@@ -47,7 +46,6 @@ export default function QuestionForm() {
   const answerRef4 = useRef<ReactQuill>(null);
   const answerRef5 = useRef<ReactQuill>(null);
 
-
   const initialAnswer: AnswerProps = {
     correct1: {
       ref: answerRef1,
@@ -69,7 +67,6 @@ export default function QuestionForm() {
       ref: answerRef5,
       value: false,
     },
-
   };
 
   const [correctAnswer, setCorrectAnswer] =
@@ -142,7 +139,7 @@ export default function QuestionForm() {
           <p className="font-semibold">Pilih Kategori</p>
           <select
             ref={categoryRef}
-            className="select select-sm rounded select-bordered w-80 max-w-md mt-3"
+            className="select select-sm rounded select-bordered w-80 h-auto mt-3"
           >
             {listCategory?.map((value, index) => {
               return (
@@ -177,16 +174,13 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-
                 checked={correctAnswer.correct1.value}
-
                 id="correct1"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
 
               <label htmlFor="correct1">jawaban benar</label>
-
             </div>
           </div>
 
@@ -196,16 +190,13 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-
                 checked={correctAnswer.correct2.value}
-
                 id="correct2"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
 
               <label htmlFor="correct2">jawaban benar</label>
-
             </div>
           </div>
 
@@ -215,16 +206,13 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-
                 checked={correctAnswer.correct3.value}
-
                 id="correct3"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
 
               <label htmlFor="correct3">jawaban benar</label>
-
             </div>
           </div>
 
@@ -234,16 +222,13 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-
                 checked={correctAnswer.correct4.value}
-
                 id="correct4"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
 
               <label htmlFor="correct4">jawaban benar</label>
-
             </div>
           </div>
 
@@ -253,16 +238,13 @@ export default function QuestionForm() {
             <div className="flex space-x-3 items-center mt-2">
               <input
                 onChange={handleCorrectAnswer}
-
                 checked={correctAnswer.correct5.value}
-
                 id="correct5"
                 type="checkbox"
                 className="checkbox checkbox-sm rounded-none"
               />
 
               <label htmlFor="correct5">jawaban benar</label>
-
             </div>
           </div>
         </div>

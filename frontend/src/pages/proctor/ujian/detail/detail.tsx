@@ -43,9 +43,21 @@ export default function DetailUjianGuruIndex() {
         </Button>
         {/* </Link> */}
 
-        <div className="flex justify-between mb-[30px]">
-          <SessionCard />
-          <SessionCard />
+        <div className="flex flex-wrap justify-between gap-y-10 mb-[30px]">
+          {detailQuiz?.session == undefined
+            ? ""
+            : detailQuiz?.session?.map((value, index) => {
+                return (
+                  <SessionCard
+                    key={index}
+                    name={value.name!}
+                    timeStart={value.timeStart}
+                    timeEnd={value.timeEnd}
+                    code={value.code!}
+                    index={index}
+                  />
+                );
+              })}
         </div>
       </div>
     </div>
