@@ -1,11 +1,41 @@
 import { ChevronRightIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { useEffect, useRef, useState } from "react";
 import Button from "../../forms/Button";
 
-export default function ModalGabungUjianSukses() {
+type ModalGabungUjianProps = {
+  modal?: boolean;
+  setModal?: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function ModalGabungUjianSukses({
+  modal,
+  setModal,
+}: ModalGabungUjianProps) {
+  // useEffect(() => {
+  //   return () => {
+  //     // setModal(false);
+  //     if (!modal) {
+  //       setModal!(false);
+  //     }
+  //   };
+  // }, []);
+
+  // const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  // const modalController = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   console.log(e.currentTarget.value);
+  //   console.log("ha");
+  //   setModal!(false);
+  //   setIsChecked(!isChecked);
+  // };
+
   return (
     <>
       {/* MODAL CARI UJIAN Sukses */}
+
       <input
+        // ref={modalControllerRef}
+        // defaultChecked={true}
         type="checkbox"
         id="gabung-ujian-sukses"
         className="modal-toggle"

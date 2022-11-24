@@ -7,7 +7,8 @@ import {
   XCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import DashedLine from "../../../assets/dashedline.png";
+// import DashedLine from "../../assets/dashedline.png";
+// import DashedLine from "../../assets/dashedline.png";
 import Button from "../../components/forms/Button";
 
 export default function PreExam() {
@@ -65,7 +66,7 @@ export default function PreExam() {
             {/* ILUSTRATION */}
             <div className="py-4 px-1 bg-[#cb997e] w-10 rounded-[20px] ">
               <ClockIcon className="w-6 h-6 mx-auto" />
-              <img src={DashedLine} className="my-3 mx-auto" alt="" />
+              {/* <img src={DashedLine} className="my-3 mx-auto" alt="" /> */}
               <ClockIcon className="w-6 h-6 mx-auto" />
             </div>
             <div className="flex flex-col justify-between my-1 text-white">

@@ -10,6 +10,7 @@ import DetailUjianGuruIndex from "./pages/proctor/ujian/detail/detail";
 import DetailQuestionsGuru from "./pages/proctor/ujian/detail/questions";
 import DetailSessionsGuru from "./pages/proctor/ujian/detail/session";
 import Session from "./pages/session";
+import PreExam from "./pages/session/pre-exam";
 import JadwalUjianSiswa from "./pages/siswa/ujian/jadwal";
 import SelesaiUjianSiswa from "./pages/siswa/ujian/selesai";
 import Ujian from "./pages/ujian";
@@ -48,7 +49,14 @@ const App = () => {
         path="/q/bank/create"
         element={<ProtectedRoute outlet={<BankSoalBuatPertanyaan />} />}
       />
-      <Route path="/exam/session" element={<Session />} />
+      <Route
+        path="/exam/session"
+        element={<ProtectedRoute outlet={<Session />} />}
+      />
+      <Route
+        path="/exam/session/pre"
+        element={<ProtectedRoute outlet={<PreExam />} />}
+      />
     </Routes>
   );
 };
