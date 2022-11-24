@@ -42,8 +42,13 @@ const useUserActions = () => {
     return false;
   }
 
+  const logout = () => {
+    localStorage.removeItem(key);
+    return location.reload()
+  }
 
-  return { login, checkToken, refresh, getToken }
+
+  return { login, checkToken, refresh, getToken, logout }
 }
 
 export default useUserActions

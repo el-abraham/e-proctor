@@ -1,4 +1,8 @@
-export default function NamaUjian() {
+type NamaUjianProps = {
+  title?: string;
+};
+
+export default function NamaUjian({ title }: NamaUjianProps) {
   return (
     <div className="flex mb-[30px]">
       <img
@@ -10,7 +14,7 @@ export default function NamaUjian() {
           Ujian Anda
         </p>
         <h1 className="font-['Open Sans'] font-bold text-[25px] leading-[150%]">
-          Ulangan Harian 1
+          {title}
         </h1>
       </div>
     </div>

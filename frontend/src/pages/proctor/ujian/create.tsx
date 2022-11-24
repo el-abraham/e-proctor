@@ -1,11 +1,11 @@
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
-import Button from "../../../components/forms/Button";
 import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
 import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import Header from "../questions-bank/header";
+import useQuizActions from "../../../_actions/quiz.actions";
+import Quiz from "../../../_models/quiz";
 
 type FormValues = {
   namaujian: string;
@@ -16,35 +16,33 @@ type FormValues = {
 };
 
 export default function TambahUjian() {
-  const [form, setForm] = useState<FormValues>({
-    namaujian: "",
-    deskripsi: "",
-    grade: "",
-    acak: "",
-    durasi: "",
-  });
+  const quizActions = useQuizActions();
 
-  const [grade, setGrade] = useState<string>();
-  const [acak, setAcak] = useState<string>();
-  const [durasi, setDurasi] = useState<string>();
+  const nameRef = useRef<HTMLInputElement>(null);
+  const descriptionRef = useRef<HTMLTextAreaElement>(null);
+  const durationRef = useRef<HTMLInputElement>(null);
 
-  function onChange(
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
+  const validate = () => {
+    if (!nameRef.current?.value || nameRef.current.value == "") return false;
+    if (!durationRef.current?.value || parseInt(durationRef.current.value) < 5)
+      return false;
+    return true;
+  };
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(form);
+    const quiz = new Quiz({
+      title: nameRef.current!.value,
+      duration: parseInt(durationRef.current!.value),
+      description: descriptionRef.current?.value,
+    });
+    quizActions.addQuiz(quiz);
   }
 
   return (
     <div className="bg-[#EFF0F3] flex min-h-screen text-black">
       {/* SIDEBAR */}
-      <SidebarGuru active={NavbarEnum.DASHBOARD} />
+      <SidebarGuru active={NavbarEnum.UJIANANDA} />
 
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
@@ -77,10 +75,8 @@ export default function TambahUjian() {
                 </span>
               </label>
               <input
+                ref={nameRef}
                 type="text"
-                name="namaujian"
-                value={form.namaujian}
-                onChange={onChange}
                 placeholder="Masukkan nama ujian ...."
                 className="input input-bordered w-[610px]"
               />
@@ -95,84 +91,40 @@ export default function TambahUjian() {
               </label>
               <textarea
                 className="textarea textarea-bordered h-24"
-                onChange={onChange}
-                name="deskripsi"
-                value={form.deskripsi}
+                ref={descriptionRef}
                 placeholder="Masukkan deskripsi ujian ...."
               ></textarea>
             </div>
 
-            <div className="flex justify-between">
-              {/* GRADE */}
-              <div className="dropdown dropdown-end mt-[20px]">
-                <p className="font-semibold text-sm font-['Open Sans'] ml-1 mb-1">
-                  GRADE
-                </p>
-                <select
-                  value={grade}
-                  onChange={onChange}
-                  name="grade"
-                  className="select select-bordered w-full max-w-xs"
-                >
-                  <option disabled selected>
-                    Pilih Grade
-                  </option>
-                  <option>100</option>
-                  <option>50</option>
-                </select>
-              </div>
-
-              {/* ACAK SOAL */}
-              <div className="dropdown dropdown-end mt-[20px]">
-                <p className="font-semibold text-sm font-['Open Sans'] ml-1 mb-1">
-                  ACAK SOAL
-                </p>
-                <select
-                  value={acak}
-                  onChange={onChange}
-                  name="acak"
-                  className="select select-bordered w-full max-w-xs"
-                >
-                  <option disabled selected>
-                    Acak Soal?
-                  </option>
-                  <option>Ya</option>
-                  <option>Tidak</option>
-                </select>
-              </div>
-
-              {/* DURASI PENGERJAAN */}
-              <div className="dropdown dropdown-end mt-[20px]">
-                <p className="font-semibold text-sm font-['Open Sans'] ml-1 mb-1">
-                  DURASI PENGERJAAN
-                </p>
-                <select
-                  value={durasi}
-                  onChange={onChange}
-                  name="durasi"
-                  className="select select-bordered w-full max-w-xs"
-                >
-                  <option disabled selected>
-                    Durasi Pengerjaan
-                  </option>
-                  <option>1 Jam</option>
-                  <option>10 Menit</option>
-                </select>
+            <div className="dropdown dropdown-end mt-[20px]">
+              <p className="font-semibold text-sm font-['Open Sans'] ml-1 mb-1">
+                DURASI PENGERJAAN
+              </p>
+              <div className="form-control">
+                <label className="input-group">
+                  <input
+                    ref={durationRef}
+                    min={5}
+                    type="number"
+                    placeholder="--"
+                    className="input input-bordered"
+                  />
+                  <span>Menit</span>
+                </label>
               </div>
             </div>
 
             <div className="mt-[30px] justify-end flex mb-[30px]">
-              <Link to={"/dashboard"}>
-                <Button className="mr-[30px] bg-neutral">
-                  <p className="text-xs">Batalkan</p>
-                </Button>
-              </Link>
+              <button type="reset" className="btn mr-[30px] bg-neutral text-xs">
+                Batalkan
+              </button>
 
-              {/* <Link to={"/tampilujian"}> */}
-              <Button className="btn btn-primary">
-                <p className="text-xs">Simpan Ujian</p>
-              </Button>
-              {/* </Link> */}
+              <button
+                type="submit"
+                className="btn mr-[30px] btn-primary text-xs"
+              >
+                Simpan
+              </button>
             </div>
           </form>
         </div>

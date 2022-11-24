@@ -1,3 +1,4 @@
+import { useRecoilValue } from "recoil";
 import Button from "../../../../components/forms/Button";
 import Breadcrumbs from "../../../../components/others/Breadcrumbs";
 import NamaUjian from "../../../../components/others/NamaUjian";
@@ -5,10 +6,13 @@ import SessionCard from "../../../../components/others/SessionCard";
 import SidebarGuru, {
   NavbarEnum,
 } from "../../../../components/sidebar/SidebarGuru";
+import { detailQuizState } from "../../../../_state/quiz.state";
 import Header from "../../questions-bank/header";
 import TabsDetailUjianGuru from "./tabs";
 
-export default function DetailUjianGuru() {
+export default function DetailUjianGuruIndex() {
+  const detailQuiz = useRecoilValue(detailQuizState);
+
   return (
     // bg-[#EFF0F3]
     <div className="bg-[#EFF0F3] min-h-screen flex text-black">
@@ -19,19 +23,17 @@ export default function DetailUjianGuru() {
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
         <Breadcrumbs />
-        <NamaUjian />
+        <NamaUjian title={detailQuiz?.title} />
         <TabsDetailUjianGuru />
 
         <div className="text-black font-['Poppins'] mt-[30px] pb-[30px] bg-[#FBFCFC] rounded-[10px]">
           <div className="flex gap-[15px] ml-[20px] mr-[20px] pt-[20px] pb-[9px] border-b border-slate-300">
             <h1 className="font-semibold text-[14px] self-center ml-[20px]">
-              Ulangan Harian 1
+              {detailQuiz?.title}
             </h1>
           </div>
           <p className="font-['Roboto'] text-sm ml-[40px] mt-[20px] mr-[40px] leading-[200%]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-            culpa deserunt libero tempore doloribus omnis quo esse blanditiis,
-            quam corrupti.
+            {detailQuiz?.description}
           </p>
         </div>
 

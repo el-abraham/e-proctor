@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { userState } from "../_state/user.state";
-import DetailUjianGuru from "./proctor/ujian/detail/detail";
+import DetailUjianGuru from "./proctor/ujian/detail";
 import DetailUjianSiswa from "./siswa/ujian/detail";
 
 const DetailUjian = () => {
