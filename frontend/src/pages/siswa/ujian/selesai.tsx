@@ -4,6 +4,7 @@ import {
   ClockIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
+import { useRecoilValue } from "recoil";
 import Button from "../../../components/forms/Button";
 import Input from "../../../components/forms/Input";
 import Notifications from "../../../components/icons/Notifications";
@@ -16,21 +17,10 @@ import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
 import TabsSiswa from "../../../components/tabs/TabsSiswa";
-// import Quiz from "../../../models/quiz";
-// import { getQuiz } from "../../../services/api/quiz.service";
+import { ujianListState } from "../../../_state/ujian.state";
 
 export default function SelesaiUjianSiswa() {
-  // const [ujianSelesai, setUjianSelesai] = useState<Quiz[]>([]);
-
-  // useEffect(() => {
-  //   const testing = async () => {
-  //     const res = await getQuiz();
-  //     console.log(res);
-  //     setUjianSelesai(res ?? []);
-  //   };
-
-  //   testing();
-  // }, []);
+  const ujian = useRecoilValue(ujianListState);
 
   return (
     <div className="bg-[#EFF0F3] flex text-black">
@@ -68,65 +58,68 @@ export default function SelesaiUjianSiswa() {
             </h1>
             <div className="flex rounded-full w-8 h-8 bg-[#FBFCFC]">
               <p className="m-auto font-['Poppins'] font-semibold text-sm">
-                {/* {ujianSelesai.length} */}9
+                {ujian.length}
               </p>
             </div>
           </div>
           {/* MULAI GRID */}
           <div className="grid grid-cols-3 gap-x-4">
-            {/* {ujianSelesai.map((value, index) => {
-            return ( */}
-            <div className="w-[326px] rounded-[10px] bg-[#FBFCFC]">
-              {/* IMAGE */}
-              <img
-                className="h-[140.5px] w-full rounded-t-[10px]"
-                src="https://placeimg.com/192/192/people"
-              />
-              <div className="mx-[30px] mt-[15.5px] pb-[24px] flex justify-between">
-                <div className="flex flex-col">
-                  {/* NAMA UJIAN */}
-                  <div className="flex ">
-                    <p className="font-['Poppins'] font-semibold text-sm ">
-                      {/* {value.title} */} Ujian Linguistik
-                    </p>
-                  </div>
+            {ujian.map((value, index) => {
+              return (
+                <div
+                  className="w-[326px] rounded-[10px] bg-[#FBFCFC]"
+                  key={index}
+                >
+                  {/* IMAGE */}
+                  <img
+                    className="h-[140.5px] w-full rounded-t-[10px]"
+                    src="https://placeimg.com/192/192/people"
+                  />
+                  <div className="mx-[30px] mt-[15.5px] pb-[24px] flex justify-between">
+                    <div className="flex flex-col">
+                      {/* NAMA UJIAN */}
+                      <div className="flex ">
+                        <p className="font-['Poppins'] font-semibold text-sm ">
+                          {value.quiz_name}
+                        </p>
+                      </div>
 
-                  {/* AVATAR */}
-                  <div className="avatar flex  mt-[10px]">
-                    <div className="w-[30px] h-[30px] rounded-full">
-                      <img src="https://placeimg.com/192/192/people" />
+                      {/* AVATAR */}
+                      <div className="avatar flex  mt-[10px]">
+                        <div className="w-[30px] h-[30px] rounded-full">
+                          <img src="https://placeimg.com/192/192/people" />
+                        </div>
+                        <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
+                          Alena Workman
+                        </p>
+                      </div>
+
+                      {/* TIME */}
+                      <div className="flex items-center mt-[30px]">
+                        <ClockIcon className="w-[30px] h-[30px] text-black" />
+                        <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
+                      </div>
+
+                      {/* TANGGAL */}
+                      <div className="flex items-center mt-[10px]">
+                        <CalendarDaysIcon className="w-[30px] h-[30px] text-black" />
+                        <p className="text-[12px] ml-[15px]">30/09/2022</p>
+                      </div>
                     </div>
-                    <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
-                      Alena Workman
-                    </p>
-                  </div>
-
-                  {/* TIME */}
-                  <div className="flex items-center mt-[30px]">
-                    <ClockIcon className="w-[30px] h-[30px] text-black" />
-                    <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
-                  </div>
-
-                  {/* TANGGAL */}
-                  <div className="flex items-center mt-[10px]">
-                    <CalendarDaysIcon className="w-[30px] h-[30px] text-black" />
-                    <p className="text-[12px] ml-[15px]">30/09/2022</p>
+                    <div className="flex flex-col">
+                      <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+                        <p>20</p>
+                        <p>Soal</p>
+                      </div>
+                      <Button className="mt-10">
+                        <p className="my-auto text-xs">Summary</p>
+                        <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col">
-                  <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
-                    <p>20</p>
-                    <p>Soal</p>
-                  </div>
-                  <Button className="mt-10">
-                    <p className="my-auto text-xs">Summary</p>
-                    <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-            {/* );
-            })} */}
+              );
+            })}
           </div>
         </div>
       </div>

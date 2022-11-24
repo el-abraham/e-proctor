@@ -6,12 +6,18 @@ import {
   PlayIcon,
   XCircleIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
-// import DashedLine from "../../assets/dashedline.png";
-// import DashedLine from "../../assets/dashedline.png";
+
+import { Link, useNavigate } from "react-router-dom";
+// import DashedLine from "../../../assets/dashedline.png";
+
 import Button from "../../components/forms/Button";
 
 export default function PreExam() {
+  const navigate = useNavigate();
+  const StartUjian = () => {
+    navigate("/exam/session/");
+  };
+
   return (
     // bg-[#272343]
     // bg-[#EFF0F3]
@@ -146,7 +152,10 @@ export default function PreExam() {
           {/* BUTTON MULAI UJIAN */}
           <Button className="w-full mt-[140px]">
             <PlayIcon className="w-6 h-6 mr-4" />
-            <p className="font-['Open Sans'] font-semibold text-sm">
+            <p
+              className="font-['Open Sans'] font-semibold text-sm"
+              onClick={StartUjian}
+            >
               Mulai Ujian
             </p>
           </Button>

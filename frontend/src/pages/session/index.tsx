@@ -195,8 +195,8 @@ export default function Session() {
           </div>
           <div className="w-[310px]">
             <div>
-              <span className="font-mono text-2xl">
-                <CountDownTimer hours={0} minutes={120} seconds={3} />
+              <span className="font-mono text-2xl text-center">
+                <CountDownTimer hours={1} minutes={0} seconds={3} />
               </span>
             </div>
             <div className="mt-5 mb-5 pb-3 card w-full bg-white rounded-md shadow-md">

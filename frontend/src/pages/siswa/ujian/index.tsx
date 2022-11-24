@@ -3,7 +3,6 @@ import {
   ClockIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import Button from "../../../components/forms/Button";
@@ -18,8 +17,6 @@ import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
 import TabsSiswa from "../../../components/tabs/TabsSiswa";
-import useUjianActions from "../../../_actions/ujian.actions";
-import { QuizInstanceRes } from "../../../_api/quiz";
 import { ujianListState } from "../../../_state/ujian.state";
 
 export default function UjianSiswa() {
@@ -66,7 +63,9 @@ export default function UjianSiswa() {
               Hari ini
             </h1>
             <div className="flex rounded-full w-8 h-8 bg-[#FBFCFC]">
-              <p className="m-auto font-['Poppins'] font-semibold text-sm">2</p>
+              <p className="m-auto font-['Poppins'] font-semibold text-sm">
+                {ujian.length}
+              </p>
             </div>
           </div>
           {/* MULAI GRID */}
