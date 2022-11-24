@@ -1,8 +1,9 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { createCategory, createQuestion, getCategory } from "../_api/question";
+import { createCategory, createQuestion, getCategory, getQuestions } from "../_api/question";
 import Question from "../_models/question";
 import QuestionCategory from "../_models/question-category";
 import { listCategoryState } from "../_state/category.state";
+import { listQuestionState } from "../_state/question.state";
 import useUserActions from "./user.actions";
 
 
@@ -10,6 +11,7 @@ import useUserActions from "./user.actions";
 const useQuestionActions = () => {
   const userActions = useUserActions();
   const setListCategory = useSetRecoilState(listCategoryState)
+  const setListQuestion = useSetRecoilState(listQuestionState);
 
 
   const categories = async () => {
@@ -29,8 +31,13 @@ const useQuestionActions = () => {
     console.log(res)
   }
 
+  const questions = async () => {
+    const res = await getQuestions(userActions.getToken()!)
+    setListQuestion(res ?? [])
+  }
 
-  return { categories, addCategory, addQuestion }
+
+  return { categories, addCategory, addQuestion, questions }
 
 }
 

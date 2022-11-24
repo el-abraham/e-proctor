@@ -3,49 +3,67 @@ import {
   PlusCircleIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRecoilValue } from "recoil";
 import Button from "../../../../components/forms/Button";
 import Breadcrumbs from "../../../../components/others/Breadcrumbs";
 import NamaUjian from "../../../../components/others/NamaUjian";
 import SidebarGuru, {
   NavbarEnum,
 } from "../../../../components/sidebar/SidebarGuru";
+import useQuizActions from "../../../../_actions/quiz.actions";
+import QuizSession from "../../../../_models/quiz-session";
+import { detailQuizState } from "../../../../_state/quiz.state";
 import Header from "../../questions-bank/header";
 import TabsDetailUjianGuru from "./tabs";
 
-type FormValues = {
-  namasession: string;
-  dibuka: string;
-  ditutup: string;
-};
-
 export default function DetailSessionsGuru() {
-  const [session, setSession] = useState<FormValues>({
-    namasession: "",
-    dibuka: "",
-    ditutup: "",
-  });
+  const detailQuiz = useRecoilValue(detailQuizState);
 
-  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setSession({ ...session, [e.target.name]: e.target.value });
-  }
+  const quizActions = useQuizActions();
+  const nameRef = useRef<HTMLInputElement>(null);
+  const timeEndRef = useRef<HTMLInputElement>(null);
+  const timeStartRef = useRef<HTMLInputElement>(null);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const validate = () => {
+    if (!nameRef.current?.value || nameRef.current.value == "") return false;
+    if (!timeStartRef.current?.value || nameRef.current.value == "")
+      return false;
+    if (!timeEndRef.current?.value || nameRef.current.value == "") return false;
+    return true;
+  };
+
+  const convertUnixDate = (date: string) => {
+    const dateObject = new Date(date);
+    return Math.ceil(dateObject.getTime() / 1000);
+  };
+
+  const convertDate = (unixTime: number) => {
+    const date = new Date(unixTime * 1000);
+    return date;
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(session);
-  }
+    if (validate()) {
+      const session = new QuizSession({
+        name: nameRef.current!.value,
+        timeStart: convertUnixDate(timeStartRef.current!.value),
+        timeEnd: convertUnixDate(timeEndRef.current!.value),
+        quiz: detailQuiz,
+      });
 
-  // const handleSession = () => {
-  //     setSession({
-  //         nomor: 1,
-  //         namasession: "Session -N",
-  //         dibuka: "Dibuka",
-  //         ditutup: "Ditutup",
-  //         status: "Belum Selesai",
-  //         kodeujian: "AAAA",
-  //         aksi: "TrashIcon",
-  //     })
-  // }
+      quizActions.addSession(session);
+    }
+  };
+
+  useEffect(() => {
+    if (detailQuiz != undefined) {
+      if (detailQuiz.session == undefined) {
+        quizActions.sessions(detailQuiz);
+      }
+    }
+  }, [detailQuiz]);
 
   return (
     <div className="bg-[#EFF0F3] min-h-screen flex text-black">
@@ -66,9 +84,7 @@ export default function DetailSessionsGuru() {
                   <p className="self-center">Nama Session</p>
                   <input
                     type="text"
-                    name="namasession"
-                    value={session.namasession}
-                    onChange={onChange}
+                    ref={nameRef}
                     placeholder="Masukkan nama session ..."
                     className="input input-bordered w-[300px]"
                   />
@@ -77,10 +93,7 @@ export default function DetailSessionsGuru() {
                   <p className="self-center">Ujian Dibuka</p>
                   <input
                     type="datetime-local"
-                    name="dibuka"
-                    value={session.dibuka}
-                    onChange={onChange}
-                    id=""
+                    ref={timeStartRef}
                     className="input input-bordered w-[300px]"
                   />
                 </div>
@@ -88,10 +101,7 @@ export default function DetailSessionsGuru() {
                   <p className="self-center">Ujian Ditutup</p>
                   <input
                     type="datetime-local"
-                    name="ditutup"
-                    value={session.ditutup}
-                    onChange={onChange}
-                    id=""
+                    ref={timeEndRef}
                     className="input input-bordered w-[300px]"
                   />
                 </div>
@@ -135,7 +145,7 @@ export default function DetailSessionsGuru() {
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
         <Breadcrumbs />
-        <NamaUjian />
+        <NamaUjian title={detailQuiz?.title} />
         <TabsDetailUjianGuru />
 
         <div className="mb-[30px] mt-[30px]">
@@ -170,14 +180,7 @@ export default function DetailSessionsGuru() {
           <table className="table table-zebra w-full">
             <thead>
               <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>Nomor</td>
+                <td>No</td>
                 <th>Nama Session</th>
                 <th>Ujian Dibuka</th>
                 <th>Ujian Ditutup</th>
@@ -188,68 +191,26 @@ export default function DetailSessionsGuru() {
             </thead>
 
             <tbody className="text-sm">
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>1</td>
-                <td>Session 1</td>
-                <td>30 Sept 2022, 10:45</td>
-                <td>30 Sept 2022, 10:45</td>
-                <td>Selesai</td>
-                <td>fas789sd</td>
-                <td className="flex gap-[15px]">
-                  <label htmlFor="trash-icon">
-                    <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
-                  </label>
-                </td>
-              </tr>
+              {detailQuiz?.session?.map((value, index) => {
+                const dateTimeStart = convertDate(value.timeStart);
+                const dateTimeEnd = convertDate(value.timeEnd);
 
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>2</td>
-                <td>Session 2</td>
-                <td>30 Sept 2022, 10:45</td>
-                <td>30 Sept 2022, 10:45</td>
-                <td>Selesai</td>
-                <td>fas789sd</td>
-                <td className="flex gap-[15px]">
-                  <label htmlFor="trash-icon">
-                    <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
-                  </label>
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>3</td>
-                <td>Session 3</td>
-                <td>30 Sept 2022, 10:45</td>
-                <td>30 Sept 2022, 10:45</td>
-                <td>Selesai</td>
-                <td>fas789sd</td>
-                <td className="flex gap-[15px]">
-                  <label htmlFor="trash-icon">
-                    <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
-                  </label>
-                </td>
-              </tr>
+                return (
+                  <tr key={index}>
+                    <td>{++index}</td>
+                    <td>{value.name}</td>
+                    <td>{`${dateTimeStart.toLocaleDateString()} ${dateTimeStart.toLocaleTimeString()}`}</td>
+                    <td>{`${dateTimeEnd.toLocaleDateString()} ${dateTimeEnd.toLocaleTimeString()}`}</td>
+                    <td>-</td>
+                    <td>{value.code}</td>
+                    <td className="flex gap-[15px]">
+                      <label htmlFor="trash-icon">
+                        <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
+                      </label>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

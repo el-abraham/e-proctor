@@ -3,16 +3,25 @@ import {
   PlusCircleIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import Breadcrumbs from "../../../../components/others/Breadcrumbs";
 import NamaUjian from "../../../../components/others/NamaUjian";
 import SidebarGuru, {
   NavbarEnum,
 } from "../../../../components/sidebar/SidebarGuru";
+import { detailQuizState } from "../../../../_state/quiz.state";
 import Header from "../../questions-bank/header";
 import TabsDetailUjianGuru from "./tabs";
 
 export default function DetailQuestionsGuru() {
+  const detailQuiz = useRecoilValue(detailQuizState);
+
+  useEffect(() => {
+    console.log(detailQuiz);
+  }, []);
+
   return (
     <div className="bg-[#EFF0F3] min-h-screen flex text-black">
       <input type="checkbox" id="trash-icon" className="modal-toggle" />
@@ -45,7 +54,7 @@ export default function DetailQuestionsGuru() {
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
         <Breadcrumbs />
-        <NamaUjian />
+        <NamaUjian title={detailQuiz?.title} />
         <TabsDetailUjianGuru />
 
         <p className="font-['Open Sans'] font-semibold text-sm my-[30px]">
@@ -76,89 +85,38 @@ export default function DetailQuestionsGuru() {
           </ul>
         </div>
 
-        <div className="overflow-x-auto font-['Roboto'] my-[30px]">
-          <table className="table table-zebra w-full">
-            <thead>
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>Nomor</td>
-                <th>Soal</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
+        {detailQuiz?.questions?.length ? (
+          <div className="overflow-x-auto font-['Roboto'] my-[30px]">
+            <table className="table table-zebra w-full">
+              <thead>
+                <tr>
+                  <td>Nomor</td>
+                  <th>Soal</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
 
-            <tbody className="text-sm">
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>1</td>
-                <td>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                  consequuntur?
-                </td>
-                <td className="flex gap-[15px]">
-                  <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
-                  <label htmlFor="trash-icon">
-                    <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
-                  </label>
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>2</td>
-                <td>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                  consequuntur?
-                </td>
-                <td className="flex gap-[15px]">
-                  <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
-                  <label htmlFor="trash-icon">
-                    <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
-                  </label>
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked
-                    className="checkbox checkbox-xs"
-                  />
-                </th>
-                <td>3</td>
-                <td>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                  consequuntur?
-                </td>
-                <td className="flex gap-[15px]">
-                  <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
-                  <label htmlFor="trash-icon">
-                    <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
-                  </label>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+              <tbody className="text-sm">
+                {detailQuiz?.questions?.map((value, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{++index}</td>
+                      <td>{value.name}</td>
+                      <td className="flex gap-[15px]">
+                        <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                        <label htmlFor="trash-icon">
+                          <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
+                        </label>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );

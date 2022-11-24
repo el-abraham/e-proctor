@@ -10,8 +10,21 @@ import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import Header from "./header";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import TabsBankSoal from "./tabs";
+import { useRecoilValue } from "recoil";
+import { listQuestionState } from "../../../_state/question.state";
+import { useEffect } from "react";
+import useQuestionActions from "../../../_actions/question.actions";
 
 export default function Question() {
+  const listQuestion = useRecoilValue(listQuestionState);
+  const questionActions = useQuestionActions();
+
+  useEffect(() => {
+    if (listQuestion == undefined) {
+      questionActions.questions();
+    }
+  }, []);
+
   return (
     <div className="bg-[#EFF0F3] flex text-black">
       <input type="checkbox" id="trash-icon" className="modal-toggle" />
@@ -65,7 +78,23 @@ export default function Question() {
             </thead>
 
             <tbody className="text-sm">
-              <tr>
+              {listQuestion?.map((value, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{++index}</td>
+                    <td>{value.name}</td>
+                    <td>Kategori A</td>
+                    <td>Draft</td>
+                    <td className="flex gap-[15px]">
+                      <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />
+                      <label htmlFor="trash-icon">
+                        <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
+                      </label>
+                    </td>
+                  </tr>
+                );
+              })}
+              {/* <tr>
                 <td>1</td>
                 <td>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -79,7 +108,7 @@ export default function Question() {
                     <TrashIcon className="w-[24px] h-[24px] self-center text-red-500" />
                   </label>
                 </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>

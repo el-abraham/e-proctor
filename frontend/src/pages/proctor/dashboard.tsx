@@ -22,7 +22,6 @@ export default function DashboardGuru() {
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <div className="flex gap-[30px] mt-6 justify-end">
-
           {/* <Link to={"/guru-tambahujian"}>
             <Button className="flex btn-sm rounded-md btn btn-outline hover:text-white text-black">
               <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
@@ -37,7 +36,7 @@ export default function DashboardGuru() {
           </Link> */}
 
           {/* TEST BEN BUTTON TAMBAH UJIAN */}
-          <Link to={"/guru-tambahujian"}>
+          <Link to={"/ujian/create"}>
             <Button className="btn-primary">
               <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
               <p className="my-auto text-xs">Buat Ujian</p>
@@ -52,13 +51,13 @@ export default function DashboardGuru() {
 
           {/* TEST BEN INPUT CARI DATA */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
-              <label htmlFor="cari-ujian-sukses">
-                  <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-60"/>
-                  <Input
-                  className=" pl-4 pr-[50px] rounded-[20PX] w-[280px] h-11 text-[14px]"
-                  placeholder="Cari Ujian ...."
-                  />
-              </label>
+            <label htmlFor="cari-ujian-sukses">
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-60" />
+              <Input
+                className=" pl-4 pr-[50px] rounded-[20PX] w-[280px] h-11 text-[14px]"
+                placeholder="Cari Ujian ...."
+              />
+            </label>
           </div>
 
           <Notifications />

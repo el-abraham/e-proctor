@@ -1,50 +1,51 @@
 import { useEffect, useState } from "react";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { NavLink, useLocation, useSearchParams } from "react-router-dom";
 
 export default function TabsDetailUjianGuru() {
   const [searchParams] = useSearchParams();
   const [active, setActive] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
-    if (searchParams.get("tab") == "ujian") {
-      setActive("ujian");
+    if (searchParams.get("tab")) {
+      setActive(searchParams.get("tab")!);
     }
-
     return () => {
       setActive("");
     };
   }, []);
+
   return (
     <div className="tabs">
       <NavLink
-        to={"/ujian/detail/ujian"}
+        to={`/ujian/detail?q=${searchParams.get("q")}&tab=ujian`}
         className={
           ["", "ujian"].includes(active)
             ? "tab tab-bordered tab-active"
             : "tab tab-bordered"
         }
       >
-        <a>Ujian</a>
+        <div>Ujian</div>
       </NavLink>
       <NavLink
-        to={"/ujian/detail/questions"}
+        to={`/ujian/detail?q=${searchParams.get("q")}&tab=questions`}
         className={
-          ["", "questions"].includes(active)
+          active == "questions"
             ? "tab tab-bordered tab-active"
             : "tab tab-bordered"
         }
       >
-        <a>Questions</a>
+        <div>Questions</div>
       </NavLink>
       <NavLink
-        to={"/ujian/detail/session"}
+        to={`/ujian/detail?q=${searchParams.get("q")}&tab=session`}
         className={
-          ["", "session"].includes(active)
+          active == "session"
             ? "tab tab-bordered tab-active"
             : "tab tab-bordered"
         }
       >
-        <a>Session</a>
+        <div>Session</div>
       </NavLink>
     </div>
   );

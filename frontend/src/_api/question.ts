@@ -61,4 +61,25 @@ const createQuestion = async (token: string, dataQuestion: Question) => {
   }
 }
 
-export { getCategory, createCategory, createQuestion }
+
+const getQuestions = async (token: string) => {
+  try {
+    const { data } = await api.get("/question", {
+      headers: {
+        "x-access-tokens": token
+      }
+    })
+    const response: IResponse<QuestionDTO[]> = data;
+
+    const questions = response.data.map(value => QuestionFactory(value));
+    return questions;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error.response)
+    }
+  }
+
+}
+
+
+export { getCategory, createCategory, createQuestion, getQuestions }
