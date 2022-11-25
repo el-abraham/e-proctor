@@ -3,7 +3,7 @@ import {
   PlusCircleIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import Button from "../../../../components/forms/Button";
@@ -12,15 +12,22 @@ import NamaUjian from "../../../../components/others/NamaUjian";
 import SidebarGuru, {
   NavbarEnum,
 } from "../../../../components/sidebar/SidebarGuru";
+import useQuestionActions from "../../../../_actions/question.actions";
+import { listCategoryState } from "../../../../_state/category.state";
 import { detailQuizState } from "../../../../_state/quiz.state";
 import Header from "../../questions-bank/header";
 import TabsDetailUjianGuru from "./tabs";
 
 export default function DetailQuestionsGuru() {
   const detailQuiz = useRecoilValue(detailQuizState);
+  const categoryRef = useRef<HTMLSelectElement>(null);
+  const listCategory = useRecoilValue(listCategoryState);
+  const questionActions = useQuestionActions();
 
   useEffect(() => {
-    console.log(detailQuiz);
+    if (listCategory == undefined) {
+      questionActions.categories();
+    }
   }, []);
 
   return (
@@ -61,14 +68,19 @@ export default function DetailQuestionsGuru() {
           <h3 className="font-bold text-lg">Tambah Question dari Bank Soal</h3>
           <div className="block">
             {/* SELECT TAG */}
-            <div className=" flex w-full mt-5 justify-between">
-              <p className="self-center mr-8">Pilih Kategori</p>
-              <select className="select select-bordered w-10/12 max-w-5xl">
-                <option disabled selected>
-                  Pilih Kategori
-                </option>
-                <option>Kategori A</option>
-                <option>Kategori B</option>
+            <div className="dropdown flex w-full mt-5 items-center">
+              <p className="font-semibold self-center mr-8">Pilih Kategori</p>
+              <select
+                ref={categoryRef}
+                className="select select-sm rounded select-bordered flex-1 h-auto"
+              >
+                {listCategory?.map((value, index) => {
+                  return (
+                    <option key={index} value={value.id}>
+                      {value.name}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             {/* TABLE */}
