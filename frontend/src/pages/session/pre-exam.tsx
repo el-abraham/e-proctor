@@ -6,24 +6,52 @@ import {
   PlayIcon,
   XCircleIcon,
 } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 // import DashedLine from "../../../assets/dashedline.png";
 
 import Button from "../../components/forms/Button";
 
 export default function PreExam() {
+  const [searchParams] = useSearchParams();
+  const [ujianNow, setUjianNow] = useState();
+
   const navigate = useNavigate();
   const StartUjian = () => {
     navigate("/exam/session/");
   };
+
+  useEffect(() => {
+    if (ujianNow == undefined) {
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   const id = searchParams.get("p");
+  //   if (ujianList && ujianList.length > 0) {
+  //     ujianList.forEach((value) => {
+  //       if (value.id == parseInt(id!)) {
+  //         setDetailUjian(value);
+  //         return;
+  //       }
+  //     });
+  //   }
+  //   return () => {
+  //     setDetailUjian(undefined);
+  //   };
+  // }, [ujianList]);
+
+  if (searchParams.get("p") == null) {
+    return <Navigate to={{ pathname: "/ujian" }} />;
+  }
 
   return (
     // bg-[#272343]
     // bg-[#EFF0F3]
     <div className="bg-[#041C32] min-h-screen py-[30px] px-[50px] text-black">
       {/* ICON */}
-      <Link to={"/siswa-dashboard"}>
+      <Link to={"/"}>
         <XCircleIcon className="w-9 h-9 text-white" />
       </Link>
 

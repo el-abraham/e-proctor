@@ -1,7 +1,7 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { createCategory, createQuestion, getCategory, getQuestions } from "../_api/question";
-import Question from "../_models/question";
-import QuestionCategory from "../_models/question-category";
+import { createCategory, createQuestion, getCategory, getQuestions, GetQuestionsTypes } from "../_api/question";
+import Question from "../_models/question.model";
+import QuestionCategory from "../_models/question-category.model";
 import { listCategoryState } from "../_state/category.state";
 import { listQuestionState } from "../_state/question.state";
 import useUserActions from "./user.actions";

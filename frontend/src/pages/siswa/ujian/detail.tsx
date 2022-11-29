@@ -24,9 +24,10 @@ const DetailUjianSiswa = () => {
   const ujianList = useRecoilValue(ujianListState);
   const [detailUjian, setDetailUjian] = useRecoilState(detailUjianState);
   const [loading, setLoading] = useState(true);
+  const ujianActions = useUjianActions();
 
   const PreExam = () => {
-    navigate("/exam/session/finish/preexam");
+    navigate(`/exam/session/pre?p=${detailUjian!.id}`);
   };
 
   // useEffect(() => {}, []);
@@ -37,7 +38,7 @@ const DetailUjianSiswa = () => {
 
   useEffect(() => {
     const id = searchParams.get("p");
-    if (ujianList.length > 0) {
+    if (ujianList && ujianList.length > 0) {
       ujianList.forEach((value) => {
         if (value.id == parseInt(id!)) {
           setDetailUjian(value);
@@ -45,15 +46,20 @@ const DetailUjianSiswa = () => {
         }
       });
     }
-
     return () => {
       setDetailUjian(undefined);
     };
+  }, [ujianList]);
+
+  useEffect(() => {
+    if (ujianList == undefined) {
+      ujianActions.list();
+    }
   }, []);
 
   useEffect(() => {
     if (detailUjian) {
-      console.log(detailUjian, "aa");
+      // console.log(detailUjian, "aa");
       setLoading(false);
     }
   }, [detailUjian]);

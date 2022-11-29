@@ -21,23 +21,34 @@ import SidebarSiswa, {
 export default function DashboardSiswa() {
   const gabungRef = useRef<HTMLInputElement>();
   const [modalGabung, setModalGabung] = useState<boolean>(false);
+  const codeRef = useRef<HTMLInputElement>(null);
 
   const modalHandler = () => {
-    setModalGabung(true);
-    console.log("oit");
+    if (codeRef.current?.value && codeRef.current.value != "") {
+      setModalGabung(true);
+    }
+  };
+
+  const resetInputGabung = () => {
+    codeRef.current!.value = "";
   };
 
   return (
     <div className="App bg-[#EFF0F3] flex pb-[30px]">
       {/* JIKA GAGAL */}
       <ModalCariUjianGagal />
-      <ModalGabungUjianGagal />
+      {/* <ModalGabungUjianGagal /> */}
 
       {/* JIKA SUKSES */}
       <ModalCariUjianSukses />
       {modalGabung ? (
-      <ModalGabungUjianSukses setModal={setModalGabung} modal={modalGabung} />
-        ) : (
+        <ModalGabungUjianSukses
+          code={codeRef.current!.value}
+          setModal={setModalGabung}
+          modal={modalGabung}
+          reset={resetInputGabung}
+        />
+      ) : (
         <div></div>
       )}
 
@@ -46,13 +57,15 @@ export default function DashboardSiswa() {
         <div className="flex gap-[30px] mt-6 justify-end">
           {/* GABUNG UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
-            <label htmlFor="gabung-ujian-sukses">
+            {/* <label htmlFor="gabung-ujian-sukses"> */}
+            <label>
               <PlusCircleIcon
                 onClick={modalHandler}
                 className="w-[25px] h-[25px] flex absolute mt-[19px] ml-[245px]"
               />
 
               <Input
+                ref={codeRef}
                 className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
                 placeholder="Gabung Ujian"
               />

@@ -39,6 +39,7 @@ const useUserActions = () => {
       setUserLogged(res!.user)
       return true;
     }
+    logout()
     return false;
   }
 

@@ -1,8 +1,11 @@
-export function Input(props: any) {
+import React from "react";
+
+const Input = React.forwardRef((props: any, ref) => {
   const { className = "bg-[#FBFCFC]", children, text, type = "text" } = props;
   return (
     <div>
       <input
+        ref={ref}
         {...props}
         type={type}
         className={`first-letter:${className}
@@ -12,6 +15,6 @@ export function Input(props: any) {
       {text || children}
     </div>
   );
-}
+});
 
 export default Input;

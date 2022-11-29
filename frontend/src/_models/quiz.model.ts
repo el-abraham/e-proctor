@@ -1,5 +1,6 @@
-import Question, { QuestionDTO, QuestionFactory } from "./question";
-import QuizSession, { QuizSessionDTO, QuizSessionFactory } from "./quiz-session";
+import Question, { QuestionDTO, QuestionFactory } from "./question.model";
+import QuizSession, { QuizSessionDTO, QuizSessionFactory } from "./quiz-session.model";
+import User, { UserDTO, UserFactory } from "./user.model";
 
 type QuizProps = {
   id?: number | undefined;
@@ -9,6 +10,7 @@ type QuizProps = {
   duration: number;
   questions?: Question[] | undefined;
   session?: QuizSession[] | undefined;
+  user?: User | undefined;
 };
 
 export interface QuizDTO {
@@ -17,7 +19,7 @@ export interface QuizDTO {
   image?: string | undefined;
   duration: number;
   description?: string | undefined;
-  user: number;
+  user: UserDTO;
   questions?: QuestionDTO[];
   sessions?: QuizSessionDTO[];
 }
@@ -30,6 +32,7 @@ export default class Quiz {
   duration: number;
   questions?: Question[] | undefined;
   session?: QuizSession[] | undefined;
+  user?: User | undefined;
 
   constructor(data: QuizProps) {
     if (data.id) this.id = data.id;
@@ -39,6 +42,7 @@ export default class Quiz {
     if (data.description) this.description = data.description;
     if (data.questions) this.questions = data.questions;
     if (data.session) this.session = data.session;
+    if (data.user) this.user = data.user;
   }
 
   convertToDTO() {
@@ -50,7 +54,7 @@ export default class Quiz {
   }
 }
 
-export const QuizFactory = (data: QuizDTO) => {
+export const QuizFactory = (data: QuizDTO): Quiz => {
   return new Quiz({
     id: data.id,
     title: data.name,
@@ -59,6 +63,7 @@ export const QuizFactory = (data: QuizDTO) => {
     duration: data.duration,
     questions: data.questions?.map(value => QuestionFactory(value)),
     session: data.sessions?.map(value => QuizSessionFactory(value)),
+    user: UserFactory(data.user)
   });
 };
 

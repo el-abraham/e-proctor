@@ -8,8 +8,8 @@ import useQuestionActions from "../../_actions/question.actions";
 
 import Input from "./Input";
 
-import QuestionAnswer from "../../_models/question-answer";
-import Question from "../../_models/question";
+import QuestionAnswer from "../../_models/question-answer.model";
+import Question from "../../_models/question.model";
 
 type AnswerProps = {
   correct1: {

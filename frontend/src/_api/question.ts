@@ -1,6 +1,6 @@
 import axios from "axios";
-import Question, { QuestionDTO, QuestionFactory } from "../_models/question";
-import QuestionCategory, { QuestionCategoryDTO, QuestionCategoryFactory } from "../_models/question-category"
+import Question, { QuestionDTO, QuestionFactory } from "../_models/question.model";
+import QuestionCategory, { QuestionCategoryDTO, QuestionCategoryFactory } from "../_models/question-category.model"
 import { api, IResponse } from "./config"
 
 
@@ -61,10 +61,13 @@ const createQuestion = async (token: string, dataQuestion: Question) => {
   }
 }
 
+export type GetQuestionsTypes = {
+  category: number
+}
 
-const getQuestions = async (token: string) => {
+const getQuestions = async (token: string, options?: GetQuestionsTypes) => {
   try {
-    const { data } = await api.get("/question", {
+    const { data } = await api.get(`/question${options ? "?category=" + options.category : ""}`, {
       headers: {
         "x-access-tokens": token
       }

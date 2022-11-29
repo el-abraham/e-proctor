@@ -1,5 +1,5 @@
-import QuestionAnswer, { QuestionAnswerDTO, QuestionAnswerFactory } from "./question-answer";
-import QuestionCategory, { QuestionCategoryDTO, QuestionCategoryFactory } from "./question-category";
+import QuestionAnswer, { QuestionAnswerDTO, QuestionAnswerFactory } from "./question-answer.model";
+import QuestionCategory, { QuestionCategoryDTO, QuestionCategoryFactory } from "./question-category.model";
 
 type QuestionProps = {
   id?: number | undefined,

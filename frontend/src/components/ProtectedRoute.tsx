@@ -31,9 +31,8 @@ export const ProtectedRoute = ({ outlet, ...props }: ProtectedRouteProps) => {
             setState((prev) => (prev = UserInfoStateEnum.LOADED));
             return;
           }
-        } else {
-          setState((prev) => (prev = UserInfoStateEnum.UNDEFINED));
         }
+        setState((prev) => (prev = UserInfoStateEnum.UNDEFINED));
       }
     };
     load();

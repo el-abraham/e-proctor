@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { createQuiz, createSession, getQuiz, getSession } from "../_api/quiz";
-import Quiz from "../_models/quiz";
-import QuizSession from "../_models/quiz-session";
+import { createQuiz, createSession, getQuiz, getSession, instanceQuestion } from "../_api/quiz";
+import Quiz from "../_models/quiz.model";
+import QuizSession from "../_models/quiz-session.model";
 import { detailQuizState, listQuizState } from "../_state/quiz.state";
 import useUserActions from "./user.actions";
+import QuestionCategory from "../_models/question-category.model";
+import { getQuestions, GetQuestionsTypes } from "../_api/question";
+import Question from "../_models/question.model";
 
 
 
@@ -52,7 +55,24 @@ const useQuizActions = () => {
     }
   }
 
-  return { addQuiz, quiz, addSession, sessions }
+  const questions = async (options?: GetQuestionsTypes) => {
+    const res = await getQuestions(userActions.getToken()!, options)
+    return res;
+  }
+
+  const addQuestions = async (curentQuiz: Quiz, questions: Question[]) => {
+    const res = await instanceQuestion(userActions.getToken()!, curentQuiz, questions)
+
+    if (res) {
+      setDetailQuiz(res)
+      quiz()
+      return true
+    }
+    return false
+  }
+
+
+  return { addQuiz, quiz, addSession, sessions, questions, addQuestions }
 }
 
 

@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import Quiz from "../_models/quiz";
+import Quiz from "../_models/quiz.model";
 
 
 const listQuizState = atom<Quiz[] | undefined>({

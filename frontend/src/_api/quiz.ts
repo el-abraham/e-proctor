@@ -1,7 +1,9 @@
 import axios from "axios"
-import Quiz, { QuizDTO, QuizFactory } from "../_models/quiz"
-import QuizSession, { QuizSessionDTO, QuizSessionFactory } from "../_models/quiz-session"
+import Quiz, { QuizDTO, QuizFactory } from "../_models/quiz.model"
+import QuizSession, { QuizSessionDTO, QuizSessionFactory } from "../_models/quiz-session.model"
 import { api, IResponse } from "./config"
+import { QuizInstanceDTO, QuizInstanceFactory } from "../_models/quiz-instance.model"
+import Question from "../_models/question.model"
 
 type QuizInstanceRes = {
   id: number,
@@ -18,9 +20,13 @@ type QuizInstanceRes = {
   }
 }
 
-const getQuizInstance = async (token: string) => {
+type GetQuizInstanceOptions = {
+  sessionId?: number
+}
+
+const getQuizInstance = async (token: string, options?: GetQuizInstanceOptions) => {
   try {
-    const { data } = await api.get("/quiz/instance", {
+    const { data } = await api.get(`/quiz/instance${options?.sessionId ? '?session_id=' + options.sessionId : ""}`, {
       headers: {
         "x-access-tokens": token
       }
@@ -33,6 +39,48 @@ const getQuizInstance = async (token: string) => {
   } catch (error) {
 
     console.log(error)
+  }
+}
+
+const getUjianByCode = async (token: string, code: string, signal: AbortSignal) => {
+  try {
+    const { data } = await api.get(`/quiz/search?code=${code}`, {
+      headers: {
+        "x-access-tokens": token
+      },
+      signal: signal
+    })
+    const response: IResponse<QuizSessionDTO> = data;
+    const quizSession = QuizSessionFactory(response.data);
+    return quizSession;
+
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      if (error.code != "ERR_CANCELED") {
+        console.log(error.response)
+      }
+    }
+  }
+
+}
+
+const subscribeUjian = async (token: string, code: string) => {
+  try {
+    const { data } = await api.post("/quiz/subscribe", {
+      code
+    }, {
+      headers: {
+        "x-access-tokens": token
+      }
+    })
+    const response: IResponse<QuizInstanceDTO> = data;
+    const quiz = QuizInstanceFactory(response.data);
+
+    return quiz;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error.response)
+    }
   }
 }
 
@@ -112,8 +160,30 @@ const getSession = async (token: string, quiz: Quiz) => {
     if (axios.isAxiosError(error)) {
       console.log(error.response)
     }
+    console.log(error)
   }
 }
 
-export { getQuizInstance, createQuiz, getQuiz, createSession, getSession }
+const instanceQuestion = async (token: string, quiz: Quiz, questions: Question[]) => {
+  try {
+    const { data } = await api.post(`quiz/question`, {
+      quiz: quiz.id,
+      questions: questions.map(value => value.id)
+    }, {
+      headers: {
+        "x-access-tokens": token
+      }
+    })
+    const response: IResponse<QuizDTO> = data;
+    const postQuiz = QuizFactory(response.data)
+    return postQuiz
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error.response)
+    }
+    console.log(error)
+  }
+}
+
+export { getQuizInstance, createQuiz, getQuiz, createSession, getSession, getUjianByCode, subscribeUjian, instanceQuestion }
 export type { QuizInstanceRes }

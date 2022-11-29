@@ -9,7 +9,7 @@ import TabsBankSoal from "./tabs";
 import useQuestionActions from "../../../_actions/question.actions";
 import { useRecoilValue } from "recoil";
 import { listCategoryState } from "../../../_state/category.state";
-import QuestionCategory from "../../../_models/question-category";
+import QuestionCategory from "../../../_models/question-category.model";
 
 type FormValues = {
   parentkateg: string;

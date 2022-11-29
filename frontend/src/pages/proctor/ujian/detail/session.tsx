@@ -12,7 +12,7 @@ import SidebarGuru, {
   NavbarEnum,
 } from "../../../../components/sidebar/SidebarGuru";
 import useQuizActions from "../../../../_actions/quiz.actions";
-import QuizSession from "../../../../_models/quiz-session";
+import QuizSession from "../../../../_models/quiz-session.model";
 import { detailQuizState } from "../../../../_state/quiz.state";
 import Header from "../../questions-bank/header";
 import TabsDetailUjianGuru from "./tabs";
@@ -58,6 +58,7 @@ export default function DetailSessionsGuru() {
   };
 
   useEffect(() => {
+    console.log(detailQuiz, "detail");
     if (detailQuiz != undefined) {
       if (detailQuiz.session == undefined) {
         quizActions.sessions(detailQuiz);

@@ -64,8 +64,6 @@ const App = () => {
       />
 
       <Route path="/pengaturan" element={<Pengaturan />} />
-
-      <Route path="/exam/session/finish" element={<AfterExam />} />
     </Routes>
   );
 };

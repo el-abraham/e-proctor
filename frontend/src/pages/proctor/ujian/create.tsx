@@ -5,7 +5,7 @@ import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
 import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import Header from "../questions-bank/header";
 import useQuizActions from "../../../_actions/quiz.actions";
-import Quiz from "../../../_models/quiz";
+import Quiz from "../../../_models/quiz.model";
 
 type FormValues = {
   namaujian: string;

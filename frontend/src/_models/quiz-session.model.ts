@@ -1,4 +1,4 @@
-import Quiz, { QuizDTO, QuizFactory } from "./quiz";
+import Quiz, { QuizDTO, QuizFactory } from "./quiz.model";
 
 type QuizSessionProps = {
   id?: number | undefined;
@@ -18,6 +18,7 @@ export interface QuizSessionDTO {
   time_start: number;
   time_end: number;
   description: string | undefined;
+  quiz?: QuizDTO | undefined;
 }
 
 export default class QuizSession {
@@ -50,7 +51,7 @@ export default class QuizSession {
   }
 }
 
-export const QuizSessionFactory = (data: QuizSessionDTO) => {
+export const QuizSessionFactory = (data: QuizSessionDTO): QuizSession => {
   return new QuizSession({
     id: data.id,
     code: data.code,
@@ -58,5 +59,6 @@ export const QuizSessionFactory = (data: QuizSessionDTO) => {
     timeStart: data.time_start,
     timeEnd: data.time_end,
     description: data.description ?? undefined,
+    quiz: data.quiz && QuizFactory(data.quiz)
   });
 };

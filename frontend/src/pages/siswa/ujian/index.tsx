@@ -32,11 +32,11 @@ export default function UjianSiswa() {
     <div className="bg-[#EFF0F3] flex text-black">
       {/* JIKA GAGAL */}
       <ModalCariUjianGagal />
-      <ModalGabungUjianGagal />
+      {/* <ModalGabungUjianGagal /> */}
 
       {/* JIKA SUKSES */}
       <ModalCariUjianSukses />
-      <ModalGabungUjianSukses />
+      {/* <ModalGabungUjianSukses /> */}
 
       <SidebarSiswa active={NavbarSiswa.UJIANANDA} />
 
