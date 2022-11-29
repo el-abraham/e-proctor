@@ -22,6 +22,10 @@ export default function PreExam() {
     navigate("/exam/session/");
   };
 
+  const Verifikasi = () => {
+    navigate("/exam/session/pre/verif");
+  };
+
   useEffect(() => {
     if (ujianNow == undefined) {
     }
@@ -55,7 +59,7 @@ export default function PreExam() {
         <XCircleIcon className="w-9 h-9 text-white" />
       </Link>
 
-      <div className="flex">
+      <div className="flex justify-center">
         {/* CARD LEFT SIDE */}
         <div className="bg-[#04293A] w-[320px] mt-10 rounded-[10px] py-9 text-white">
           {/* IMG */}
@@ -84,7 +88,7 @@ export default function PreExam() {
           </div>
 
           {/* SOAL DAN MENIT */}
-          <div className="flex mt-4 mx-16 justify-between py-2 font-['Open Sans']">
+          <div className="flex mt-3 mx-16 justify-between py-2 font-['Open Sans']">
             <div className="px-6">
               <p className="text-center font-bold text-3xl">10</p>
               <p className="text-sm text-center">Soal</p>
@@ -96,35 +100,43 @@ export default function PreExam() {
           </div>
 
           {/* TIME */}
-          <div className="flex text-black justify-center mt-8">
-            {/* ILUSTRATION */}
-            <div className="py-4 px-1 bg-[#cb997e] w-10 rounded-[20px] ">
-              <ClockIcon className="w-6 h-6 mx-auto" />
-              {/* <img src={DashedLine} className="my-3 mx-auto" alt="" /> */}
-              <ClockIcon className="w-6 h-6 mx-auto" />
-            </div>
-            <div className="flex flex-col justify-between my-1 text-white">
-              {/* DIMULAI */}
-              <div className="ml-6">
-                <p className="font-['Roboto'] text-sm ">Dimulai</p>
-                <h1 className="font-['Open Sans'] font-semibold text-3xl">
-                  10:45
-                </h1>
+          <div className="mx-16 mt-7 ">
+            <div>
+              <p className="font-['Roboto'] text-sm">Dimulai</p>
+              <div className="grid grid-flow-col gap-2 mt-2 text-center auto-cols-max">
+                <div className="flex flex-col p-2 bg-neutral rounded-md text-neutral-content">
+                  <span className="font-mono text-xl">
+                    <span>10:45</span>
+                  </span>
+                </div>
+                <div className="flex flex-col p-2 bg-neutral ml-2 rounded-md text-neutral-content">
+                  <span className="font-mono text-xl">
+                    <h1 className="text-xl">WIB</h1>
+                  </span>
+                </div>
               </div>
-              {/* SELESAI */}
-              <div className="ml-6">
-                <p className="font-['Roboto'] text-sm ">Berakhir</p>
-                <h1 className="font-['Open Sans'] font-semibold text-3xl">
-                  12:45
-                </h1>
+            </div>
+            <div className="mt-5">
+              <p className="font-['Roboto'] text-sm">Selesai</p>
+              <div className="grid grid-flow-col gap-2 mt-2 text-center auto-cols-max">
+                <div className="flex flex-col p-2 bg-neutral rounded-md text-neutral-content">
+                  <span className="font-mono text-xl">
+                    <span>12:45</span>
+                  </span>
+                </div>
+                <div className="flex flex-col p-2 bg-neutral ml-2 rounded-md text-neutral-content">
+                  <span className="font-mono text-xl">
+                    <h1 className="text-xl">WIB</h1>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* CARD RIGHT RIDE */}
-        <div className="bg-[#EFF0F3] mt-10 py-9 px-14 w-[450px] rounded-[10px] ml-8 max-h-[722px]">
-          <p className="font-['Open Sans'] font-semibold text-sm">
+        <div className="bg-[#04293A] mt-10 py-9 px-14 w-[450px] rounded-[10px] ml-8 max-h-[722px]">
+          <p className="font-['Open Sans'] font-semibold text-sm text-white">
             Jumat, 23 September 2022
           </p>
           <div className="bg-orange-300 py-5 px-6 mt-8 text-black rounded-[10px]">
@@ -140,7 +152,7 @@ export default function PreExam() {
             </p>
           </div>
 
-          <div className="alert alert-success shadow-lg mt-8">
+          <div className="alert alert-success rounded-[10px] shadow-lg mt-8">
             <div className="mx-auto">
               <CheckCircleIcon className="w-6 h-6" />
               <span>Anda telah berhasil terverifikasi!</span>
@@ -148,37 +160,15 @@ export default function PreExam() {
           </div>
 
           {/* BUTTON VERIFIKASI */}
-          <Link to={"/siswa-verifikasi"}>
-            <Button className="w-full mt-4">
-              <CameraIcon className="w-6 h-6 mr-4" />
-              <p className="font-['Open Sans'] font-semibold text-sm">
-                Verifikasi
-              </p>
-            </Button>
-          </Link>
-
-          {/* TOGGLES */}
-          <div className="flex justify-center mt-4">
-            <div className="form-control mr-8">
-              <label className="label cursor-pointer flex flex-col">
-                <input type="checkbox" className="toggle" checked />
-                <span className="label-text text-white mt-1 font-['Open Sans'] text-sm">
-                  Camera
-                </span>
-              </label>
-            </div>
-            <div className="form-control">
-              <label className="label cursor-pointer flex flex-col">
-                <input type="checkbox" className="toggle" />
-                <span className="label-text text-white mt-1 font-['Open Sans'] text-sm">
-                  Audio
-                </span>
-              </label>
-            </div>
-          </div>
+          <Button onClick={Verifikasi} className="w-full mt-4">
+            <CameraIcon className="w-6 h-6 mr-4" />
+            <p className="font-['Open Sans'] font-semibold text-sm">
+              Verifikasi
+            </p>
+          </Button>
 
           {/* BUTTON MULAI UJIAN */}
-          <Button className="w-full mt-[140px]">
+          <Button className="w-full mt-[180px]">
             <PlayIcon className="w-6 h-6 mr-4" />
             <p
               className="font-['Open Sans'] font-semibold text-sm"

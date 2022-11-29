@@ -3,7 +3,7 @@ export default function Breadcrumbs() {
     <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
       <ul>
         <li>
-          <a>Home</a>
+          <a>Dashboard</a>
         </li>
         <li>
           <a>Documents</a>

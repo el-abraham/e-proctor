@@ -67,7 +67,17 @@ export default function Category() {
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
+        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
+          <ul>
+            <li>
+              <a>Dashboard</a>
+            </li>
+            <li>
+              <a>Kategori</a>
+            </li>
+          </ul>
+        </div>
         <TabsBankSoal />
 
         <label htmlFor="add-kategori" className="btn btn-primary mr-5 my-5">
@@ -189,7 +199,7 @@ const ModalAddCategory = () => {
                   type="text"
                   name="deskripsi"
                   ref={deskripsiRef}
-                  placeholder="opsional"
+                  placeholder="Opsional"
                   className="input input-sm input-bordered rounded text-sm w-full flex-1"
                 />
               </div>

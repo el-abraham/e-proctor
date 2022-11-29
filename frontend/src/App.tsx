@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import AdminProctor from "./pages/admin/proctor";
+import AdminSiswa from "./pages/admin/siswa";
 import Dashboard from "./pages/dashboard";
 import DetailUjian from "./pages/detail-ujian";
 import LoginPage from "./pages/login";
@@ -13,6 +15,7 @@ import Session from "./pages/session";
 
 import AfterExam from "./pages/session/after-exam";
 import PreExam from "./pages/session/pre-exam";
+import VerifikasiKamera from "./pages/session/verifikasi";
 import Pengaturan from "./pages/siswa/pengaturan";
 
 import JadwalUjianSiswa from "./pages/siswa/ujian/jadwal";
@@ -62,6 +65,15 @@ const App = () => {
         path="/exam/session/pre"
         element={<ProtectedRoute outlet={<PreExam />} />}
       />
+
+      <Route
+        path="/exam/session/pre/verif"
+        element={<VerifikasiKamera />}
+      ></Route>
+
+      {/* SEMENTARA */}
+      <Route path="/adminproctor" element={<AdminProctor />}></Route>
+      <Route path="/adminsiswa" element={<AdminSiswa />}></Route>
 
       <Route path="/pengaturan" element={<Pengaturan />} />
     </Routes>
