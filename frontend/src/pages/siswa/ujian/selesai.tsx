@@ -11,8 +11,6 @@ import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
 import ModalCariUjianGagal from "../../../components/modals/siswa/CariUjianGagal";
 import ModalCariUjianSukses from "../../../components/modals/siswa/CariUjianSukes";
-import ModalGabungUjianGagal from "../../../components/modals/siswa/GabungUjianGagal";
-import ModalGabungUjianSukses from "../../../components/modals/siswa/GabungUjianSukses";
 import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
@@ -23,18 +21,16 @@ export default function SelesaiUjianSiswa() {
   const ujian = useRecoilValue(ujianListState);
 
   return (
-    <div className="bg-[#EFF0F3] flex text-black">
+    <div className="bg-[#EFF0F3] min-h-screen h-full flex text-black">
       {/* JIKA GAGAL */}
       <ModalCariUjianGagal />
-      <ModalGabungUjianGagal />
 
       {/* JIKA SUKSES */}
       <ModalCariUjianSukses />
-      <ModalGabungUjianSukses />
 
       <SidebarSiswa active={NavbarSiswa.UJIANANDA} />
 
-      <div className="pr-6 w-full ml-6 pl-[240px] pb-[30px] h-screen">
+      <div className="pr-6 w-full ml-6 pl-[240px] pb-[30px]">
         <div className="flex gap-[30px] mt-6 justify-end">
           {/* CARI UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
@@ -63,7 +59,7 @@ export default function SelesaiUjianSiswa() {
             </div>
           </div>
           {/* MULAI GRID */}
-          <div className="grid grid-cols-3 gap-x-4">
+          <div className="grid grid-cols-3 gap-x-4 gap-y-9">
             {ujian.map((value, index) => {
               return (
                 <div

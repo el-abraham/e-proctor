@@ -90,7 +90,7 @@ export default function UjianGuru() {
                         </div>
                       </div>
                     </td>
-                    <td>{value.session?.length}</td>
+                    <td>{value.session?.length} 1 (tester)</td>
                     <td>1</td>
                     <td>2022-10-02, 05:43</td>
                   </tr>

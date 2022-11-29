@@ -25,7 +25,7 @@ export default function UjianSiswa() {
 
   const DetailUjian = () => {
     // 👇️ navigate to /contacts
-    navigate("/siswa-detailujian");
+    navigate("/ujian/detail");
   };
 
   return (
@@ -56,7 +56,6 @@ export default function UjianSiswa() {
           <Settings />
         </div>
         <TabsSiswa />
-
         <div className="mt-[30px]">
           <div className="flex mb-[17px]">
             <h1 className="self-center font-['Poppins'] font-semibold text-base mr-3">
@@ -104,7 +103,10 @@ export default function UjianSiswa() {
                       {/* TIME */}
                       <div className="flex items-center mt-[30px]">
                         <ClockIcon className="w-[30px] h-[30px] text-black" />
-                        <p className="text-[12px] ml-[15px]">10:45 - 12:45</p>
+                        <p className="text-[12px] ml-[15px]">
+                          {/* {value.timestart} - {value.timeend} */}
+                          10:45 - 12:45
+                        </p>
                       </div>
                     </div>
                     <div className="flex flex-col">
@@ -125,18 +127,18 @@ export default function UjianSiswa() {
             })}
           </div>
         </div>
-
         <div className="flex mb-[17px] mt-[30px]">
           <h1 className="self-center font-['Poppins'] font-semibold text-base mr-3">
             Akan Datang
           </h1>
           <div className="flex rounded-full w-8 h-8 bg-[#FBFCFC]">
-            <p className="m-auto font-['Poppins'] font-semibold text-sm">2</p>
+            <p className="m-auto font-['Poppins'] font-semibold text-sm">
+              {ujian.length}
+            </p>
           </div>
         </div>
-
         <div className="font-['Open Sans'] mt-[15px]">
-          <table className="table table-zebra w-full">
+          <table className="table table-compact table-zebra w-full">
             <thead>
               <tr>
                 <th></th>
@@ -147,107 +149,50 @@ export default function UjianSiswa() {
               </tr>
             </thead>
             <tbody>
-              <tr className="cursor-pointer" onClick={DetailUjian}>
-                <th>1</th>
-                <td className="flex">
-                  <div className="avatar">
-                    <div className="w-[86px] h-[86px] rounded">
-                      <img src="https://placeimg.com/192/192/people" />
-                    </div>
-                  </div>
-                  <div className="ml-[20px] self-center">
-                    <h1 className="font-semibold text-sm mb-[13px]">
-                      Ujian Geografi
-                    </h1>
-                    <div className="flex">
-                      <p className="font-['Roboto'] self-center text-xs">
-                        20 Soal
-                      </p>
-                    </div>
-                  </div>
-                </td>
-                <td>13 September 2022</td>
-                <td>10:45 - 12:45</td>
-                <td>
-                  {/* AVATAR */}
-                  <div className="avatar flex ">
-                    <div className="w-[50px] h-[50px] rounded-full">
-                      <img src="https://placeimg.com/192/192/people" />
-                    </div>
-                    <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
-                      Alena Workman
-                    </p>
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="cursor-pointer" onClick={DetailUjian}>
-                <th>1</th>
-                <td className="flex">
-                  <div className="avatar">
-                    <div className="w-[86px] h-[86px] rounded">
-                      <img src="https://placeimg.com/192/192/people" />
-                    </div>
-                  </div>
-                  <div className="ml-[20px] self-center">
-                    <h1 className="font-semibold text-sm mb-[13px]">
-                      Ujian Geografi
-                    </h1>
-                    <div className="flex">
-                      <p className="font-['Roboto'] self-center text-xs">
-                        20 Soal
-                      </p>
-                    </div>
-                  </div>
-                </td>
-                <td>13 September 2022</td>
-                <td>10:45 - 12:45</td>
-                <td>
-                  {/* AVATAR */}
-                  <div className="avatar flex ">
-                    <div className="w-[50px] h-[50px] rounded-full">
-                      <img src="https://placeimg.com/192/192/people" />
-                    </div>
-                    <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
-                      Alena Workman
-                    </p>
-                  </div>
-                </td>
-              </tr>
-
-              <tr className="cursor-pointer" onClick={DetailUjian}>
-                <th>1</th>
-                <td className="flex">
-                  <div className="avatar">
-                    <div className="w-[86px] h-[86px] rounded">
-                      <img src="https://placeimg.com/192/192/people" />
-                    </div>
-                  </div>
-                  <div className="ml-[20px] self-center">
-                    <h1 className="font-semibold text-sm mb-[13px]">
-                      Ujian Geografi
-                    </h1>
-                    <div className="flex">
-                      <p className="font-['Roboto'] self-center text-xs">
-                        20 Soal
-                      </p>
-                    </div>
-                  </div>
-                </td>
-                <td>13 September 2022</td>
-                <td>10:45 - 12:45</td>
-                <td>
-                  {/* AVATAR */}
-                  <div className="avatar flex ">
-                    <div className="w-[50px] h-[50px] rounded-full">
-                      <img src="https://placeimg.com/192/192/people" />
-                    </div>
-                    <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
-                      Alena Workman
-                    </p>
-                  </div>
-                </td>
-              </tr>
+              {ujian.map((value, index) => {
+                return (
+                  <tr
+                    className="cursor-pointer"
+                    key={index}
+                    onClick={() => navigate(`detail?p=${value.id}`)}
+                  >
+                    <th>{++index}</th>
+                    <td className="flex">
+                      <div className="avatar">
+                        <div className="w-[86px] h-[86px] rounded">
+                          <img src="https://placeimg.com/192/192/people" />
+                        </div>
+                      </div>
+                      <div className="ml-[20px] self-center">
+                        <h1 className="font-semibold text-sm mb-[13px]">
+                          {value.quiz_name}
+                        </h1>
+                        <div className="flex">
+                          <p className="font-['Roboto'] self-center text-xs">
+                            {value.total_questions}
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>13 September 2022</td>
+                    <td>
+                      {/* {value.timestart} - {value.timeend} */}
+                      10:45 - 12:45
+                    </td>
+                    <td>
+                      {/* AVATAR */}
+                      <div className="avatar flex ">
+                        <div className="w-[50px] h-[50px] rounded-full">
+                          <img src="https://placeimg.com/192/192/people" />
+                        </div>
+                        <p className="flex text-sm ml-[15px] self-center font-['Open Sans']">
+                          {value.proctor.firstname} {value.proctor.lastname}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
