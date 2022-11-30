@@ -37,7 +37,7 @@ export default function DashboardGuru() {
 
           {/* TEST BEN BUTTON TAMBAH UJIAN */}
           <Link to={"/ujian/create"}>
-            <Button className="btn-primary">
+            <Button className="btn rounded-[20PX] btn-sm max-w-xs text-[14px] mt-1 text-white">
               <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
               <p className="my-auto text-xs">Buat Ujian</p>
             </Button>
@@ -52,10 +52,10 @@ export default function DashboardGuru() {
           {/* TEST BEN INPUT CARI DATA */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="cari-ujian-sukses">
-              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-60" />
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[20px] ml-[245px]" />
               <Input
-                className=" pl-4 pr-[50px] rounded-[20PX] w-[280px] h-11 text-[14px]"
-                placeholder="Cari Ujian ...."
+                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                placeholder="Cari Ujian"
               />
             </label>
           </div>

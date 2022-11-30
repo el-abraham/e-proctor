@@ -6,9 +6,6 @@ import LoginPage from "./pages/login";
 import BankSoal from "./pages/proctor/questions-bank";
 import BankSoalBuatPertanyaan from "./pages/proctor/questions-bank/create";
 import TambahUjian from "./pages/proctor/ujian/create";
-import DetailUjianGuruIndex from "./pages/proctor/ujian/detail/detail";
-import DetailQuestionsGuru from "./pages/proctor/ujian/detail/questions";
-import DetailSessionsGuru from "./pages/proctor/ujian/detail/session";
 import Session from "./pages/session";
 
 import AfterExam from "./pages/session/after-exam";
@@ -62,6 +59,7 @@ const App = () => {
         path="/exam/session/pre"
         element={<ProtectedRoute outlet={<PreExam />} />}
       />
+      <Route path="exam/session/finish" element={<AfterExam />} />
 
       <Route path="/pengaturan" element={<Pengaturan />} />
     </Routes>
