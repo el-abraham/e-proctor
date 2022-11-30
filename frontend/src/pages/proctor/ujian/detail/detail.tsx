@@ -22,7 +22,18 @@ export default function DetailUjianGuruIndex() {
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
+        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
+          <ul>
+            <li>
+              <a>Dashboard</a>
+            </li>
+            <li>
+              <a>Ujian Anda</a>
+            </li>
+            <li>Detail Ujian {detailQuiz?.title}</li>
+          </ul>
+        </div>
         <NamaUjian title={detailQuiz?.title} />
         <TabsDetailUjianGuru />
 

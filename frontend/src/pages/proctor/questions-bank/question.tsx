@@ -56,7 +56,17 @@ export default function Question() {
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full h-screen ml-6 pl-[240px]">
         <Header />
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
+        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
+          <ul>
+            <li>
+              <a>Dashboard</a>
+            </li>
+            <li>
+              <a>Bank Soal</a>
+            </li>
+          </ul>
+        </div>
         <TabsBankSoal />
 
         <Link to={"/q/bank/create"}>
@@ -66,8 +76,8 @@ export default function Question() {
           </Button>
         </Link>
 
-        <div className="overflow-x-auto text-sm font-['Roboto'] mb-[30px]">
-          <table className="table table-zebra w-full mb-5">
+        <div className="overflow-x-auto text-sm font-['Roboto'] mb-[30px] pb-8">
+          <table className="table table-zebra w-full">
             <thead>
               <tr>
                 <th>No</th>

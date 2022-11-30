@@ -61,12 +61,12 @@ export default function DashboardSiswa() {
             <label>
               <PlusCircleIcon
                 onClick={modalHandler}
-                className="w-[25px] h-[25px] flex absolute mt-[19px] ml-[245px]"
+                className="w-[25px] h-[25px] flex absolute mt-[22px] ml-[245px]"
               />
 
               <Input
                 ref={codeRef}
-                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] h-11 mt-3 w-[280px] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
                 placeholder="Gabung Ujian"
               />
             </label>
@@ -76,10 +76,10 @@ export default function DashboardSiswa() {
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="cari-ujian-sukses">
               {/* <div> */}
-              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-5 ml-[245px]" />
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-6 ml-[245px]" />
 
               <Input
-                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                className="flex pl-4 pr-[38px] transition h-11 duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
                 placeholder="Cari Ujian"
               />
               {/* </div> */}

@@ -50,13 +50,13 @@ export default function VerifikasiKamera() {
       <img src={img}></img>
 
       <div className="flex mt-5 justify-center">
-        <Link to={"/siswa-preexam"}>
+        <Link to={"#"}>
           <Button className="mr-5 bg-neutral">
             <p>Kembali</p>
           </Button>
         </Link>
         <button onClick={showImage} className="btn btn-primary">
-          Tes Image
+          Tangkap Layar
         </button>
       </div>
     </div>

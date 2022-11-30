@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { userState } from "../_state/user.state";
+import AdminProctor from "./admin/proctor";
 import DashboardGuru from "./proctor/dashboard";
 import DashboardSiswa from "./siswa/dashboard";
 
@@ -10,7 +11,11 @@ const Dashboard = () => {
     return <DashboardGuru />;
   } else if (user?.role.includes("siswa")) {
     return <DashboardSiswa />;
-  } else {
+  }
+  // else if (user?.role.includes("admin")) {
+  //   return <AdminProctor />;
+  // }
+  else {
     return (
       <div>
         <p>Lorem, ipsum.</p>

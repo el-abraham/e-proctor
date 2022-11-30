@@ -98,10 +98,10 @@ const DetailUjianSiswa = () => {
           {/* CARI UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="cari-ujian-sukses">
-              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[20px] ml-[245px]" />
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-6 ml-[245px]" />
               <Input
-                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
-                placeholder="Cari Ujian ...."
+                className="flex pl-4 pr-[38px] transition h-11 duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                placeholder="Cari Ujian"
               />
             </label>
           </div>
@@ -110,10 +110,23 @@ const DetailUjianSiswa = () => {
         </div>
 
         {/* bg-[#FBFCFC] */}
+        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] text-black">
+          <ul>
+            <li>
+              <a>Dashboard</a>
+            </li>
+            <li>
+              <a>Ujian Anda</a>
+            </li>
+            <li>
+              <a>Detail Ujian {detailUjian?.quiz_name}</a>
+            </li>
+          </ul>
+        </div>
 
         {/* Detail Ujian */}
         <div>
-          <div className="flex bg-[#FBFCFC] mt-[73px] rounded-[10px]">
+          <div className="flex bg-[#FBFCFC] mt-8 rounded-[10px]">
             {/* Gambar */}
             <div>
               <img

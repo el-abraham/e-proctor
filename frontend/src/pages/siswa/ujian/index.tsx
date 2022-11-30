@@ -45,15 +45,25 @@ export default function UjianSiswa() {
           {/* CARI UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="cari-ujian-sukses">
-              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[20px] ml-[245px]" />
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-6 ml-[245px]" />
               <Input
-                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                className="flex pl-4 pr-[38px] transition h-11 duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
                 placeholder="Cari Ujian"
               />
             </label>
           </div>
           <Notifications />
           <Settings />
+        </div>
+        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
+          <ul>
+            <li>
+              <a>Dashboard</a>
+            </li>
+            <li>
+              <a>Ujian Anda</a>
+            </li>
+          </ul>
         </div>
         <TabsSiswa />
         <div className="mt-[30px]">
@@ -110,7 +120,7 @@ export default function UjianSiswa() {
                       </div>
                     </div>
                     <div className="flex flex-col">
-                      <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+                      <div className="rounded-md font-['Open Sans'] self-end font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
                         <p>{value.total_questions}</p>
                         <p>Soal</p>
                       </div>

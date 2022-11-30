@@ -70,7 +70,18 @@ export default function DetailQuestionsGuru() {
 
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
+        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
+          <ul>
+            <li>
+              <a>Dashboard</a>
+            </li>
+            <li>
+              <a>Ujian Anda</a>
+            </li>
+            <li>Questions</li>
+          </ul>
+        </div>
         <NamaUjian title={detailQuiz?.title} />
         <TabsDetailUjianGuru />
 
