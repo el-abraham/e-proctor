@@ -1,4 +1,8 @@
+import { useRecoilValue } from "recoil";
+import { ujianListState } from "../../../_state/ujian.state";
+
 export default function UjianAkanDatangSiswa() {
+  const ujian = useRecoilValue(ujianListState);
   return (
     <div className="text-black font-['Poppins'] self-start w-3/4 mt-6 pb-8 bg-[#FBFCFC] ml-4 rounded-[10px]">
       {/* BAGIAN HEADER */}
@@ -7,13 +11,13 @@ export default function UjianAkanDatangSiswa() {
           Ujian Akan Datang
         </h1>
         <div className="pt-2 pb-2 pr-3 pl-3 bg-[#FBFCFC] rounded-[10px] flex border border-slate-300">
-          <p className="m-auto text-[14px] font-semibold">2</p>
+          <p className="m-auto text-[14px] font-semibold">{ujian.length}</p>
         </div>
       </div>
 
       {/* CONTENT */}
       <div className="overflow-x-auto ml-[40px] mr-[40px] mt-[20px] font-['Poppins']">
-        <table className="table table-zebra w-full ">
+        <table className="table table-compact table-zebra w-full ">
           <thead className="text-sm">
             <tr>
               <th>Nama Ujian</th>
@@ -23,55 +27,22 @@ export default function UjianAkanDatangSiswa() {
             </tr>
           </thead>
           <tbody className="text-xs">
-            <tr>
-              <td>Geografi</td>
-              <td>13 Sept</td>
-              <td>10:45 - 12:45</td>
-              <td>
-                <div className="avatar">
-                  <div className="w-[50px] h-[50px] rounded-full">
-                    <img src="https://placeimg.com/192/192/people" />
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Geografi</td>
-              <td>13 Sept</td>
-              <td>10:45 - 12:45</td>
-              <td>
-                <div className="avatar">
-                  <div className="w-[50px] h-[50px] rounded-full">
-                    <img src="https://placeimg.com/192/192/people" />
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Geografi</td>
-              <td>13 Sept</td>
-              <td>10:45 - 12:45</td>
-              <td>
-                <div className="avatar">
-                  <div className="w-[50px] h-[50px] rounded-full">
-                    <img src="https://placeimg.com/192/192/people" />
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Geografi</td>
-              <td>13 Sept</td>
-              <td>10:45 - 12:45</td>
-              <td>
-                <div className="avatar">
-                  <div className="w-[50px] h-[50px] rounded-full">
-                    <img src="https://placeimg.com/192/192/people" />
-                  </div>
-                </div>
-              </td>
-            </tr>
-            
+            {ujian.map((value, index) => {
+              return (
+                <tr key={index}>
+                  <td>{value.quiz_name}</td>
+                  <td>13 Sept</td>
+                  <td>10:45 - 12:45</td>
+                  <td>
+                    <div className="avatar">
+                      <div className="w-[50px] h-[50px] rounded-full">
+                        <img src="https://placeimg.com/192/192/people" />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

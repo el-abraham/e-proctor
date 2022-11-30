@@ -14,6 +14,7 @@ import { useRecoilValue } from "recoil";
 import { listQuestionState } from "../../../_state/question.state";
 import { useEffect } from "react";
 import useQuestionActions from "../../../_actions/question.actions";
+import { listCategoryState } from "../../../_state/category.state";
 
 export default function Question() {
   const listQuestion = useRecoilValue(listQuestionState);
@@ -93,7 +94,7 @@ export default function Question() {
                   <tr key={index}>
                     <td>{++index}</td>
                     <td>{value.name}</td>
-                    <td>Kategori A</td>
+                    <td>{value.category.name}</td>
                     <td>Draft</td>
                     <td className="flex gap-[15px]">
                       <EyeIcon className="w-[24px] h-[24px] self-center text-blue-500" />

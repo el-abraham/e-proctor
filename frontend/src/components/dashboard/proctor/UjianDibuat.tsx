@@ -1,4 +1,8 @@
+import { useRecoilValue } from "recoil";
+import { listQuizState } from "../../../_state/quiz.state";
+
 export default function UjianDibuatGuru() {
+  const listQuiz = useRecoilValue(listQuizState);
   return (
     <div className="text-black font-['Poppins'] self-start mt-6 pb-8 w-3/5 bg-[#FBFCFC] ml-4 rounded-[10px]">
       {/* BAGIAN HEADER */}
@@ -7,13 +11,13 @@ export default function UjianDibuatGuru() {
           Ujian Dibuat
         </h1>
         <div className="pt-2 pb-2 pr-3 pl-3 bg-[#FBFCFC] rounded-[10px] flex border border-slate-300">
-          <p className="m-auto text-[14px] font-semibold">2</p>
+          <p className="m-auto text-[14px] font-semibold">{listQuiz?.length}</p>
         </div>
       </div>
 
       {/* CONTENT */}
       <div className="overflow-x-auto ml-[40px] mr-[40px] mt-[20px] font-['Poppins']">
-        <table className="table table-zebra w-full ">
+        <table className="table table-compact table-zebra w-full ">
           <thead className="text-sm">
             <tr>
               <th>Nama Ujian</th>
@@ -23,25 +27,16 @@ export default function UjianDibuatGuru() {
             </tr>
           </thead>
           <tbody className="text-xs">
-            <tr>
-              <td>Geografi</td>
-              <td>13 Sept</td>
-              <td>10:45 - 12:45</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>Geografi</td>
-              <td>13 Sept</td>
-              <td>10:45 - 12:45</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>Geografi</td>
-              <td>13 Sept</td>
-              <td>10:45 - 12:45</td>
-              <td>2</td>
-            </tr>
-            
+            {listQuiz?.map((value, index) => {
+              return (
+                <tr key={index}>
+                  <td>{value.title}</td>
+                  <td>13 Sept</td>
+                  <td>10:45 - 12:45</td>
+                  <td>{value.session?.length} 1 (tester)</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

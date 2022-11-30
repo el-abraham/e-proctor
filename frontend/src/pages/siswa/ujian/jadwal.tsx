@@ -4,8 +4,6 @@ import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
 import ModalCariUjianGagal from "../../../components/modals/siswa/CariUjianGagal";
 import ModalCariUjianSukses from "../../../components/modals/siswa/CariUjianSukes";
-import ModalGabungUjianGagal from "../../../components/modals/siswa/GabungUjianGagal";
-import ModalGabungUjianSukses from "../../../components/modals/siswa/GabungUjianSukses";
 import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
@@ -16,11 +14,9 @@ export default function JadwalUjianSiswa() {
     <div className="bg-[#EFF0F3] min-h-screen h-full flex text-black">
       {/* JIKA GAGAL */}
       <ModalCariUjianGagal />
-      <ModalGabungUjianGagal />
 
       {/* JIKA SUKSES */}
       <ModalCariUjianSukses />
-      <ModalGabungUjianSukses />
 
       <SidebarSiswa active={NavbarSiswa.UJIANANDA} />
 
