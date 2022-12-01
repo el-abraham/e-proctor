@@ -1,7 +1,6 @@
 import {
   CameraIcon,
   CheckCircleIcon,
-  ClockIcon,
   ExclamationTriangleIcon,
   PlayIcon,
   XCircleIcon,
@@ -24,6 +23,10 @@ export default function PreExam() {
 
   const Verifikasi = () => {
     navigate("/exam/session/pre/verif");
+  };
+
+  const backToDetail = () => {
+    navigate(`/ujian/detail?p=${searchParams.get("p")}`);
   };
 
   useEffect(() => {
@@ -55,9 +58,11 @@ export default function PreExam() {
     // bg-[#EFF0F3]
     <div className="bg-[#041C32] min-h-screen py-[30px] px-[50px] text-black">
       {/* ICON */}
-      <Link to={"/"}>
-        <XCircleIcon className="w-9 h-9 text-white" />
-      </Link>
+
+      <XCircleIcon
+        onClick={backToDetail}
+        className="w-9 h-9 text-white cursor-pointer"
+      />
 
       <div className="flex justify-center">
         {/* CARD LEFT SIDE */}
