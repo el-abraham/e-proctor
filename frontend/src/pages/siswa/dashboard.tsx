@@ -53,7 +53,7 @@ export default function DashboardSiswa() {
       )}
 
       <SidebarSiswa active={NavbarSiswa.DASHBOARD} />
-      <div className="mr-[24px] w-full ml-6 pl-[240px]">
+      <div className="mr-[24px] w-full min-h-screen ml-6 pl-[240px]">
         <div className="flex gap-[30px] mt-6 justify-end">
           {/* GABUNG UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">

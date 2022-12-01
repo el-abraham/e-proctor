@@ -117,7 +117,7 @@ const FoundQuiz = (props: FoundQuizProps) => {
   };
 
   return (
-    <div className="w-[326px] rounded-[10px] bg-[#FBFCFC] mx-auto mt-[30px]">
+    <div className="w-[380px] rounded-[10px] bg-[#FBFCFC] mx-auto mt-[30px]">
       {/* IMAGE */}
       <img
         className="h-[140.5px] w-full rounded-t-[10px]"
@@ -157,7 +157,7 @@ const FoundQuiz = (props: FoundQuizProps) => {
           </div>
         </div>
         <div className="flex flex-col">
-          <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
+          <div className="rounded-md font-['Open Sans'] self-end font-semibold text-sm text-center py-[10px] px-5 bg-red-400">
             <p>20</p>
             <p>Soal</p>
           </div>
