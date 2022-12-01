@@ -8,6 +8,12 @@ import TabsBankSoal from "./tabs";
 
 // https://npm.io/package/react-quilljs
 
+const breadcrumb = [
+  { url: "/", name: "Dashboard" },
+  { url: "/q/bank", name: "Bank Soal" },
+  { url: "#", name: "Buat Pertanyaan" },
+];
+
 export default function BankSoalBuatPertanyaan() {
   return (
     <div className="bg-[#EFF0F3] min-h-screen h- flex text-black">
@@ -15,18 +21,7 @@ export default function BankSoalBuatPertanyaan() {
 
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
-        {/* <Breadcrumbs /> */}
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Bank Soal</a>
-            </li>
-            <li>Buat Pertanyaan Baru</li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
         <QuestionForm />
       </div>
     </div>

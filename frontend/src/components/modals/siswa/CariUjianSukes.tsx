@@ -20,7 +20,7 @@ export default function ModalCariUjianSukses() {
           </label>
           <h3 className="font-bold text-lg">Pencarian "Ujian XXXX"</h3>
 
-          <div className="w-[326px] rounded-[10px] bg-[#FBFCFC] mx-auto mt-[30px]">
+          <div className="w-[360px] rounded-[10px] bg-[#FBFCFC] mx-auto mt-[30px]">
             {/* IMAGE */}
             <img
               className="h-[140.5px] w-full rounded-t-[10px]"
@@ -58,7 +58,7 @@ export default function ModalCariUjianSukses() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="rounded-md font-['Open Sans'] font-semibold text-sm text-center py-[10px] min-w-xs px-5 bg-red-400">
+                <div className="rounded-md font-['Open Sans'] self-end font-semibold text-sm text-center py-[10px] min-w-xs px-5 bg-red-400">
                   <p>20</p>
                   <p>Soal</p>
                 </div>

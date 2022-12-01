@@ -8,13 +8,12 @@ import Button from "../../../components/forms/Button";
 import { NavbarEnum } from "../../../components/sidebar/SidebarGuru";
 import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import Header from "./header";
-import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import TabsBankSoal from "./tabs";
 import { useRecoilValue } from "recoil";
 import { listQuestionState } from "../../../_state/question.state";
 import { useEffect } from "react";
 import useQuestionActions from "../../../_actions/question.actions";
-import { listCategoryState } from "../../../_state/category.state";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
 
 export default function Question() {
   const listQuestion = useRecoilValue(listQuestionState);
@@ -25,6 +24,11 @@ export default function Question() {
       questionActions.questions();
     }
   }, []);
+
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "#", name: "Bank Soal" },
+  ];
 
   return (
     <div className="bg-[#EFF0F3] flex text-black">
@@ -56,17 +60,9 @@ export default function Question() {
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full h-screen ml-6 pl-[240px]">
         <Header />
-        {/* <Breadcrumbs /> */}
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Bank Soal</a>
-            </li>
-          </ul>
-        </div>
+
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
+
         <TabsBankSoal />
 
         <Link to={"/q/bank/create"}>

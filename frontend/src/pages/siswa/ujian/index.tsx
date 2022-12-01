@@ -13,6 +13,7 @@ import ModalCariUjianGagal from "../../../components/modals/siswa/CariUjianGagal
 import ModalCariUjianSukses from "../../../components/modals/siswa/CariUjianSukes";
 import ModalGabungUjianGagal from "../../../components/modals/siswa/GabungUjianGagal";
 import ModalGabungUjianSukses from "../../../components/modals/siswa/GabungUjianSukses";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
@@ -28,6 +29,11 @@ export default function UjianSiswa() {
     navigate("/ujian/detail");
   };
 
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "#", name: "Ujian Anda" },
+  ];
+
   return (
     <div className="bg-[#EFF0F3] flex text-black">
       {/* JIKA GAGAL */}
@@ -40,7 +46,7 @@ export default function UjianSiswa() {
 
       <SidebarSiswa active={NavbarSiswa.UJIANANDA} />
 
-      <div className=" pr-12 w-full ml-6 pl-[240px] pb-[30px]">
+      <div className=" pr-6 w-full ml-6 pl-[240px] pb-[30px] overflow-hidden">
         <div className="flex gap-[30px] mt-6 justify-end">
           {/* CARI UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
@@ -55,16 +61,7 @@ export default function UjianSiswa() {
           <Notifications />
           <Settings />
         </div>
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Ujian Anda</a>
-            </li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
         <TabsSiswa />
         <div className="mt-[30px]">
           <div className="flex mb-[17px]">
@@ -84,7 +81,7 @@ export default function UjianSiswa() {
               return (
                 <div
                   key={index}
-                  className="min-w-[326px] rounded-[10px] bg-[#FBFCFC]"
+                  className="min-w-[350px] rounded-[10px] bg-[#FBFCFC]"
                 >
                   {/* IMAGE */}
                   <img

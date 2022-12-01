@@ -20,41 +20,22 @@ export default function DashboardGuru() {
       <SidebarGuru active={NavbarEnum.DASHBOARD} />
 
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
-      <div className="mr-[24px] w-full ml-6 pl-[240px]">
+      <div className="mr-[24px] w-full min-h-screen ml-6 pl-[240px]">
         <div className="flex gap-[30px] mt-6 justify-end">
-          {/* <Link to={"/guru-tambahujian"}>
-            <Button className="flex btn-sm rounded-md btn btn-outline hover:text-white text-black">
-              <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
-              <p className="my-auto text-xs">Buat Ujian</p>
-            </Button>
-
-            // TIDAK TERPAKAI
-            <Button className={"btn-sm rounded-md"}>
-            <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
-            <p className="my-auto text-xs">Buat Ujian</p>
-            </Button>
-          </Link> */}
-
           {/* TEST BEN BUTTON TAMBAH UJIAN */}
           <Link to={"/ujian/create"}>
-            <Button className="btn rounded-[20PX] btn-sm max-w-xs text-[14px] mt-1 text-white">
+            <Button className="btn rounded-[20PX] max-w-xs text-[14px] mt-1 text-white">
               <PlusCircleIcon className="h-[20px] w-[20px] mr-[15px] my-auto" />
               <p className="my-auto text-xs">Buat Ujian</p>
             </Button>
           </Link>
 
-          {/* <input
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered input-sm rounded w-full max-w-xs"
-          /> */}
-
-          {/* TEST BEN INPUT CARI DATA */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="cari-ujian-sukses">
-              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[20px] ml-[245px]" />
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-6 ml-[245px]" />
+
               <Input
-                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                className="flex pl-4 pr-[38px] transition h-11 duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
                 placeholder="Cari Ujian"
               />
             </label>

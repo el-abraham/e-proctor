@@ -12,6 +12,7 @@ import Button from "../../../components/forms/Button";
 import Input from "../../../components/forms/Input";
 import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
@@ -64,6 +65,12 @@ const DetailUjianSiswa = () => {
     }
   }, [detailUjian]);
 
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "/ujian", name: "Ujian Anda" },
+    { url: "#", name: "Detail Ujian " + detailUjian?.quiz_name },
+  ];
+
   return loading ? (
     <div>loading...</div>
   ) : (
@@ -110,19 +117,7 @@ const DetailUjianSiswa = () => {
         </div>
 
         {/* bg-[#FBFCFC] */}
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Ujian Anda</a>
-            </li>
-            <li>
-              <a>Detail Ujian {detailUjian?.quiz_name}</a>
-            </li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
 
         {/* Detail Ujian */}
         <div>

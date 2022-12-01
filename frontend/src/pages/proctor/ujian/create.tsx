@@ -39,6 +39,11 @@ export default function TambahUjian() {
     quizActions.addQuiz(quiz);
   }
 
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "#", name: "Buat Ujian" },
+  ];
+
   return (
     <div className="bg-[#EFF0F3] flex min-h-screen text-black">
       {/* SIDEBAR */}
@@ -47,18 +52,7 @@ export default function TambahUjian() {
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
-
-        {/* <Breadcrumbs /> */}
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Buat Ujian</a>
-            </li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
 
         <h1 className="font-['Poppins'] font-semibold text-xl mb-[30px]">
           Tambah Ujian Baru
