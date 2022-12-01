@@ -1,5 +1,5 @@
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useState } from "react";
@@ -8,23 +8,19 @@ import Button from "../../components/forms/Button";
 export default function VerifikasiKamera() {
   // https://dev.to/0xkoji/use-webcam-with-react-easily-397f
   // https://www.youtube.com/watch?v=0HJ1cMBkWJ4&ab_channel=SyedZano
-  //   const img = useState(console.log(webcam.current?.getScreenshot()));
 
-  //   const [image, setImage] = useState<string>();
-
-  //   const capture = useCallback(() => {
-  //     const pictureSrc = webcam.current.getScreenshot();
-  //     setImage(pictureSrc);
-  //   });
+  // CAMERA ACCESS
+  // https://stackoverflow.com/questions/72062262/react-webcam-disable-buttons-until-stream-starts
 
   const webcam = useRef<Webcam>(null);
 
   const [img, setImg] = useState("");
 
-  //   function onClick(e: any) {
-  //     console.log
-  //     setImg(webcam.current?.getScreenshot());
-  //   }
+  const [loadingCam, setLoadingCam] = useState(true);
+
+  const handleUserMedia = () => {
+    setLoadingCam(false);
+  };
 
   const showImage = () => {
     setImg(webcam.current!.getScreenshot()!.toString());
@@ -44,6 +40,7 @@ export default function VerifikasiKamera() {
       <Webcam
         audio={false}
         ref={webcam}
+        onUserMedia={handleUserMedia}
         className="w-[500px] rounded-lg mx-auto border-2 border-black"
       />
 
@@ -55,7 +52,11 @@ export default function VerifikasiKamera() {
             <p>Kembali</p>
           </Button>
         </Link>
-        <button onClick={showImage} className="btn btn-primary">
+        <button
+          disabled={loadingCam}
+          onClick={showImage}
+          className="btn btn-primary"
+        >
           Tangkap Layar
         </button>
       </div>
