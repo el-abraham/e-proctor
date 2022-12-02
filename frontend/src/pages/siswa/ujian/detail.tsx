@@ -143,7 +143,9 @@ const DetailUjianSiswa = () => {
         <div className="flex justify-between mt-[42px] font-['Poppins'] font-semibold">
           <div className="text-black text-center w-[120px] h-[70px]">
             <DocumentIcon className="w-[45px] h-[45px] mx-auto" />
-            <p className="text-[12px] mt-1">20 soal</p>
+            <p className="text-[12px] mt-1">
+              {detailUjian?.total_questions} Soal
+            </p>
           </div>
           <div className="text-black text-center w-[120px] h-[70px]">
             <CalendarDaysIcon className="w-[45px] h-[45px] mx-auto" />
@@ -151,11 +153,14 @@ const DetailUjianSiswa = () => {
           </div>
           <div className="text-black text-center w-[120px] h-[70px]">
             <ClockIcon className="w-[45px] h-[45px] mx-auto" />
-            <p className="text-[12px] mt-1">20 soal</p>
+            <p className="text-[12px] mt-1">
+              {/* {detailUjian?.timestart} - {detailUjian?.timeend} */} 10:45 -
+              12:45
+            </p>
           </div>
           <div className="text-black text-center w-[120px] h-[70px]">
             <PencilIcon className="w-[45px] h-[45px] mx-auto" />
-            <p className="text-[12px] mt-1">20 soal</p>
+            <p className="text-[12px] mt-1">1 Kali Pengerjaan</p>
           </div>
           <div className="text-black text-center w-[120px] h-[70px]">
             <div className="avatar">

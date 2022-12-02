@@ -1,8 +1,10 @@
 import { ClockIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { listQuizState } from "../../../_state/quiz.state";
 
 export default function UjianHariIniGuru() {
+  const navigate = useNavigate();
   const listQuiz = useRecoilValue(listQuizState);
   return (
     <div className="text-black font-['Poppins'] self-start mt-[24px] pb-3 w-2/5 bg-[#FBFCFC] rounded-[10px]">
@@ -19,7 +21,11 @@ export default function UjianHariIniGuru() {
       {/* CONTENT */}
       {listQuiz?.map((value, index) => {
         return (
-          <div key={index}>
+          <div
+            className="cursor-pointer"
+            key={index}
+            onClick={() => navigate(`ujian/detail?q=${value.id}`)}
+          >
             <div className="mt-5 flex mb-4">
               <div className="avatar ml-10">
                 <div className="w-[134px] h-[124px] rounded">
@@ -33,7 +39,7 @@ export default function UjianHariIniGuru() {
                 <div className="flex">
                   <ClockIcon className="w-[24px] h-[24px] mr-[10px]" />
                   <p className="font-['Roboto'] self-center text-sm">
-                    10:45 - 12:45
+                    {value.duration} Menit
                   </p>
                 </div>
                 <div className="flex mt-[10px]">

@@ -12,7 +12,6 @@ import Settings from "../../../components/icons/Settings";
 import ModalCariUjianGagal from "../../../components/modals/siswa/CariUjianGagal";
 import ModalCariUjianSukses from "../../../components/modals/siswa/CariUjianSukes";
 
-
 import ModalGabungUjianGagal from "../../../components/modals/siswa/GabungUjianGagal";
 import ModalGabungUjianSukses from "../../../components/modals/siswa/GabungUjianSukses";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";

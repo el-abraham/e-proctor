@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { ujianListState } from "../../../_state/ujian.state";
 
 export default function UjianAkanDatangSiswa() {
+  const navigate = useNavigate();
   const ujian = useRecoilValue(ujianListState);
   return (
     <div className="text-black font-['Poppins'] self-start w-3/4 mt-6 pb-8 bg-[#FBFCFC] ml-4 rounded-[10px]">
@@ -29,7 +31,11 @@ export default function UjianAkanDatangSiswa() {
           <tbody className="text-xs">
             {ujian.map((value, index) => {
               return (
-                <tr key={index}>
+                <tr
+                  className="cursor-pointer"
+                  key={index}
+                  onClick={() => navigate(`ujian/detail?p=${value.id}`)}
+                >
                   <td>{value.quiz_name}</td>
                   <td>13 Sept</td>
                   <td>10:45 - 12:45</td>

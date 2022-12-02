@@ -1,8 +1,10 @@
 import { ClockIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { ujianListState } from "../../../_state/ujian.state";
 
 export default function UjianHariIniSiswa() {
+  const navigate = useNavigate();
   const ujian = useRecoilValue(ujianListState);
   return (
     <div className="text-black font-['Poppins'] self-start w-2/4 mt-6 pb-5 bg-[#FBFCFC] rounded-[10px]">
@@ -21,7 +23,11 @@ export default function UjianHariIniSiswa() {
         <div className="mt-[20px] mb-[15px]">
           {ujian.map((value, index) => {
             return (
-              <div key={index} className="flex my-5">
+              <div
+                key={index}
+                className="flex my-5 cursor-pointer max-w-fit"
+                onClick={() => navigate(`ujian/detail?p=${value.id}`)}
+              >
                 <div className="avatar ml-[40px]">
                   <div className="w-[134px] h-[124px] rounded">
                     <img src="https://placeimg.com/192/192/people" />
