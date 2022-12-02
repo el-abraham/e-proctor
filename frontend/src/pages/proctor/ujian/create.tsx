@@ -45,8 +45,8 @@ export default function TambahUjian() {
     { url: "#", name: "Buat Ujian" },
   ];
 
-  const [file, setFile] = useState(null);
-  const handleChange = (file: any) => {
+  const [file, setFile] = useState<File | Array<File>>();
+  const handleChange = (file: File | Array<File>) => {
     setFile(file);
     console.log(file);
   };
