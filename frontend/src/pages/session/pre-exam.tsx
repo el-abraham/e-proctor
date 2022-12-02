@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
-import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 // import DashedLine from "../../../assets/dashedline.png";
 
 import Button from "../../components/forms/Button";
@@ -15,6 +15,7 @@ import Button from "../../components/forms/Button";
 export default function PreExam() {
   const [searchParams] = useSearchParams();
   const [ujianNow, setUjianNow] = useState();
+  const [lanjut, setLanjut] = useState(false);
 
   const navigate = useNavigate();
   const StartUjian = () => {
@@ -173,14 +174,33 @@ export default function PreExam() {
           </Button>
 
           {/* BUTTON MULAI UJIAN */}
-          <Button className="w-full mt-[180px]" onClick={StartUjian}>
-            <PlayIcon className="w-6 h-6 mr-4" />
-            <p className="font-['Open Sans'] font-semibold text-sm">
-              Mulai Ujian
-            </p>
-          </Button>
+
+          {lanjut ? (
+            <Button className="w-full mt-[180px]" onClick={StartUjian}>
+              <PlayIcon className="w-6 h-6 mr-4" />
+              <p className="font-['Open Sans'] font-semibold text-sm">
+                Mulai Ujian
+              </p>
+            </Button>
+          ) : (
+            <ButtonDisabled />
+          )}
         </div>
       </div>
     </div>
   );
 }
+
+const ButtonDisabled = () => {
+  return (
+    <Button
+      className="btn btn-warning w-full mt-[180px] cursor-not-allowed"
+      disabled
+    >
+      <PlayIcon className="w-6 h-6 mr-4" />
+      <p className="font-['Open Sans'] font-semibold text-sm">
+        Gagal Mulai Ujian
+      </p>
+    </Button>
+  );
+};
