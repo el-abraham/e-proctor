@@ -11,9 +11,12 @@ import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
 import ModalCariUjianGagal from "../../../components/modals/siswa/CariUjianGagal";
 import ModalCariUjianSukses from "../../../components/modals/siswa/CariUjianSukes";
+
+
 import ModalGabungUjianGagal from "../../../components/modals/siswa/GabungUjianGagal";
 import ModalGabungUjianSukses from "../../../components/modals/siswa/GabungUjianSukses";
 import Breadcrumbs from "../../../components/others/Breadcrumbs";
+
 import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
@@ -51,9 +54,9 @@ export default function UjianSiswa() {
           {/* CARI UJIAN INPUT */}
           <div className="font-['Open Sans'] items-center relative -mt-2">
             <label htmlFor="cari-ujian-sukses">
-              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-6 ml-[245px]" />
+              <MagnifyingGlassIcon className="w-[20px] h-[20px] flex absolute mt-[20px] ml-[245px]" />
               <Input
-                className="flex pl-4 pr-[38px] transition h-11 duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
+                className="flex pl-4 pr-[38px] transition duration-200 focus:outline-none rounded-[20PX] mt-3 w-[280px] h-[35PX] text-[14px] focus:ring focus:ring-blue-200 focus:border-blue-400 border-slate-300 shadow-sm"
                 placeholder="Cari Ujian"
               />
             </label>
@@ -121,9 +124,9 @@ export default function UjianSiswa() {
                         <p>{value.total_questions}</p>
                         <p>Soal</p>
                       </div>
-                      <Link to={`detail?p=${value.id}`}>
+                      <Link className="flex" to={`detail?p=${value.id}`}>
                         <Button className="mt-5">
-                          <p className="my-auto text-xs">Mulai</p>
+                          <p className=" text-xs">Mulai</p>
                           <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
                         </Button>
                       </Link>
