@@ -173,12 +173,9 @@ export default function PreExam() {
           </Button>
 
           {/* BUTTON MULAI UJIAN */}
-          <Button className="w-full mt-[180px]">
+          <Button className="w-full mt-[180px]" onClick={StartUjian}>
             <PlayIcon className="w-6 h-6 mr-4" />
-            <p
-              className="font-['Open Sans'] font-semibold text-sm"
-              onClick={StartUjian}
-            >
+            <p className="font-['Open Sans'] font-semibold text-sm">
               Mulai Ujian
             </p>
           </Button>

@@ -162,8 +162,10 @@ const FoundQuiz = (props: FoundQuizProps) => {
             <p>Soal</p>
           </div>
           <button className="mt-5 btn btn-primary" onClick={subscribe}>
-            <p className="my-auto text-xs">Gabung</p>
-            <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+            <div className="flex">
+              <p className="my-auto text-xs">Gabung</p>
+              <ChevronRightIcon className="w-[15px] h-[15px] ml-[10px]" />
+            </div>
           </button>
         </div>
       </div>
