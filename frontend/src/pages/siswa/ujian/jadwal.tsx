@@ -4,10 +4,17 @@ import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
 import ModalCariUjianGagal from "../../../components/modals/siswa/CariUjianGagal";
 import ModalCariUjianSukses from "../../../components/modals/siswa/CariUjianSukes";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
 import TabsSiswa from "../../../components/tabs/TabsSiswa";
+
+const breadcrumb = [
+  { url: "/", name: "Dashboard" },
+  { url: "/ujian", name: "Ujian Anda" },
+  { url: "#", name: "Jadwal" },
+];
 
 export default function JadwalUjianSiswa() {
   return (
@@ -35,19 +42,7 @@ export default function JadwalUjianSiswa() {
           <Notifications />
           <Settings />
         </div>
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Ujian Anda</a>
-            </li>
-            <li>
-              <a>Jadwal</a>
-            </li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
         <TabsSiswa />
 
         <h1 className="font-extrabold font['Poppins'] text-[25px] py-6">

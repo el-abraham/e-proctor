@@ -32,6 +32,11 @@ export default function Category() {
     }
   }, [listCategory]);
 
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "#", name: "Kategori" },
+  ];
+
   return loading ? (
     <div>loading...</div>
   ) : (
@@ -67,17 +72,7 @@ export default function Category() {
       {/* BUTTON BUAT UJIAN, CARI UJIAN(?), ICON NOTIFIKASI, DAN SETTINGS */}
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
-        {/* <Breadcrumbs /> */}
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Kategori</a>
-            </li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
         <TabsBankSoal />
 
         <label htmlFor="add-kategori" className="btn btn-primary mr-5 my-5">

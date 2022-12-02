@@ -4,7 +4,6 @@ import {
   ShieldExclamationIcon,
   TrashIcon,
   UserCircleIcon,
-  XCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/forms/Button";

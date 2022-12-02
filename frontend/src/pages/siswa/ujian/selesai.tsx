@@ -11,6 +11,7 @@ import Notifications from "../../../components/icons/Notifications";
 import Settings from "../../../components/icons/Settings";
 import ModalCariUjianGagal from "../../../components/modals/siswa/CariUjianGagal";
 import ModalCariUjianSukses from "../../../components/modals/siswa/CariUjianSukes";
+import Breadcrumbs from "../../../components/others/Breadcrumbs";
 import SidebarSiswa, {
   NavbarSiswa,
 } from "../../../components/sidebar/SidebarSiswa";
@@ -19,6 +20,12 @@ import { ujianListState } from "../../../_state/ujian.state";
 
 export default function SelesaiUjianSiswa() {
   const ujian = useRecoilValue(ujianListState);
+
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "/ujian", name: "Ujian Anda" },
+    { url: "#", name: "Selesai" },
+  ];
 
   return (
     <div className="bg-[#EFF0F3] min-h-screen h-full flex text-black">
@@ -45,19 +52,7 @@ export default function SelesaiUjianSiswa() {
           <Notifications />
           <Settings />
         </div>
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Ujian Anda</a>
-            </li>
-            <li>
-              <a>Selesai</a>
-            </li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
         <TabsSiswa />
 
         <div className="mt-[30px]">

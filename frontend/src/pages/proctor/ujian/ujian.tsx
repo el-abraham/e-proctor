@@ -26,9 +26,10 @@ export default function UjianGuru() {
     navigate(`/ujian/detail?q=${id}`);
   };
 
-  const goToDashboard = () => {
-    navigate("/");
-  };
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "#", name: "Ujian Anda" },
+  ];
 
   return (
     <div className="bg-[#EFF0F3] min-h-screen flex text-black">
@@ -39,17 +40,7 @@ export default function UjianGuru() {
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
 
-        {/* <Breadcrumbs /> */}
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li onClick={goToDashboard}>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Ujian Anda</a>
-            </li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
 
         <Link to={"/ujian/create"}>
           <Button className="mb-[30px]">

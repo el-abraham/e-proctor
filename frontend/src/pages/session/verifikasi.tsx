@@ -1,9 +1,14 @@
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { useRef } from "react";
+
 import { useNavigate } from "react-router-dom";
+
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
 import Webcam from "react-webcam";
 import { useState } from "react";
 import Button from "../../components/forms/Button";
+
 
 const videoConstraints = {
   width: 500,
@@ -14,8 +19,19 @@ const videoConstraints = {
 export default function VerifikasiKamera() {
   const navigate = useNavigate();
 
+
   const webcam = useRef<Webcam>(null);
   const [img, setImg] = useState("");
+
+
+
+  const [loadingCam, setLoadingCam] = useState(true);
+
+  const handleUserMedia = () => {
+    setLoadingCam(false);
+  };
+
+
   const showImage = () => {
     setImg(webcam.current!.getScreenshot()!.toString());
   };
@@ -54,6 +70,7 @@ export default function VerifikasiKamera() {
           <p>Kembali</p>
         </Button>
         <button onClick={showImage} className="btn btn-primary">
+
           Tangkap Layar
         </button>
       </div>

@@ -66,6 +66,11 @@ export default function DetailSessionsGuru() {
     }
   }, [detailQuiz]);
 
+  const breadcrumb = [
+    { url: "/", name: "Dashboard" },
+    { url: "/ujian", name: "Ujian Anda" },
+    { url: "#", name: "Session " + detailQuiz?.title },
+  ];
   return (
     <div className="bg-[#EFF0F3] min-h-screen flex text-black">
       <div>
@@ -145,18 +150,7 @@ export default function DetailSessionsGuru() {
 
       <div className="mr-[24px] w-full ml-6 pl-[240px]">
         <Header />
-        {/* <Breadcrumbs /> */}
-        <div className="text-xs breadcrumbs font-['Roboto'] mt-[15px] mb-[20px] text-black">
-          <ul>
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Ujian Anda</a>
-            </li>
-            <li>Session</li>
-          </ul>
-        </div>
+        <Breadcrumbs breadcrumbItems={breadcrumb} />
         <NamaUjian title={detailQuiz?.title} />
         <TabsDetailUjianGuru />
 
