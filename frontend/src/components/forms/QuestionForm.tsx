@@ -6,8 +6,6 @@ import { useRecoilValue } from "recoil";
 import { listCategoryState } from "../../_state/category.state";
 import useQuestionActions from "../../_actions/question.actions";
 
-import Input from "./Input";
-
 import QuestionAnswer from "../../_models/question-answer.model";
 import Question from "../../_models/question.model";
 
@@ -39,6 +37,7 @@ export default function QuestionForm() {
   const questionActions = useQuestionActions();
 
   const categoryRef = useRef<HTMLSelectElement>(null);
+  const questionNameRef = useRef<HTMLInputElement>(null);
   const questionRef = useRef<ReactQuill>(null);
   const answerRef1 = useRef<ReactQuill>(null);
   const answerRef2 = useRef<ReactQuill>(null);
@@ -80,6 +79,8 @@ export default function QuestionForm() {
   };
 
   const validation = () => {
+    if (!questionNameRef.current?.value || questionNameRef.current.value == "")
+      return false;
     if (!questionRef.current?.value) return false;
     if (!answerRef1.current?.value) return false;
     if (!answerRef2.current?.value) return false;
@@ -106,7 +107,7 @@ export default function QuestionForm() {
         );
       });
       const question: Question = new Question({
-        name: "question",
+        name: questionNameRef.current!.value,
         answers: answer,
         questionText: questionRef.current?.value.toString(),
         category: curentCategory!,
@@ -155,8 +156,9 @@ export default function QuestionForm() {
           {/* BAGIAN JUDUL */}
           <div>
             <p className="font-semibold">Judul</p>
-            <Input
-              className=" pl-4 pr-[40px] rounded h-11 text-[14px]"
+            <input
+              ref={questionNameRef}
+              className="font-['Open_Sans'] flex items-center text-black w-full h-[48px] mt-2 placeholder:text-gray-500 pl-4 pr-[40px] rounded h-11 text-[14px]"
               placeholder="Masukkan Judul Ujian ...."
             />
           </div>

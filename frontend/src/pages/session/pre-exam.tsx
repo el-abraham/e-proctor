@@ -8,16 +8,31 @@ import {
 import { useEffect, useState } from "react";
 
 import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
-// import DashedLine from "../../../assets/dashedline.png";
 
 import Button from "../../components/forms/Button";
+import useSessionActions from "../../_actions/session.action";
+import QuizInstance from "../../_models/quiz-instance.model";
+
+enum UjianStateEnum {
+  READY,
+  CONTINUE,
+  FINISH,
+  FORBIDDEN,
+}
 
 export default function PreExam() {
   const [searchParams] = useSearchParams();
-  const [ujianNow, setUjianNow] = useState();
+  const [ujianNow, setUjianNow] = useState<QuizInstance>();
+  const sessionActions = useSessionActions();
+  const [ujianStatus, setUjianStatus] = useState<UjianStateEnum>(
+    UjianStateEnum.FORBIDDEN
+  );
 
   const navigate = useNavigate();
-  const StartUjian = () => {
+  const ujianHandler = (status: UjianStateEnum) => {
+    if (status == UjianStateEnum.CONTINUE) {
+      navigate(`/exam/session?instance=${ujianNow?.id}`);
+    }
     navigate("/exam/session/");
   };
 
@@ -29,29 +44,36 @@ export default function PreExam() {
     navigate(`/ujian/detail?p=${searchParams.get("p")}`);
   };
 
-  useEffect(() => {
-    if (ujianNow == undefined) {
-    }
-  }, []);
-
-  // useEffect(() => {
-  //   const id = searchParams.get("p");
-  //   if (ujianList && ujianList.length > 0) {
-  //     ujianList.forEach((value) => {
-  //       if (value.id == parseInt(id!)) {
-  //         setDetailUjian(value);
-  //         return;
-  //       }
-  //     });
-  //   }
-  //   return () => {
-  //     setDetailUjian(undefined);
-  //   };
-  // }, [ujianList]);
-
   if (searchParams.get("p") == null) {
     return <Navigate to={{ pathname: "/ujian" }} />;
   }
+  const getInstance = async () => {
+    const id = parseInt(searchParams.get("p")!);
+    if (id) {
+      const res = await sessionActions.getInstance(id);
+      const cur = await sessionActions.currentStart();
+      setUjianNow(res);
+      if (cur == undefined) {
+        if (res?.status == 0) {
+          setUjianStatus(UjianStateEnum.READY);
+        } else {
+          setUjianStatus(UjianStateEnum.FINISH);
+        }
+      } else {
+        if (res?.status == 1) {
+          setUjianStatus(UjianStateEnum.CONTINUE);
+        } else {
+          setUjianStatus(UjianStateEnum.FORBIDDEN);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (ujianNow == undefined) {
+      getInstance();
+    }
+  }, []);
 
   return (
     // bg-[#272343]
@@ -75,7 +97,7 @@ export default function PreExam() {
           />
           {/* JUDUL UJIAN */}
           <h1 className=" font-semibold font-['Open Sans'] text-xl text-center mt-5">
-            Ujian Linguistik
+            {ujianNow?.session.quiz?.title} - {ujianNow?.session.name}
           </h1>
           <h3 className="font-['Open Sans']  mx-16 mt-5 font-semibold text-sm">
             Proctor
@@ -87,7 +109,8 @@ export default function PreExam() {
                 <img src="https://placeimg.com/192/192/people" />
               </div>
               <p className="font-['Roboto']  text-sm ml-4 self-center">
-                Robert Baratheon
+                {ujianNow?.session.quiz?.user?.firstname}{" "}
+                {ujianNow?.session.quiz?.user?.lastname}
               </p>
             </div>
           </div>
@@ -95,11 +118,15 @@ export default function PreExam() {
           {/* SOAL DAN MENIT */}
           <div className="flex mt-3 mx-16 justify-between py-2 font-['Open Sans']">
             <div className="px-6">
-              <p className="text-center font-bold text-3xl">10</p>
+              <p className="text-center font-bold text-3xl">
+                {ujianNow?.questions!.length}
+              </p>
               <p className="text-sm text-center">Soal</p>
             </div>
             <div className="px-6">
-              <p className="text-center font-bold text-3xl">120</p>
+              <p className="text-center font-bold text-3xl">
+                {ujianNow?.session.quiz?.duration}
+              </p>
               <p className="text-sm text-center">Menit</p>
             </div>
           </div>
@@ -107,7 +134,7 @@ export default function PreExam() {
           {/* TIME */}
           <div className="mx-16 mt-7 ">
             <div>
-              <p className="font-['Roboto'] text-sm">Dimulai</p>
+              <p className="font-['Roboto'] text-sm">Dibuka</p>
               <div className="grid grid-flow-col gap-2 mt-2 text-center auto-cols-max">
                 <div className="flex flex-col p-2 bg-neutral rounded-md text-neutral-content">
                   <span className="font-mono text-xl">
@@ -122,7 +149,7 @@ export default function PreExam() {
               </div>
             </div>
             <div className="mt-5">
-              <p className="font-['Roboto'] text-sm">Selesai</p>
+              <p className="font-['Roboto'] text-sm">Ditutup</p>
               <div className="grid grid-flow-col gap-2 mt-2 text-center auto-cols-max">
                 <div className="flex flex-col p-2 bg-neutral rounded-md text-neutral-content">
                   <span className="font-mono text-xl">
@@ -173,12 +200,23 @@ export default function PreExam() {
           </Button>
 
           {/* BUTTON MULAI UJIAN */}
-          <Button className="w-full mt-[180px]" onClick={StartUjian}>
-            <PlayIcon className="w-6 h-6 mr-4" />
-            <p className="font-['Open Sans'] font-semibold text-sm">
-              Mulai Ujian
-            </p>
-          </Button>
+          {ujianNow ? (
+            <Button
+              className="w-full mt-[180px]"
+              onClick={() => ujianHandler(ujianStatus)}
+            >
+              <PlayIcon className="w-6 h-6 mr-4" />
+              <p className="font-['Open Sans'] font-semibold text-sm">
+                {ujianStatus === UjianStateEnum.READY
+                  ? "Mulai Ujian"
+                  : ujianStatus === UjianStateEnum.CONTINUE
+                  ? "Lanjutkan Ujian"
+                  : ""}
+              </p>
+            </Button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

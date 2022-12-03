@@ -19,9 +19,9 @@ export interface QuizDTO {
   image?: string | undefined;
   duration: number;
   description?: string | undefined;
-  user: UserDTO;
-  questions?: QuestionDTO[];
-  sessions?: QuizSessionDTO[];
+  user: UserDTO | undefined;
+  questions?: QuestionDTO[] | undefined;
+  sessions?: QuizSessionDTO[] | undefined;
 }
 
 export default class Quiz {
@@ -63,7 +63,7 @@ export const QuizFactory = (data: QuizDTO): Quiz => {
     duration: data.duration,
     questions: data.questions?.map(value => QuestionFactory(value)),
     session: data.sessions?.map(value => QuizSessionFactory(value)),
-    user: UserFactory(data.user)
+    user: data.user && UserFactory(data.user)
   });
 };
 
