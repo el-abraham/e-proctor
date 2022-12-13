@@ -6,6 +6,7 @@ import SidebarGuru from "../../../components/sidebar/SidebarGuru";
 import Header from "../questions-bank/header";
 import useQuizActions from "../../../_actions/quiz.actions";
 import Quiz from "../../../_models/quiz.model";
+import { FileUploader } from "react-drag-drop-files";
 
 type FormValues = {
   namaujian: string;
@@ -44,6 +45,14 @@ export default function TambahUjian() {
     { url: "#", name: "Buat Ujian" },
   ];
 
+  const [file, setFile] = useState<File | Array<File>>();
+  const handleChange = (file: File | Array<File>) => {
+    setFile(file);
+    console.log(file);
+  };
+
+  const fileTypes = ["JPG", "PNG", "GIF"];
+
   return (
     <div className="bg-[#EFF0F3] flex min-h-screen text-black">
       {/* SIDEBAR */}
@@ -60,13 +69,21 @@ export default function TambahUjian() {
 
         <div className="flex">
           {/* MENAMBAHKAN THUMBNAIL */}
-          <div className="bg-[#FBFCFC] w-[246px] h-[246px] rounded-[10px] border-dashed border-2 border-slate-300 flex mr-[50px]">
-            <div className="flex flex-col m-auto">
-              <ArrowUpTrayIcon className="w-[50px] h-[50px] self-center" />
-              <p className="leading-[200%] mt-[20px] font-['Roboto'] text-sm w-[178px] text-center self-center">
-                Unggah thumbnail untuk ujian anda
-              </p>
-            </div>
+
+          <div className="bg-[#FBFCFC] w-64 h-64 rounded-[10px] border-dashed border-2 border-slate-300 flex mr-[50px]">
+            <FileUploader
+              handleChange={handleChange}
+              name="file"
+              onDrop={console.log("notifikasi")}
+              types={fileTypes}
+            >
+              <div className="w-64 h-64 cursor-pointer flex place-content-center flex-col">
+                <ArrowUpTrayIcon className="w-[50px] mx-auto h-[50px] self-center" />
+                <p className="font-['Roboto'] text-sm mt-5 text-center">
+                  Unggah thumbnail untuk ujian anda
+                </p>
+              </div>
+            </FileUploader>
           </div>
 
           <form className="block" onSubmit={onSubmit}>
