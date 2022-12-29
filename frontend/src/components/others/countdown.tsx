@@ -15,10 +15,15 @@ const CountDownTimer = ({ hours = 0, minutes = 0, seconds = 0 }: Countdown) => {
 
   const tick = () => {
     if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) reset();
-    else if (time.hours && time.seconds === 0) {
+    else if (time.hours && time.minutes === 0 && time.seconds === 0) {
       setTime({ hours: time.hours - 1, minutes: 59, seconds: 59 });
-    } else if (time.seconds === 0) {
+    } else if (time.minutes && time.seconds === 0) {
       setTime({ hours: time.hours, minutes: time.minutes - 1, seconds: 59 });
+      // }
+      // else if (time.hours && time.seconds === 0) {
+      //   setTime({ hours: time.hours - 1, minutes: 59, seconds: 59 });
+      // } else if (time.seconds === 0) {
+      //   setTime({ hours: time.hours, minutes: time.minutes - 1, seconds: 59 });
     } else {
       setTime({
         hours: time.hours,

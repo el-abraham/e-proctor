@@ -1,12 +1,29 @@
 import { CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import Button from "../../components/forms/Button";
+import useSessionActions from "../../_actions/session.action";
+import { sessionInstanceState } from "../../_state/session.state";
 
 export default function AfterExam() {
+  const sessionInstance = useRecoilValue(sessionInstanceState);
+  const [searchParams] = useSearchParams();
+  const sessionActions = useSessionActions();
+
   const navigate = useNavigate();
   const KembaliUjian = () => {
-    navigate("/exam/session");
+    navigate(`/exam/session?instance=${searchParams.get("instance")}`);
   };
+
+  useEffect(() => {
+    const instance = parseInt(searchParams.get("instance") ?? "") ?? undefined;
+    if (instance) {
+      sessionActions.info(instance);
+    } else {
+      return navigate("/ujian");
+    }
+  }, []);
 
   return (
     <div className="bg-[#EFF0F3] min-h-screen h-full text-black">
@@ -45,106 +62,29 @@ export default function AfterExam() {
         </div>
       </div>
       <div className="text-[14px] h-full mx-auto  mt-[20px] px-[200px]">
-        <table className="table table-compact table-zebra w-full text-center">
+        <table className="table table-compact  w-full text-center">
           <thead>
             <tr>
-              <th>Nomor Soal</th>
-              <th>Jawaban</th>
-              <th>Status</th>
-              <th>Opsi</th>
+              <th className="w-14">No</th>
+              <th className="flex-1">Jawaban</th>
+              <th className="flex-1">Status</th>
+              <th className="w-40">Opsi</th>
             </tr>
           </thead>
           <tbody className="cursor-pointer">
-            <tr>
-              <td>1</td>
-              <td>A</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr className="bg-green-400">
-              <td>2</td>
-              <td>B</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td className="bg-red-500 text-white">3</td>
-              <td className="bg-red-500 text-white">C</td>
-              <td className="bg-red-500 text-white">Jawaban Belum Tersimpan</td>
-              <td className="bg-red-500 text-white">Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>D</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>E</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>B</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>C</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>D</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>E</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>A</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>C</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>D</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>13</td>
-              <td>E</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>14</td>
-              <td>A</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
-            <tr>
-              <td>15</td>
-              <td>B</td>
-              <td>Jawaban Tersimpan</td>
-              <td>Ubah Jawaban</td>
-            </tr>
+            {sessionInstance?.questions?.map((value, index) => {
+              const labelJawaban = ["A", "B", "C", "D", "E"];
+              const indexJawaban = value.question.answers.findIndex(
+                (answer) => answer.id == value.answer?.id
+              );
+              return (
+                <ListItemJawaban
+                  key={index}
+                  no={index + 1}
+                  label={labelJawaban[indexJawaban]}
+                />
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -164,3 +104,38 @@ export default function AfterExam() {
     </div>
   );
 }
+
+type ListItemJawabanProps = {
+  no: number;
+  label?: string | undefined;
+};
+
+const ListItemJawaban = (props: ListItemJawabanProps) => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const jumpQuestion = (no: number) => {
+    navigate(`/exam/session?q=${no}&instance=${searchParams.get("instance")}`);
+  };
+  return (
+    <tr>
+      <td className={`${props.label ? "" : "bg-red-500 text-white"}`}>
+        {props.no}
+      </td>
+      <td className={`${props.label ? "" : "bg-red-500 text-white"}`}>
+        {props.label ? props.label : ""}
+      </td>
+      {props.label ? (
+        <td>tersimpan</td>
+      ) : (
+        <td className="bg-red-500 text-white">tidak tersimpan</td>
+      )}
+      <td
+        className={`${props.label ? "" : "bg-red-500 text-white"}`}
+        onClick={() => jumpQuestion(props.no)}
+      >
+        ubah
+      </td>
+    </tr>
+  );
+};
